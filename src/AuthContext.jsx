@@ -95,6 +95,7 @@ export function AuthProvider({ children }) {
         }
       },
       registerWithEmail: async (name, email, password) => {
+        await setPersistence(auth, browserLocalPersistence);
         const credential = await createUserWithEmailAndPassword(auth, email, password);
 
         if (name.trim()) {
@@ -108,6 +109,7 @@ export function AuthProvider({ children }) {
       },
       loginWithGoogle: async () => {
         try {
+          await setPersistence(auth, browserLocalPersistence);
           const googleProvider = new GoogleAuthProvider();
           googleProvider.setCustomParameters({ prompt: 'select_account' });
           googleProvider.addScope('profile');
