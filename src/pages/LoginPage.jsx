@@ -104,6 +104,10 @@ export default function LoginPage() {
           </div>
         )}
 
+        <p className="mb-3 text-center text-xs text-zinc-500">
+          Note: Please allow pop-ups for this site to use Google Sign-In.
+        </p>
+
         <button
           type="button"
           onClick={handleGoogleLogin}
