@@ -17,6 +17,7 @@ import {
   LayoutDashboard,
   LogIn,
   LogOut,
+  NotebookTabs,
   Search,
   Star,
   Tags,
