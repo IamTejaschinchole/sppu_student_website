@@ -68,20 +68,38 @@ service cloud.firestore {
         && request.resource.data.priceAmount is number;
     }
 
-    function validDownloadIncrement() {
+    function validNotePaymentOrDownloadUpdate() {
       return signedIn()
-        && request.resource.data.diff(resource.data).changedKeys().hasOnly(['downloads'])
-        && request.resource.data.downloads == resource.data.downloads + 1;
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+          'downloads',
+          'downloadCount',
+          'payment',
+          'paymentStatus',
+          'paymentId',
+          'paymentCount',
+          'paidDownloads',
+          'paidDownloadCount',
+          'lastPaymentAt'
+        ])
+        && request.resource.data.diff(resource.data).removedKeys().hasOnly([])
+        && (
+          !request.resource.data.diff(resource.data).affectedKeys().hasAny(['downloads'])
+          || request.resource.data.downloads is number
+        )
+        && (
+          !request.resource.data.diff(resource.data).affectedKeys().hasAny(['downloadCount'])
+          || request.resource.data.downloadCount is number
+        );
     }
 
-    function validRatingAggregateUpdate(noteId) {
+    function validRatingAggregateUpdate() {
       return signedIn()
-        && !exists(/databases/$(database)/documents/notes/$(noteId)/ratings/$(request.auth.uid))
-        && getAfter(/databases/$(database)/documents/notes/$(noteId)/ratings/$(request.auth.uid)).data.userId == request.auth.uid
-        && request.resource.data.diff(resource.data).changedKeys().hasOnly(['rating', 'ratingCount'])
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['rating', 'ratingCount'])
+        && request.resource.data.diff(resource.data).removedKeys().hasOnly([])
         && request.resource.data.rating is number
         && request.resource.data.rating >= 0
         && request.resource.data.rating <= 5
+        && request.resource.data.ratingCount is number
         && request.resource.data.ratingCount == resource.data.ratingCount + 1;
     }
 
@@ -94,27 +112,13 @@ service cloud.firestore {
       allow read: if true;
       allow create: if validNoteCreate();
       allow update: if validOwnerNoteEdit()
-        || validDownloadIncrement()
-        || validRatingAggregateUpdate(noteId);
+        || validNotePaymentOrDownloadUpdate()
+        || validRatingAggregateUpdate();
       allow delete: if signedIn() && resource.data.uploadedBy == request.auth.uid;
 
       match /ratings/{userId} {
         allow read: if true;
-        allow create: if isOwner(userId)
-          && !exists(/databases/$(database)/documents/notes/$(noteId)/ratings/$(userId))
-          && request.resource.data.keys().hasOnly([
-            'rating',
-            'userId',
-            'userName',
-            'userAvatar',
-            'createdAt'
-          ])
-          && request.resource.data.rating is int
-          && request.resource.data.rating >= 1
-          && request.resource.data.rating <= 5
-          && request.resource.data.userId == request.auth.uid
-          && request.resource.data.createdAt == request.time;
-        allow update: if false;
+        allow create, update: if signedIn();
         allow delete: if isOwner(userId) || noteOwner(noteId);
       }
 
@@ -142,31 +146,7 @@ service cloud.firestore {
       allow read: if signedIn()
         && (resource.data.payerId == request.auth.uid || resource.data.uploadedBy == request.auth.uid);
       allow create: if signedIn()
-        && request.resource.data.keys().hasOnly([
-          'noteId',
-          'noteTitle',
-          'subject',
-          'uploadedBy',
-          'uploaderName',
-          'payerId',
-          'payerName',
-          'payerEmail',
-          'amountPaise',
-          'amountRupees',
-          'currency',
-          'status',
-          'razorpayPaymentId',
-          'razorpayOrderId',
-          'razorpaySignature',
-          'createdAt'
-        ])
-        && request.resource.data.payerId == request.auth.uid
-        && request.resource.data.uploadedBy is string
-        && request.resource.data.amountPaise is int
-        && request.resource.data.amountPaise > 0
-        && request.resource.data.currency == 'INR'
-        && request.resource.data.status == 'success'
-        && request.resource.data.createdAt == request.time;
+        && request.resource.data.payerId == request.auth.uid;
       allow update, delete: if false;
     }
 
