@@ -64,7 +64,6 @@ export async function downloadNote({ note, user, navigate, location, setBusyId, 
   }
 
   setBusyId(note.id);
-  const downloadWindow = window.open('about:blank', '_blank');
 
   try {
     const db = (await firebaseReady).db;
@@ -108,9 +107,8 @@ export async function downloadNote({ note, user, navigate, location, setBusyId, 
     });
 
     const downloadUrl = note.fileUrl || (await getDownloadURL(ref(storage, note.storagePath)));
-    openDownloadUrl(downloadUrl, downloadWindow);
+    await handleDownload(downloadUrl, getDownloadFileName(note));
   } catch (error) {
-    closeDownloadWindow(downloadWindow);
     console.error('Unable to complete download', error);
     setError(getPaymentErrorMessage(error));
   } finally {
@@ -118,20 +116,26 @@ export async function downloadNote({ note, user, navigate, location, setBusyId, 
   }
 }
 
-function openDownloadUrl(downloadUrl, downloadWindow) {
-  if (downloadWindow && !downloadWindow.closed) {
-    downloadWindow.location.href = downloadUrl;
-    downloadWindow.focus();
-    return;
+async function handleDownload(url, fileName) {
+  try {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = blobUrl;
+    link.download = fileName || 'notes.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(blobUrl);
+  } catch (error) {
+    window.open(url, '_blank');
   }
-
-  window.open(downloadUrl, '_blank');
 }
 
-function closeDownloadWindow(downloadWindow) {
-  if (downloadWindow && !downloadWindow.closed) {
-    downloadWindow.close();
-  }
+function getDownloadFileName(note) {
+  const baseName = note?.fileName || note?.title || 'notes';
+  return baseName.toLowerCase().endsWith('.pdf') ? baseName : `${baseName}.pdf`;
 }
 
 function openRazorpayCheckout(note, user) {
