@@ -6,19 +6,6 @@ import { getStorage } from 'firebase/storage';
 const firebaseConfig = {
   apiKey: 'AIzaSyBF7hTspQLnIkR8g3jsTaS2XUikNpt4jp0',
   authDomain: 'sppu-notes-84332.firebaseapp.com',
-
-
-
-
-
-
-
-
-
-
-
-
-  
   projectId: 'sppu-notes-84332',
   storageBucket: 'sppu-notes-84332.firebasestorage.app',
   messagingSenderId: '750922265572',

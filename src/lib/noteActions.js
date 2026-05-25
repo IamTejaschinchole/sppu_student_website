@@ -119,6 +119,7 @@ export async function downloadNote({ note, user, navigate, location, setBusyId, 
 async function handleDownload(url, fileName) {
   try {
     const response = await fetch(url);
+    if (!response.ok) throw new Error('Network response was not ok');
     const blob = await response.blob();
     const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -127,9 +128,14 @@ async function handleDownload(url, fileName) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    URL.revokeObjectURL(blobUrl);
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
   } catch (error) {
-    window.open(url, '_blank');
+    console.warn('Fetch failed (likely CORS), falling back to direct navigation:', error);
+    const newTab = window.open(url, '_blank');
+    if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+      // Popup blocked, navigate the current tab instead
+      window.location.href = url;
+    }
   }
 }
 
