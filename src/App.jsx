@@ -413,9 +413,9 @@ function HomePage() {
       <section className="mx-auto w-full max-w-[1200px] px-[24px] py-8 lg:py-10">
         <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-[1rem] font-medium text-[#888888]">SE IT Semester 3 and 4</h2>
+            <h2 className="text-[13px] font-medium text-zinc-400 uppercase tracking-wider">Trending Notes</h2>
           </div>
-          <p className="text-xs text-[#888888]">
+          <p className="text-xs text-zinc-500">
             {filteredNotes.length} note packs found - page {page} of {totalPages}
           </p>
         </div>
@@ -461,13 +461,13 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
   const averageRating = Number(note.rating || 0);
 
   return (
-    <article className="flex flex-col rounded-[10px] border border-[rgba(255,255,255,0.04)] p-[16px] transition-all hover:-translate-y-1 hover:border-[rgba(255,255,255,0.08)] hover:bg-[rgba(255,255,255,0.02)]" style={{ background: '#141414' }}>
+    <article className="flex flex-col rounded-[12px] border border-[rgba(255,255,255,0.04)] p-[20px] transition-all hover:-translate-y-1 hover:border-[rgba(255,255,255,0.08)] hover:bg-[rgba(255,255,255,0.02)]" style={{ background: '#141414' }}>
       
-      <div className="mb-4">
-        <Link to={`/note/${note.id}`} className="block text-[1.05rem] font-medium leading-snug text-zinc-100 transition hover:text-[#6366f1] mb-1.5">
+      <div className="mb-5">
+        <Link to={`/note/${note.id}`} className="block text-[1.1rem] font-medium leading-snug text-zinc-100 transition hover:text-[#6366f1] mb-2">
           {note.title}
         </Link>
-        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] text-zinc-500">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] text-zinc-500">
           <span className="capitalize">{note.subject?.toLowerCase() || 'General'}</span>
           <span className="opacity-30">•</span>
           <span>Sem {note.semester}</span>
@@ -476,16 +476,21 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
         </div>
       </div>
 
-      <div className="mt-auto flex items-end justify-between">
-        <div className="flex flex-col gap-1.5">
-          <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
-          <div className="flex items-center gap-1.5 text-[10px] text-zinc-600">
-            <RatingControl
-              value={averageRating}
-              count={Number(note.ratingCount || 0)}
-              disabled={isRating}
-              onRate={onRate}
-            />
+      <div className="mt-auto flex items-end justify-between pt-1">
+        <div className="flex flex-col gap-3.5">
+          <div className="[&>div]:!gap-3">
+            <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
+          </div>
+          <div className="flex items-center gap-2 text-[11px] text-zinc-500">
+            <div className="[&_p]:hidden">
+              <RatingControl
+                value={averageRating}
+                count={Number(note.ratingCount || 0)}
+                disabled={isRating}
+                onRate={onRate}
+              />
+            </div>
+            <span className="font-medium text-zinc-400">{averageRating.toFixed(1)}</span>
             <span className="opacity-30">•</span>
             <span>{Number(note.downloads || 0)} dl</span>
           </div>
@@ -495,9 +500,9 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
           type="button"
           onClick={onDownload}
           disabled={isDownloading}
-          className="inline-flex h-[24px] items-center justify-center gap-1.5 rounded-[4px] px-2 text-[11px] font-medium text-zinc-400 transition hover:bg-white/5 hover:text-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-[28px] items-center justify-center gap-1.5 rounded-[4px] px-2.5 text-[11px] font-medium text-zinc-400 transition hover:bg-white/5 hover:text-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
         >
-          <Download size={12} aria-hidden="true" />
+          <Download size={13} aria-hidden="true" />
           {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
         </button>
       </div>
