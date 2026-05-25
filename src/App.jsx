@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Download,
   FileText,
+  Filter,
   GraduationCap,
   LayoutDashboard,
   LogIn,
@@ -140,8 +141,8 @@ function Navbar() {
     <header className="sticky top-0 z-50 w-full" style={{ background: '#141414', borderBottom: '1px solid #2a2a2a' }}>
       <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-[24px] py-4">
         {/* Left side */}
-        <Link to="/" className="text-white font-medium text-lg" aria-label="StudyVault home">
-          StudyVault 📚
+        <Link to="/" className="text-white font-semibold text-lg" aria-label="StudyVault home">
+          StudyVault
         </Link>
 
         {/* Desktop Right side links */}
@@ -308,7 +309,7 @@ function HomePage() {
 
   return (
     <main>
-      <section className="mx-auto flex flex-col items-center w-full max-w-7xl px-5 pt-12 pb-16 sm:px-8">
+      <section className="mx-auto flex flex-col items-center w-full max-w-[1200px] px-[24px] pt-8 pb-6">
         <div className="text-center max-w-[700px] w-full">
           <h1 className="text-[2rem] font-semibold text-[#f0f0f0]">
             India's student-powered study library
@@ -327,14 +328,14 @@ function HomePage() {
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            className="w-full rounded-[8px] border border-[#2a2a2a] pl-[44px] pr-4 py-[12px] text-sm text-white placeholder:text-[#888888] outline-none focus:border-[#6366f1] transition-colors"
+            className="w-full rounded-[8px] border border-[#1e1e1e] pl-[44px] pr-4 py-2.5 text-sm text-white placeholder:text-[#888888] outline-none focus:border-[#6366f1] transition-colors"
             style={{ background: '#141414' }}
             placeholder="Search notes, subjects, exams..."
             type="search"
           />
         </div>
 
-        <div className="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="mt-8 w-full grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
             { label: 'Engineering', emoji: '🏗️' },
             { label: 'JEE/NEET', emoji: '📐' },
@@ -347,56 +348,57 @@ function HomePage() {
           ].map((cat) => (
             <div
               key={cat.label}
-              className="flex flex-col items-center justify-center rounded-[8px] border border-[#2a2a2a] p-4 transition-colors hover:border-[#6366f1] cursor-pointer"
-              style={{ background: '#141414' }}
+              className="flex flex-col items-center justify-center rounded-[8px] border border-[#1e1e1e] transition-colors hover:border-[#6366f1] cursor-pointer"
+              style={{ background: '#141414', height: '80px' }}
             >
-              <span className="text-2xl mb-2">{cat.emoji}</span>
-              <span className="text-sm text-white font-medium text-center">{cat.label}</span>
+              <span className="mb-1" style={{ fontSize: '20px', lineHeight: 1 }}>{cat.emoji}</span>
+              <span className="text-[#f0f0f0] font-medium text-center leading-tight" style={{ fontSize: '0.85rem' }}>{cat.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="notes" className="border-y border-line bg-zinc-950/55 py-6">
-        <div className="mx-auto grid w-full max-w-7xl gap-4 px-5 sm:px-8 lg:grid-cols-[1fr_12rem_12rem_10rem_12rem]">
+      <section id="notes" className="border-y border-[#1e1e1e] bg-zinc-950/55 py-4">
+        <div className="mx-auto grid w-full max-w-[1200px] gap-3 px-[24px] lg:grid-cols-[1fr_12rem_12rem_10rem_12rem]">
           <div className="relative">
             <Search
-              className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
-              size={20}
+              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
+              size={18}
               aria-hidden="true"
             />
             <input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              className="h-12 w-full rounded-lg border border-line bg-panel pl-12 pr-4 text-sm text-white placeholder:text-zinc-500"
-              placeholder="Search title, subject, description, or tags"
+              className="h-10 w-full rounded-[8px] border border-[#1e1e1e] bg-panel pl-9 pr-3 text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#6366f1]"
+              placeholder="Search notes, subjects, exams..."
               type="search"
             />
           </div>
-          <FilterSelect
-            label="Filter by subject"
-            value={subjectFilter}
-            onChange={setSubjectFilter}
-            options={subjects}
-          />
-          <FilterSelect
-            label="Filter by semester"
-            value={semesterFilter}
-            onChange={setSemesterFilter}
-            options={semesters}
-          />
-          <FilterSelect
-            label="Filter by price"
-            value={priceFilter}
-            onChange={setPriceFilter}
-            options={priceFilters}
-          />
-          <label>
+          
+          {[
+            { label: 'Filter by subject', value: subjectFilter, setter: setSubjectFilter, options: subjects },
+            { label: 'Filter by semester', value: semesterFilter, setter: setSemesterFilter, options: semesters },
+            { label: 'Filter by price', value: priceFilter, setter: setPriceFilter, options: priceFilters }
+          ].map((filter) => (
+            <label key={filter.label} className="relative">
+              <span className="sr-only">{filter.label}</span>
+              <Filter className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={16} aria-hidden="true" />
+              <select
+                value={filter.value}
+                onChange={(e) => filter.setter(e.target.value)}
+                className="h-10 w-full appearance-none rounded-[8px] border border-[#1e1e1e] bg-panel pl-9 pr-3 text-sm text-white outline-none focus:border-[#6366f1]"
+              >
+                {filter.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+              </select>
+            </label>
+          ))}
+
+          <label className="relative">
             <span className="sr-only">Sort notes</span>
             <select
               value={sortBy}
               onChange={(event) => setSortBy(event.target.value)}
-              className="h-12 w-full appearance-none rounded-lg border border-line bg-panel px-4 text-sm text-white"
+              className="h-10 w-full appearance-none rounded-[8px] border border-[#1e1e1e] bg-panel px-3 text-sm text-white outline-none focus:border-[#6366f1]"
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -408,12 +410,12 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
-        <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <section className="mx-auto w-full max-w-[1200px] px-[24px] py-8 lg:py-10">
+        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-[1rem] font-medium text-[#888888]">SE IT Semester 3 and 4</h2>
           </div>
-          <p className="text-sm text-zinc-400">
+          <p className="text-xs text-[#888888]">
             {filteredNotes.length} note packs found - page {page} of {totalPages}
           </p>
         </div>
@@ -461,24 +463,24 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
   const accent = getAccent(note.subject || note.title || note.id);
 
   return (
-    <article className="flex flex-col rounded-[8px] border border-[#2a2a2a] p-[16px] transition hover:-translate-y-1 hover:border-[#6366f1] hover:shadow-glow" style={{ background: '#141414' }}>
-      <div className="flex items-start justify-between gap-4">
-        <span className="inline-flex rounded-md border border-[#2a2a2a] px-2.5 py-1 text-xs font-medium text-[#6366f1] bg-transparent">
+    <article className="flex flex-col rounded-[8px] border border-[#1e1e1e] p-[16px] transition hover:-translate-y-1 hover:border-[#6366f1] hover:shadow-glow" style={{ background: '#141414' }}>
+      <div className="flex items-start justify-between gap-3">
+        <span className="inline-flex rounded-[4px] border border-[#1e1e1e] px-2 py-0.5 text-[11px] font-medium text-[#6366f1] bg-transparent">
           Semester {note.semester}
         </span>
-        <span className="rounded-md border border-[#22c55e] px-2.5 py-1 text-xs font-semibold text-[#22c55e] bg-transparent">
+        <span className="rounded-[4px] border border-[#22c55e] px-2 py-0.5 text-[11px] font-semibold text-[#22c55e] bg-transparent">
           {note.price || 'Free'}
         </span>
       </div>
 
-      <div className="mt-4">
-        <p className="text-xs text-[#888888] uppercase tracking-wider">{note.subject}</p>
-        <Link to={`/note/${note.id}`} className="mt-1 block text-lg font-semibold leading-tight text-white transition hover:text-[#6366f1]">
+      <div className="mt-3">
+        <p className="text-[11px] text-[#888888] uppercase tracking-wider font-medium">{note.subject}</p>
+        <Link to={`/note/${note.id}`} className="mt-1 block text-xl font-bold leading-tight text-[#f0f0f0] transition hover:text-[#6366f1]">
           {note.title}
         </Link>
       </div>
 
-      <div className="mt-4 pt-4 border-t border-[#2a2a2a] flex flex-col gap-3">
+      <div className="mt-3 flex flex-col gap-3">
         <div className="flex items-center justify-between">
           <RatingControl
             value={averageRating}
@@ -486,7 +488,7 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
             disabled={isRating}
             onRate={onRate}
           />
-          <div className="text-xs text-[#888888]">{Number(note.downloads || 0)} downloads</div>
+          <div className="text-[11px] text-[#888888]">{Number(note.downloads || 0)} downl.</div>
         </div>
 
         <div className="flex items-center justify-between">
@@ -495,10 +497,10 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
             type="button"
             onClick={onDownload}
             disabled={isDownloading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-[6px] bg-[#6366f1] px-3 text-xs font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-[4px] bg-[#6366f1] px-3 text-[11px] font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
           >
             <Download size={14} aria-hidden="true" />
-            {isDownloading ? 'Preparing...' : isFreeNote(note) ? 'Download' : 'Pay'}
+            {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
           </button>
         </div>
       </div>
