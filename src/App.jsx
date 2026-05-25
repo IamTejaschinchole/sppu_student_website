@@ -138,15 +138,15 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full" style={{ background: '#141414', borderBottom: '1px solid #2a2a2a' }}>
-      <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-[24px] py-4">
+    <header className="sticky top-0 z-50 w-full" style={{ background: '#141414', borderBottom: '1px solid rgba(255, 255, 255, 0.06)' }}>
+      <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-[24px] py-3">
         {/* Left side */}
         <Link to="/" className="text-white font-semibold text-lg" aria-label="StudyVault home">
           StudyVault
         </Link>
 
         {/* Desktop Right side links */}
-        <nav className="hidden md:flex items-center gap-6 text-[#888888]">
+        <nav className="hidden md:flex items-center gap-5 text-[#888888]">
           <Link className="transition hover:text-white" to="/#notes">
             Browse
           </Link>
@@ -314,12 +314,12 @@ function HomePage() {
           <h1 className="text-[2rem] font-semibold text-[#f0f0f0]">
             India's student-powered study library
           </h1>
-          <p className="mt-2 text-[0.95rem] text-[#888888]">
+          <p className="mt-1 text-[0.95rem] text-[#888888]">
             Notes, PYQs and guides from students across schools, colleges and exams
           </p>
         </div>
 
-        <div className="relative mt-8 w-full max-w-[600px]">
+        <div className="relative mt-5 w-full max-w-[600px]">
           <Search
             className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#888888]"
             size={20}
@@ -328,7 +328,7 @@ function HomePage() {
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            className="w-full rounded-[8px] border border-[#1e1e1e] pl-[44px] pr-4 py-2.5 text-sm text-white placeholder:text-[#888888] outline-none focus:border-[#6366f1] transition-colors"
+            className="w-full rounded-[8px] border border-[rgba(255,255,255,0.06)] pl-[44px] pr-4 py-2 text-sm text-white placeholder:text-[#888888] outline-none focus:border-[#6366f1] transition-colors"
             style={{ background: '#141414' }}
             placeholder="Search notes, subjects, exams..."
             type="search"
@@ -348,17 +348,17 @@ function HomePage() {
           ].map((cat) => (
             <div
               key={cat.label}
-              className="flex flex-col items-center justify-center rounded-[8px] border border-[#1e1e1e] transition-colors hover:border-[#6366f1] cursor-pointer"
-              style={{ background: '#141414', height: '80px' }}
+              className="flex flex-col items-center justify-center rounded-[8px] border border-[rgba(255,255,255,0.06)] transition-colors hover:border-[#6366f1] cursor-pointer"
+              style={{ background: '#141414', height: '70px' }}
             >
-              <span className="mb-1" style={{ fontSize: '20px', lineHeight: 1 }}>{cat.emoji}</span>
+              <span className="mb-0.5" style={{ fontSize: '20px', lineHeight: 1 }}>{cat.emoji}</span>
               <span className="text-[#f0f0f0] font-medium text-center leading-tight" style={{ fontSize: '0.85rem' }}>{cat.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="notes" className="border-y border-[#1e1e1e] bg-zinc-950/55 py-4">
+      <section id="notes" className="border-y border-[rgba(255,255,255,0.06)] bg-zinc-950/55 py-4">
         <div className="mx-auto grid w-full max-w-[1200px] gap-3 px-[24px] lg:grid-cols-[1fr_12rem_12rem_10rem_12rem]">
           <div className="relative">
             <Search
@@ -369,7 +369,7 @@ function HomePage() {
             <input
               value={search}
               onChange={(event) => setSearch(event.target.value)}
-              className="h-10 w-full rounded-[8px] border border-[#1e1e1e] bg-panel pl-9 pr-3 text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#6366f1]"
+              className="h-9 w-full rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-panel pl-9 pr-3 text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#6366f1]"
               placeholder="Search notes, subjects, exams..."
               type="search"
             />
@@ -386,7 +386,7 @@ function HomePage() {
               <select
                 value={filter.value}
                 onChange={(e) => filter.setter(e.target.value)}
-                className="h-10 w-full appearance-none rounded-[8px] border border-[#1e1e1e] bg-panel pl-9 pr-3 text-sm text-white outline-none focus:border-[#6366f1]"
+                className="h-9 w-full appearance-none rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-panel pl-9 pr-3 text-sm text-white outline-none focus:border-[#6366f1]"
               >
                 {filter.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
               </select>
@@ -398,7 +398,7 @@ function HomePage() {
             <select
               value={sortBy}
               onChange={(event) => setSortBy(event.target.value)}
-              className="h-10 w-full appearance-none rounded-[8px] border border-[#1e1e1e] bg-panel px-3 text-sm text-white outline-none focus:border-[#6366f1]"
+              className="h-9 w-full appearance-none rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-panel px-3 text-sm text-white outline-none focus:border-[#6366f1]"
             >
               {sortOptions.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -463,24 +463,24 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
   const accent = getAccent(note.subject || note.title || note.id);
 
   return (
-    <article className="flex flex-col rounded-[8px] border border-[#1e1e1e] p-[16px] transition hover:-translate-y-1 hover:border-[#6366f1] hover:shadow-glow" style={{ background: '#141414' }}>
+    <article className="flex flex-col rounded-[8px] border border-[rgba(255,255,255,0.06)] p-[14px] transition hover:-translate-y-1 hover:border-[#6366f1] hover:shadow-glow" style={{ background: '#141414' }}>
       <div className="flex items-start justify-between gap-3">
-        <span className="inline-flex rounded-[4px] border border-[#1e1e1e] px-2 py-0.5 text-[11px] font-medium text-[#6366f1] bg-transparent">
+        <span className="inline-flex rounded-[4px] border border-[rgba(255,255,255,0.06)] px-2 py-0.5 text-[10px] font-medium text-[#6366f1] bg-transparent">
           Semester {note.semester}
         </span>
-        <span className="rounded-[4px] border border-[#22c55e] px-2 py-0.5 text-[11px] font-semibold text-[#22c55e] bg-transparent">
+        <span className="rounded-[4px] border border-[#22c55e] px-2 py-0.5 text-[10px] font-semibold text-[#22c55e] bg-transparent">
           {note.price || 'Free'}
         </span>
       </div>
 
-      <div className="mt-3">
-        <p className="text-[11px] text-[#888888] uppercase tracking-wider font-medium">{note.subject}</p>
-        <Link to={`/note/${note.id}`} className="mt-1 block text-xl font-bold leading-tight text-[#f0f0f0] transition hover:text-[#6366f1]">
+      <div className="mt-2.5">
+        <p className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium">{note.subject}</p>
+        <Link to={`/note/${note.id}`} className="mt-1 block text-[1.15rem] font-bold leading-tight text-[#f0f0f0] transition hover:text-[#6366f1]">
           {note.title}
         </Link>
       </div>
 
-      <div className="mt-3 flex flex-col gap-3">
+      <div className="mt-2.5 flex flex-col gap-2.5">
         <div className="flex items-center justify-between">
           <RatingControl
             value={averageRating}
@@ -488,7 +488,7 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
             disabled={isRating}
             onRate={onRate}
           />
-          <div className="text-[11px] text-[#888888]">{Number(note.downloads || 0)} downl.</div>
+          <div className="text-[10px] text-zinc-500">{Number(note.downloads || 0)} downl.</div>
         </div>
 
         <div className="flex items-center justify-between">
@@ -497,9 +497,9 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
             type="button"
             onClick={onDownload}
             disabled={isDownloading}
-            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-[4px] bg-[#6366f1] px-3 text-[11px] font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-[28px] items-center justify-center gap-1.5 rounded-[4px] bg-[#6366f1] px-2.5 text-[10px] font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <Download size={14} aria-hidden="true" />
+            <Download size={12} aria-hidden="true" />
             {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
           </button>
         </div>
