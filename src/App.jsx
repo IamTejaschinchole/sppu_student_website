@@ -461,32 +461,33 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
   const averageRating = Number(note.rating || 0);
 
   return (
-    <article className="flex flex-col rounded-[12px] border border-[rgba(255,255,255,0.06)] p-4 transition-all hover:-translate-y-1 hover:border-[rgba(255,255,255,0.12)] hover:bg-[#181818]" style={{ background: '#141414' }}>
+    <article className="flex flex-col rounded-[10px] border border-[rgba(255,255,255,0.04)] p-[16px] transition-all hover:-translate-y-1 hover:border-[rgba(255,255,255,0.08)] hover:bg-[rgba(255,255,255,0.02)]" style={{ background: '#141414' }}>
       
-      <div className="mb-3">
-        <Link to={`/note/${note.id}`} className="block text-[1.1rem] font-semibold leading-snug text-white transition hover:text-[#6366f1] mb-1.5">
+      <div className="mb-4">
+        <Link to={`/note/${note.id}`} className="block text-[1.05rem] font-medium leading-snug text-zinc-100 transition hover:text-[#6366f1] mb-1.5">
           {note.title}
         </Link>
-        <div className="flex items-center gap-2 text-[11px] text-[#888888] tracking-wide">
+        <div className="flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] text-zinc-500">
           <span className="capitalize">{note.subject?.toLowerCase() || 'General'}</span>
-          <span>•</span>
-          <span className="text-[#6366f1]">Sem {note.semester}</span>
-          <span>•</span>
+          <span className="opacity-30">•</span>
+          <span>Sem {note.semester}</span>
+          <span className="opacity-30">•</span>
           <span className={note.price ? "text-zinc-400" : "text-[#22c55e]"}>{note.price || 'Free'}</span>
         </div>
       </div>
 
-      <div className="mt-auto flex items-end justify-between pt-2">
-        <div className="flex flex-col gap-2">
+      <div className="mt-auto flex items-end justify-between">
+        <div className="flex flex-col gap-1.5">
           <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 text-[10px] text-zinc-600">
             <RatingControl
               value={averageRating}
               count={Number(note.ratingCount || 0)}
               disabled={isRating}
               onRate={onRate}
             />
-            <span className="text-[10px] text-zinc-600">{Number(note.downloads || 0)} dl</span>
+            <span className="opacity-30">•</span>
+            <span>{Number(note.downloads || 0)} dl</span>
           </div>
         </div>
 
@@ -494,7 +495,7 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
           type="button"
           onClick={onDownload}
           disabled={isDownloading}
-          className="inline-flex h-[26px] items-center justify-center gap-1.5 rounded-[6px] bg-white/5 px-3 text-[11px] font-medium text-zinc-300 transition hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-[24px] items-center justify-center gap-1.5 rounded-[4px] px-2 text-[11px] font-medium text-zinc-400 transition hover:bg-white/5 hover:text-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
         >
           <Download size={12} aria-hidden="true" />
           {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
