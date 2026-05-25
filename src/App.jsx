@@ -17,11 +17,13 @@ import {
   LayoutDashboard,
   LogIn,
   LogOut,
+  Menu,
   NotebookTabs,
   Search,
   Star,
   Tags,
   Upload,
+  X,
 } from 'lucide-react';
 import { useAuth } from './AuthContext.jsx';
 import RouteSpinner from './components/RouteSpinner.jsx';
@@ -132,76 +134,102 @@ function App() {
 
 function Navbar() {
   const { user, logout } = useAuth();
-  const displayName = getUserName(user);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
-      <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="SPPU Notes Marketplace home">
-        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-mint/25 bg-mint/10 text-mint">
-          <GraduationCap size={24} aria-hidden="true" />
-        </span>
-        <span className="min-w-0">
-          <span className="block truncate text-base font-semibold text-white">SPPU Notes</span>
-          <span className="block truncate text-xs text-zinc-400">SE IT marketplace</span>
-        </span>
-      </Link>
+    <header className="sticky top-0 z-50 w-full" style={{ background: '#141414', borderBottom: '1px solid #2a2a2a' }}>
+      <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between px-[24px] py-4">
+        {/* Left side */}
+        <Link to="/" className="text-white font-medium text-lg" aria-label="StudyVault home">
+          StudyVault 📚
+        </Link>
 
-      <nav className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">
-        <Link className="transition hover:text-white" to="/#notes">
-          Notes
-        </Link>
-        <Link className="transition hover:text-white" to="/categories">
-          Categories
-        </Link>
-        {user && (
-          <Link className="transition hover:text-white" to="/dashboard">
-            Dashboard
+        {/* Desktop Right side links */}
+        <nav className="hidden md:flex items-center gap-6 text-[#888888]">
+          <Link className="transition hover:text-white" to="/#notes">
+            Browse
           </Link>
-        )}
-        <Link className="transition hover:text-white" to="/upload">
-          Upload
-        </Link>
-      </nav>
-
-      <div className="flex items-center gap-2">
-        {user ? (
-          <>
-            <Link
-              to="/dashboard"
-              className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white/[0.04] px-3 text-sm font-semibold text-white transition hover:border-mint/40 hover:bg-mint/10"
-            >
-              <LayoutDashboard size={17} aria-hidden="true" />
-              <span className="hidden xl:inline">Dashboard</span>
+          <Link className="transition hover:text-white" to="/upload">
+            Upload
+          </Link>
+          {user && (
+            <Link className="transition hover:text-white" to="/dashboard">
+              Dashboard
             </Link>
-            <div className="hidden items-center gap-3 rounded-lg border border-line bg-white/[0.04] px-3 py-2 sm:flex">
-              <Avatar user={user} />
-              <span className="max-w-36 truncate text-sm font-medium text-white">{displayName}</span>
-            </div>
+          )}
+          {user ? (
             <button
               onClick={logout}
-              className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white/[0.04] px-3 text-sm font-semibold text-white transition hover:border-ember/40 hover:bg-ember/10"
+              className="transition hover:text-white"
             >
-              <LogOut size={17} aria-hidden="true" />
-              <span className="hidden sm:inline">Logout</span>
+              Logout
             </button>
-          </>
-        ) : (
-          <Link
-            to="/login"
-            className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white/[0.04] px-4 text-sm font-semibold text-white transition hover:border-mint/40 hover:bg-mint/10"
-          >
-            <LogIn size={17} aria-hidden="true" />
-            Login
-          </Link>
-        )}
-        <Link
-          to="/upload"
-          className="inline-flex h-11 items-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300"
+          ) : (
+            <Link className="transition hover:text-white" to="/login">
+              Login
+            </Link>
+          )}
+        </nav>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-[#888888] hover:text-white transition"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          <Upload size={18} aria-hidden="true" />
-          <span className="hidden sm:inline">Upload</span>
-        </Link>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden w-full border-t border-[#2a2a2a]" style={{ background: '#141414' }}>
+          <nav className="flex flex-col px-[24px] py-4 gap-4 text-[#888888]">
+            <Link 
+              className="transition hover:text-white" 
+              to="/#notes"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Browse
+            </Link>
+            <Link 
+              className="transition hover:text-white" 
+              to="/upload"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Upload
+            </Link>
+            {user && (
+              <Link 
+                className="transition hover:text-white" 
+                to="/dashboard"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+            )}
+            {user ? (
+              <button
+                onClick={() => {
+                  logout();
+                  setIsMobileMenuOpen(false);
+                }}
+                className="text-left transition hover:text-white"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link 
+                className="transition hover:text-white" 
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Login
+              </Link>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
