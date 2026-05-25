@@ -458,51 +458,47 @@ function HomePage() {
 }
 
 function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
-  const tags = Array.isArray(note.tags) ? note.tags : [];
   const averageRating = Number(note.rating || 0);
-  const accent = getAccent(note.subject || note.title || note.id);
 
   return (
-    <article className="flex flex-col rounded-[8px] border border-[rgba(255,255,255,0.06)] p-[14px] transition hover:-translate-y-1 hover:border-[#6366f1] hover:shadow-glow" style={{ background: '#141414' }}>
-      <div className="flex items-start justify-between gap-3">
-        <span className="inline-flex rounded-[4px] border border-[rgba(255,255,255,0.06)] px-2 py-0.5 text-[10px] font-medium text-[#6366f1] bg-transparent">
-          Semester {note.semester}
-        </span>
-        <span className="rounded-[4px] border border-[#22c55e] px-2 py-0.5 text-[10px] font-semibold text-[#22c55e] bg-transparent">
-          {note.price || 'Free'}
-        </span>
-      </div>
-
-      <div className="mt-2.5">
-        <p className="text-[10px] text-zinc-500 uppercase tracking-wider font-medium">{note.subject}</p>
-        <Link to={`/note/${note.id}`} className="mt-1 block text-[1.15rem] font-bold leading-tight text-[#f0f0f0] transition hover:text-[#6366f1]">
+    <article className="flex flex-col rounded-[12px] border border-[rgba(255,255,255,0.06)] p-4 transition-all hover:-translate-y-1 hover:border-[rgba(255,255,255,0.12)] hover:bg-[#181818]" style={{ background: '#141414' }}>
+      
+      <div className="mb-3">
+        <Link to={`/note/${note.id}`} className="block text-[1.1rem] font-semibold leading-snug text-white transition hover:text-[#6366f1] mb-1.5">
           {note.title}
         </Link>
+        <div className="flex items-center gap-2 text-[11px] text-[#888888] tracking-wide">
+          <span className="capitalize">{note.subject?.toLowerCase() || 'General'}</span>
+          <span>•</span>
+          <span className="text-[#6366f1]">Sem {note.semester}</span>
+          <span>•</span>
+          <span className={note.price ? "text-zinc-400" : "text-[#22c55e]"}>{note.price || 'Free'}</span>
+        </div>
       </div>
 
-      <div className="mt-2.5 flex flex-col gap-2.5">
-        <div className="flex items-center justify-between">
-          <RatingControl
-            value={averageRating}
-            count={Number(note.ratingCount || 0)}
-            disabled={isRating}
-            onRate={onRate}
-          />
-          <div className="text-[10px] text-zinc-500">{Number(note.downloads || 0)} downl.</div>
+      <div className="mt-auto flex items-end justify-between pt-2">
+        <div className="flex flex-col gap-2">
+          <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
+          <div className="flex items-center gap-2">
+            <RatingControl
+              value={averageRating}
+              count={Number(note.ratingCount || 0)}
+              disabled={isRating}
+              onRate={onRate}
+            />
+            <span className="text-[10px] text-zinc-600">{Number(note.downloads || 0)} dl</span>
+          </div>
         </div>
 
-        <div className="flex items-center justify-between">
-          <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
-          <button
-            type="button"
-            onClick={onDownload}
-            disabled={isDownloading}
-            className="inline-flex h-[28px] items-center justify-center gap-1.5 rounded-[4px] bg-[#6366f1] px-2.5 text-[10px] font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            <Download size={12} aria-hidden="true" />
-            {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={onDownload}
+          disabled={isDownloading}
+          className="inline-flex h-[26px] items-center justify-center gap-1.5 rounded-[6px] bg-white/5 px-3 text-[11px] font-medium text-zinc-300 transition hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          <Download size={12} aria-hidden="true" />
+          {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
+        </button>
       </div>
     </article>
   );
