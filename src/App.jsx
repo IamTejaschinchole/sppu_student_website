@@ -411,7 +411,7 @@ function HomePage() {
       <section className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
         <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="text-[1.25rem] font-semibold text-[#f0f0f0]">SE IT Semester 3 and 4</h2>
+            <h2 className="text-[1rem] font-medium text-[#888888]">SE IT Semester 3 and 4</h2>
           </div>
           <p className="text-sm text-zinc-400">
             {filteredNotes.length} note packs found - page {page} of {totalPages}
@@ -471,62 +471,35 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
         </span>
       </div>
 
-      <div className="mt-5">
-        <p className="text-sm text-zinc-400">{note.subject}</p>
-        <Link to={`/note/${note.id}`} className="mt-2 block min-h-[4.5rem] text-xl font-semibold leading-7 text-white transition hover:text-mint">
+      <div className="mt-4">
+        <p className="text-xs text-[#888888] uppercase tracking-wider">{note.subject}</p>
+        <Link to={`/note/${note.id}`} className="mt-1 block text-lg font-semibold leading-tight text-white transition hover:text-[#6366f1]">
           {note.title}
         </Link>
-        <p className="mt-3 line-clamp-3 text-sm leading-6 text-zinc-400">{note.description}</p>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        {tags.length > 0 ? (
-          tags.map((tag) => (
-            <span key={tag} className="rounded-md bg-zinc-950/70 px-2.5 py-1 text-xs text-zinc-300">
-              {tag}
-            </span>
-          ))
-        ) : (
-          <span className="rounded-md bg-zinc-950/70 px-2.5 py-1 text-xs text-zinc-500">No tags</span>
-        )}
-      </div>
-
-      <div className="mt-auto pt-6">
-        <div className="flex items-center justify-between border-t border-line pt-5">
-          <div className="flex items-center gap-2 text-sm text-zinc-400">
-            <NotebookTabs size={17} className="text-zinc-500" aria-hidden="true" />
-            PDF notes
-          </div>
-          <div className="text-sm text-zinc-400">{Number(note.downloads || 0)} downloads</div>
-        </div>
-
-        <div className="mt-4 flex items-center justify-between gap-3">
+      <div className="mt-4 pt-4 border-t border-[#2a2a2a] flex flex-col gap-3">
+        <div className="flex items-center justify-between">
           <RatingControl
             value={averageRating}
             count={Number(note.ratingCount || 0)}
             disabled={isRating}
             onRate={onRate}
           />
-          <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
+          <div className="text-xs text-[#888888]">{Number(note.downloads || 0)} downloads</div>
         </div>
 
-        <div className="mt-5 grid grid-cols-[1fr_auto] gap-2">
+        <div className="flex items-center justify-between">
+          <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
           <button
             type="button"
             onClick={onDownload}
             disabled={isDownloading}
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-[6px] bg-[#6366f1] px-4 text-sm font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-[6px] bg-[#6366f1] px-3 text-xs font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
           >
-            <Download size={18} aria-hidden="true" />
-            {isDownloading ? 'Preparing...' : isFreeNote(note) ? 'Download' : 'Pay & Download'}
+            <Download size={14} aria-hidden="true" />
+            {isDownloading ? 'Preparing...' : isFreeNote(note) ? 'Download' : 'Pay'}
           </button>
-          <Link
-            to={`/note/${note.id}`}
-            className="inline-flex h-11 items-center justify-center rounded-lg border border-line bg-white/[0.04] px-3 text-sm font-semibold text-white transition hover:border-mint/40 hover:bg-mint/10"
-            aria-label={`Open ${note.title}`}
-          >
-            <ArrowUpRight size={18} aria-hidden="true" />
-          </Link>
         </div>
       </div>
     </article>
