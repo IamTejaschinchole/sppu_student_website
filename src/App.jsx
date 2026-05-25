@@ -22,8 +22,6 @@ import {
   Star,
   Tags,
   Upload,
-  Menu,
-  X,
 } from 'lucide-react';
 import { useAuth } from './AuthContext.jsx';
 import RouteSpinner from './components/RouteSpinner.jsx';
@@ -134,68 +132,76 @@ function App() {
 
 function Navbar() {
   const { user, logout } = useAuth();
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location.pathname]);
-
-  const navLinks = (
-    <>
-      <Link className="text-[var(--muted)] transition-colors hover:text-white" to="/#notes">
-        Browse
-      </Link>
-      <Link className="text-[var(--muted)] transition-colors hover:text-white" to="/upload">
-        Upload
-      </Link>
-      {user && (
-        <Link className="text-[var(--muted)] transition-colors hover:text-white" to="/dashboard">
-          Dashboard
-        </Link>
-      )}
-      {user ? (
-        <button onClick={logout} className="text-[var(--muted)] transition-colors hover:text-white text-left">
-          Logout
-        </button>
-      ) : (
-        <Link className="text-[var(--muted)] transition-colors hover:text-white" to="/login">
-          Login
-        </Link>
-      )}
-    </>
-  );
+  const displayName = getUserName(user);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--border)] bg-[var(--card)]">
-      <div className="mx-auto flex h-14 max-w-[1200px] items-center justify-between px-5 sm:px-8">
-        <Link to="/" className="text-base font-medium text-white transition-opacity hover:opacity-80">
-          StudyVault 📚
+    <header className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-5 py-5 sm:px-8">
+      <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="SPPU Notes Marketplace home">
+        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-mint/25 bg-mint/10 text-mint">
+          <GraduationCap size={24} aria-hidden="true" />
+        </span>
+        <span className="min-w-0">
+          <span className="block truncate text-base font-semibold text-white">SPPU Notes</span>
+          <span className="block truncate text-xs text-zinc-400">SE IT marketplace</span>
+        </span>
+      </Link>
+
+      <nav className="hidden items-center gap-6 text-sm text-zinc-300 md:flex">
+        <Link className="transition hover:text-white" to="/#notes">
+          Notes
         </Link>
+        <Link className="transition hover:text-white" to="/categories">
+          Categories
+        </Link>
+        {user && (
+          <Link className="transition hover:text-white" to="/dashboard">
+            Dashboard
+          </Link>
+        )}
+        <Link className="transition hover:text-white" to="/upload">
+          Upload
+        </Link>
+      </nav>
 
-        {/* Desktop Nav */}
-        <nav className="hidden items-center gap-6 text-sm md:flex">
-          {navLinks}
-        </nav>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-1 text-[var(--muted)] hover:text-white md:hidden"
-          aria-label="Toggle menu"
+      <div className="flex items-center gap-2">
+        {user ? (
+          <>
+            <Link
+              to="/dashboard"
+              className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white/[0.04] px-3 text-sm font-semibold text-white transition hover:border-mint/40 hover:bg-mint/10"
+            >
+              <LayoutDashboard size={17} aria-hidden="true" />
+              <span className="hidden xl:inline">Dashboard</span>
+            </Link>
+            <div className="hidden items-center gap-3 rounded-lg border border-line bg-white/[0.04] px-3 py-2 sm:flex">
+              <Avatar user={user} />
+              <span className="max-w-36 truncate text-sm font-medium text-white">{displayName}</span>
+            </div>
+            <button
+              onClick={logout}
+              className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white/[0.04] px-3 text-sm font-semibold text-white transition hover:border-ember/40 hover:bg-ember/10"
+            >
+              <LogOut size={17} aria-hidden="true" />
+              <span className="hidden sm:inline">Logout</span>
+            </button>
+          </>
+        ) : (
+          <Link
+            to="/login"
+            className="inline-flex h-11 items-center gap-2 rounded-lg border border-line bg-white/[0.04] px-4 text-sm font-semibold text-white transition hover:border-mint/40 hover:bg-mint/10"
+          >
+            <LogIn size={17} aria-hidden="true" />
+            Login
+          </Link>
+        )}
+        <Link
+          to="/upload"
+          className="inline-flex h-11 items-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300"
         >
-          {isOpen ? <X size={20} aria-hidden="true" /> : <Menu size={20} aria-hidden="true" />}
-        </button>
+          <Upload size={18} aria-hidden="true" />
+          <span className="hidden sm:inline">Upload</span>
+        </Link>
       </div>
-
-      {/* Mobile Nav */}
-      {isOpen && (
-        <div className="border-b border-[var(--border)] bg-[var(--card)] px-5 py-4 md:hidden">
-          <nav className="flex flex-col gap-4 text-sm">
-            {navLinks}
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
