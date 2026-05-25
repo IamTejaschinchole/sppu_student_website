@@ -64,6 +64,7 @@ export async function downloadNote({ note, user, navigate, location, setBusyId, 
   }
 
   setBusyId(note.id);
+  const downloadWindow = window.open('about:blank', '_blank');
 
   try {
     const db = (await firebaseReady).db;
@@ -107,12 +108,29 @@ export async function downloadNote({ note, user, navigate, location, setBusyId, 
     });
 
     const downloadUrl = note.fileUrl || (await getDownloadURL(ref(storage, note.storagePath)));
-    window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+    openDownloadUrl(downloadUrl, downloadWindow);
   } catch (error) {
+    closeDownloadWindow(downloadWindow);
     console.error('Unable to complete download', error);
     setError(getPaymentErrorMessage(error));
   } finally {
     setBusyId('');
+  }
+}
+
+function openDownloadUrl(downloadUrl, downloadWindow) {
+  if (downloadWindow && !downloadWindow.closed) {
+    downloadWindow.location.href = downloadUrl;
+    downloadWindow.focus();
+    return;
+  }
+
+  window.open(downloadUrl, '_blank');
+}
+
+function closeDownloadWindow(downloadWindow) {
+  if (downloadWindow && !downloadWindow.closed) {
+    downloadWindow.close();
   }
 }
 

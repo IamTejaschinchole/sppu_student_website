@@ -62,6 +62,17 @@ export function FilterSelect({ label, value, onChange, options }) {
 }
 
 export function RatingControl({ value, count, disabled, onRate }) {
+  function handleRate(star) {
+    if (!disabled) {
+      onRate(star);
+    }
+  }
+
+  function handleTouchEnd(event, star) {
+    event.preventDefault();
+    handleRate(star);
+  }
+
   return (
     <div>
       <div className="flex items-center gap-1" aria-label={`${value} star rating`}>
@@ -70,7 +81,8 @@ export function RatingControl({ value, count, disabled, onRate }) {
             key={star}
             type="button"
             disabled={disabled}
-            onClick={() => onRate(star)}
+            onClick={() => handleRate(star)}
+            onTouchEnd={(event) => handleTouchEnd(event, star)}
             className="rounded-md p-1 text-ember transition hover:scale-110 disabled:cursor-not-allowed disabled:opacity-60"
             aria-label={`Rate ${star} stars`}
           >
