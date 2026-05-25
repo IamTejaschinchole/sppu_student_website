@@ -308,85 +308,52 @@ function HomePage() {
 
   return (
     <main>
-      <section className="mx-auto grid min-h-[calc(100vh-84px)] w-full max-w-7xl items-center gap-10 px-5 pb-12 pt-8 sm:px-8 lg:grid-cols-[1.06fr_0.94fr] lg:pb-16">
-        <div className="max-w-3xl">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.04] px-3 py-1.5 text-sm text-zinc-300">
-            <CheckCircle2 size={16} className="text-mint" aria-hidden="true" />
-            Live notes from SPPU SE IT students
-          </div>
-          <h1 className="max-w-3xl text-5xl font-bold leading-tight text-white sm:text-6xl lg:text-7xl">
-            SPPU Notes Marketplace
+      <section className="mx-auto flex flex-col items-center w-full max-w-7xl px-5 pt-12 pb-16 sm:px-8">
+        <div className="text-center max-w-[700px] w-full">
+          <h1 className="text-[2rem] font-semibold text-[#f0f0f0]">
+            India's student-powered study library
           </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-            Find concise student-made PDFs by subject, semester, rating, and exam focus. Sign in to
-            download, rate once, or upload your own notes for the SE IT batch.
+          <p className="mt-2 text-[0.95rem] text-[#888888]">
+            Notes, PYQs and guides from students across schools, colleges and exams
           </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="#notes"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-white px-5 text-sm font-semibold text-ink transition hover:bg-zinc-200"
-            >
-              Browse Notes
-              <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-            <Link
-              to="/categories"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-line bg-white/[0.04] px-5 text-sm font-semibold text-white transition hover:border-mint/40 hover:bg-mint/10"
-            >
-              <Tags size={18} aria-hidden="true" />
-              View Categories
-            </Link>
-          </div>
-
-          <div id="subjects" className="mt-10 grid max-w-2xl grid-cols-2 gap-3 sm:grid-cols-4">
-            {[
-              ['Subjects', subjects.length - 1],
-              ['Sem 3 Notes', semesterCounts[3]],
-              ['Sem 4 Notes', semesterCounts[4]],
-              ['Downloads', totalDownloads],
-            ].map(([label, value]) => (
-              <div key={label} className="rounded-lg border border-line bg-panel/70 p-4">
-                <p className="text-2xl font-semibold text-white">{value}</p>
-                <p className="mt-1 text-sm text-zinc-400">{label}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <div className="relative overflow-hidden rounded-[2rem] border border-line bg-panel shadow-glow">
-          <div className="grid grid-cols-[1fr_0.78fr] gap-0 border-b border-line">
-            <div className="p-6">
-              <p className="text-sm uppercase text-zinc-500">Live marketplace</p>
-              <p className="mt-3 text-3xl font-semibold leading-tight text-white">
-                {notes.length || 0} uploaded PDF note packs
-              </p>
-            </div>
-            <div className="border-l border-line bg-zinc-950/45 p-6">
-              <BookOpen className="text-ember" size={34} aria-hidden="true" />
-              <p className="mt-5 text-sm leading-6 text-zinc-300">
-                Firestore-backed notes with protected downloads, live ratings, and comments.
-              </p>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-px bg-line">
-            {(notes.length ? notes.slice(0, 4) : subjectCatalog.slice(0, 4)).map((item) => {
-              const note = typeof item === 'string' ? null : item;
-              const subject = note?.subject || item;
-              const accent = getAccent(subject);
+        <div className="relative mt-8 w-full max-w-[600px]">
+          <Search
+            className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[#888888]"
+            size={20}
+            aria-hidden="true"
+          />
+          <input
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            className="w-full rounded-[8px] border border-[#2a2a2a] pl-[44px] pr-4 py-[12px] text-sm text-white placeholder:text-[#888888] outline-none focus:border-[#6366f1] transition-colors"
+            style={{ background: '#141414' }}
+            placeholder="Search notes, subjects, exams..."
+            type="search"
+          />
+        </div>
 
-              return (
-                <div key={note?.id || subject} className="bg-panel p-5">
-                  <span className={`inline-flex rounded-md border px-2.5 py-1 text-xs font-medium ${accentClass[accent]}`}>
-                    {note ? `Sem ${note.semester}` : 'Waiting'}
-                  </span>
-                  <p className="mt-4 text-sm font-semibold leading-6 text-white">{subject}</p>
-                  <p className="mt-2 text-xs text-zinc-500">
-                    {note ? `${Number(note.downloads || 0)} downloads` : 'Upload first note'}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+        <div className="mt-12 w-full grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: 'Engineering', emoji: '🏗️' },
+            { label: 'JEE/NEET', emoji: '📐' },
+            { label: 'UPSC', emoji: '🏛️' },
+            { label: 'CBSE/ICSE', emoji: '📚' },
+            { label: 'University Notes', emoji: '🎓' },
+            { label: 'Placements', emoji: '💼' },
+            { label: 'PYQs', emoji: '📝' },
+            { label: 'All Notes', emoji: '🗂️' },
+          ].map((cat) => (
+            <div
+              key={cat.label}
+              className="flex flex-col items-center justify-center rounded-[8px] border border-[#2a2a2a] p-4 transition-colors hover:border-[#6366f1] cursor-pointer"
+              style={{ background: '#141414' }}
+            >
+              <span className="text-2xl mb-2">{cat.emoji}</span>
+              <span className="text-sm text-white font-medium text-center">{cat.label}</span>
+            </div>
+          ))}
         </div>
       </section>
 
