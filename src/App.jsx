@@ -411,8 +411,7 @@ function HomePage() {
       <section className="mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
         <div className="mb-7 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-sm font-medium uppercase text-mint">Firestore notes</p>
-            <h2 className="mt-2 text-3xl font-semibold text-white">SE IT Semester 3 and 4</h2>
+            <h2 className="text-[1.25rem] font-semibold text-[#f0f0f0]">SE IT Semester 3 and 4</h2>
           </div>
           <p className="text-sm text-zinc-400">
             {filteredNotes.length} note packs found - page {page} of {totalPages}
@@ -462,12 +461,12 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
   const accent = getAccent(note.subject || note.title || note.id);
 
   return (
-    <article className="flex min-h-[30rem] flex-col rounded-lg border border-line bg-panel p-5 transition hover:-translate-y-1 hover:border-mint/35 hover:shadow-glow">
+    <article className="flex flex-col rounded-[8px] border border-[#2a2a2a] p-[16px] transition hover:-translate-y-1 hover:border-[#6366f1] hover:shadow-glow" style={{ background: '#141414' }}>
       <div className="flex items-start justify-between gap-4">
-        <span className={`inline-flex rounded-md border px-2.5 py-1 text-xs font-medium ${accentClass[accent]}`}>
+        <span className="inline-flex rounded-md border border-[#2a2a2a] px-2.5 py-1 text-xs font-medium text-[#6366f1] bg-transparent">
           Semester {note.semester}
         </span>
-        <span className="rounded-md bg-white/[0.06] px-2.5 py-1 text-xs font-semibold text-white">
+        <span className="rounded-md border border-[#22c55e] px-2.5 py-1 text-xs font-semibold text-[#22c55e] bg-transparent">
           {note.price || 'Free'}
         </span>
       </div>
@@ -516,7 +515,7 @@ function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
             type="button"
             onClick={onDownload}
             disabled={isDownloading}
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-[6px] bg-[#6366f1] px-4 text-sm font-semibold text-white transition hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-60"
           >
             <Download size={18} aria-hidden="true" />
             {isDownloading ? 'Preparing...' : isFreeNote(note) ? 'Download' : 'Pay & Download'}
