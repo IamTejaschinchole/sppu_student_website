@@ -71,6 +71,27 @@ const featuredCatalogues = [
   },
 ];
 
+const topCreators = [
+  {
+    name: 'Tejas Chinchole',
+    rating: '4.9',
+    resources: '48 Resources',
+    downloads: '2,300 Downloads',
+  },
+  {
+    name: 'Rahul Sharma',
+    rating: '4.8',
+    resources: '31 Resources',
+    downloads: '1,700 Downloads',
+  },
+  {
+    name: 'Aman Patel',
+    rating: '4.7',
+    resources: '27 Resources',
+    downloads: '1,200 Downloads',
+  },
+];
+
 function PageSuspense({ label, children }) {
   return <Suspense fallback={<RouteSpinner label={label} />}>{children}</Suspense>;
 }
@@ -273,7 +294,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section id="notes" className="mx-auto w-full max-w-[1200px] px-[24px] pb-10">
+      <section id="notes" className="mx-auto w-full max-w-[1200px] px-[24px] pb-16">
         <div className="mb-5">
           <h2 className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Choose a Category</h2>
           <p className="mt-1 text-sm text-zinc-500">Browse study resources by exam, university, or course.</p>
@@ -299,18 +320,20 @@ function HomePage() {
 
       <section className="mx-auto w-full max-w-[1200px] px-[24px] pb-12">
         <div className="mb-5">
-          <h2 className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Featured Catalogues</h2>
-          <p className="mt-1 text-sm text-zinc-500">Curated study collections from student creators.</p>
+          <h2 className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Top Catalogues</h2>
+          <p className="mt-1 text-sm text-zinc-500">
+            Browse the highest-rated study collections from student creators.
+          </p>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {featuredCatalogues.map((catalogue) => (
             <article
               key={catalogue.title}
-              className="flex min-h-[190px] flex-col rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-5 transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.025]"
+              className="flex h-[220px] flex-col rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-5 transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.025]"
             >
-              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">{catalogue.creator}</p>
-              <h3 className="mt-3 text-lg font-semibold leading-snug text-[#f0f0f0]">{catalogue.title}</h3>
+              <p className="text-[11px] font-medium text-zinc-500">{catalogue.creator}</p>
+              <h3 className="mt-3 text-xl font-semibold leading-snug text-white">{catalogue.title}</h3>
 
               <div className="mt-4 flex items-center justify-between gap-4 text-sm text-zinc-400">
                 <span className="inline-flex items-center gap-1.5">
@@ -326,6 +349,34 @@ function HomePage() {
               >
                 View Catalogue
               </button>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-[24px] pb-12">
+        <div className="mb-5">
+          <h2 className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Top Creators</h2>
+          <p className="mt-1 text-sm text-zinc-500">Most trusted student contributors on the platform.</p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {topCreators.map((creator) => (
+            <article
+              key={creator.name}
+              className="flex min-h-[170px] flex-col rounded-[12px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-5 transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.025]"
+            >
+              <h3 className="text-lg font-semibold text-white">{creator.name}</h3>
+
+              <div className="mt-4 inline-flex items-center gap-1.5 text-sm text-zinc-300">
+                <Star className="text-ember" size={15} fill="currentColor" aria-hidden="true" />
+                {creator.rating}
+              </div>
+
+              <div className="mt-auto flex flex-col gap-2 pt-5 text-sm text-zinc-400">
+                <span>{creator.resources}</span>
+                <span>{creator.downloads}</span>
+              </div>
             </article>
           ))}
         </div>
