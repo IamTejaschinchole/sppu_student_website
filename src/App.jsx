@@ -1,62 +1,23 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
+import { lazy, Suspense, useState } from 'react';
 import {
   Link,
   Navigate,
   Route,
   Routes,
   useLocation,
-  useNavigate,
 } from 'react-router-dom';
 import {
-  ArrowUpRight,
   BookOpen,
-  CheckCircle2,
-  Download,
   FileText,
-  Filter,
   GraduationCap,
-  LayoutDashboard,
-  LogIn,
-  LogOut,
   Menu,
   NotebookTabs,
   Search,
-  Star,
-  Tags,
-  Upload,
   X,
 } from 'lucide-react';
 import { useAuth } from './AuthContext.jsx';
 import RouteSpinner from './components/RouteSpinner.jsx';
-import {
-  Avatar,
-  ErrorMessage,
-  FilterSelect,
-  LoadingScreen,
-  Pagination,
-  RatingControl,
-  Uploader,
-} from './components/ui.jsx';
-import {
-  accentClass,
-  notesPerPage,
-  priceFilters,
-  semesters,
-  sortOptions,
-  subjectCatalog,
-} from './lib/constants.js';
-import { getRatingErrorMessage } from './lib/errors.js';
-import { downloadNote, submitRating } from './lib/noteActions.js';
-import {
-  filterAndSortNotes,
-  getAccent,
-  getSemesterCounts,
-  getSubjectFromUrl,
-  getSubjectOptions,
-  getUserName,
-  isFreeNote,
-} from './lib/utils.js';
-import { useNotes } from './hooks/useNotes.js';
+import { LoadingScreen } from './components/ui.jsx';
 
 const LoginPage = lazy(() => import('./pages/LoginPage.jsx'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage.jsx'));
@@ -64,6 +25,29 @@ const UploadPage = lazy(() => import('./pages/UploadPage.jsx'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage.jsx'));
 const CategoriesPage = lazy(() => import('./pages/CategoriesPage.jsx'));
 const NoteDetailPage = lazy(() => import('./pages/NoteDetailPage.jsx'));
+
+const categoryCards = [
+  {
+    label: 'JEE',
+    icon: NotebookTabs,
+    to: '/categories',
+  },
+  {
+    label: 'NEET',
+    icon: FileText,
+    to: '/categories',
+  },
+  {
+    label: 'Engineering',
+    icon: GraduationCap,
+    to: '/categories',
+  },
+  {
+    label: 'SPPU',
+    icon: BookOpen,
+    to: '/categories',
+  },
+];
 
 function PageSuspense({ label, children }) {
   return <Suspense fallback={<RouteSpinner label={label} />}>{children}</Suspense>;
@@ -186,23 +170,23 @@ function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden w-full border-t border-[#2a2a2a]" style={{ background: '#141414' }}>
           <nav className="flex flex-col px-[24px] py-4 gap-4 text-[#888888]">
-            <Link 
-              className="transition hover:text-white" 
+            <Link
+              className="transition hover:text-white"
               to="/#notes"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Browse
             </Link>
-            <Link 
-              className="transition hover:text-white" 
+            <Link
+              className="transition hover:text-white"
               to="/upload"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Upload
             </Link>
             {user && (
-              <Link 
-                className="transition hover:text-white" 
+              <Link
+                className="transition hover:text-white"
                 to="/dashboard"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -220,8 +204,8 @@ function Navbar() {
                 Logout
               </button>
             ) : (
-              <Link 
-                className="transition hover:text-white" 
+              <Link
+                className="transition hover:text-white"
                 to="/login"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
@@ -236,81 +220,12 @@ function Navbar() {
 }
 
 function HomePage() {
-  const { user } = useAuth();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { notes, loading: notesLoading, error: notesError } = useNotes();
-  const [downloadError, setDownloadError] = useState('');
-  const [ratingError, setRatingError] = useState('');
-  const [downloadingId, setDownloadingId] = useState('');
-  const [ratingId, setRatingId] = useState('');
   const [search, setSearch] = useState('');
-  const [subjectFilter, setSubjectFilter] = useState(() => getSubjectFromUrl(location.search));
-  const [semesterFilter, setSemesterFilter] = useState('All');
-  const [priceFilter, setPriceFilter] = useState('All Prices');
-  const [sortBy, setSortBy] = useState('newest');
-  const [page, setPage] = useState(1);
-
-  useEffect(() => {
-    const subjectFromUrl = getSubjectFromUrl(location.search);
-    setSubjectFilter(subjectFromUrl);
-  }, [location.search]);
-
-  useEffect(() => {
-    setPage(1);
-  }, [search, subjectFilter, semesterFilter, priceFilter, sortBy]);
-
-  const subjects = useMemo(() => getSubjectOptions(notes), [notes]);
-  const filteredNotes = useMemo(
-    () => filterAndSortNotes(notes, { search, subjectFilter, semesterFilter, priceFilter, sortBy }),
-    [notes, priceFilter, search, semesterFilter, sortBy, subjectFilter],
-  );
-  const totalPages = Math.max(1, Math.ceil(filteredNotes.length / notesPerPage));
-  const visibleNotes = filteredNotes.slice((page - 1) * notesPerPage, page * notesPerPage);
-  const semesterCounts = useMemo(() => getSemesterCounts(notes), [notes]);
-  const totalDownloads = useMemo(() => notes.reduce((total, note) => total + Number(note.downloads || 0), 0), [notes]);
-
-  useEffect(() => {
-    if (page > totalPages) {
-      setPage(totalPages);
-    }
-  }, [page, totalPages]);
-
-  async function handleDownload(note) {
-    await downloadNote({
-      note,
-      user,
-      navigate,
-      location,
-      setBusyId: setDownloadingId,
-      setError: setDownloadError,
-    });
-  }
-
-  async function handleRate(note, rating) {
-    setRatingError('');
-
-    if (!user) {
-      navigate('/login', { state: { from: location } });
-      return;
-    }
-
-    setRatingId(note.id);
-
-    try {
-      await submitRating(note.id, user, rating);
-    } catch (error) {
-      console.error('Unable to rate note', error);
-      setRatingError(getRatingErrorMessage(error));
-    } finally {
-      setRatingId('');
-    }
-  }
 
   return (
     <main>
-      <section className="mx-auto flex flex-col items-center w-full max-w-[1200px] px-[24px] pt-8 pb-6">
-        <div className="text-center max-w-[700px] w-full">
+      <section className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-[24px] pb-8 pt-8">
+        <div className="w-full max-w-[700px] text-center">
           <h1 className="text-[2rem] font-semibold text-[#f0f0f0]">
             India's student-powered study library
           </h1>
@@ -328,188 +243,40 @@ function HomePage() {
           <input
             value={search}
             onChange={(event) => setSearch(event.target.value)}
-            className="w-full rounded-[8px] border border-[rgba(255,255,255,0.06)] pl-[44px] pr-4 py-2 text-sm text-white placeholder:text-[#888888] outline-none focus:border-[#6366f1] transition-colors"
+            className="w-full rounded-[8px] border border-[rgba(255,255,255,0.06)] py-2 pl-[44px] pr-4 text-sm text-white placeholder:text-[#888888] outline-none transition-colors focus:border-[#6366f1]"
             style={{ background: '#141414' }}
             placeholder="Search notes, subjects, exams..."
             type="search"
           />
         </div>
-
-        <div className="mt-8 w-full grid grid-cols-2 md:grid-cols-4 gap-3">
-          {[
-            { label: 'Engineering', emoji: '🏗️' },
-            { label: 'JEE/NEET', emoji: '📐' },
-            { label: 'UPSC', emoji: '🏛️' },
-            { label: 'CBSE/ICSE', emoji: '📚' },
-            { label: 'University Notes', emoji: '🎓' },
-            { label: 'Placements', emoji: '💼' },
-            { label: 'PYQs', emoji: '📝' },
-            { label: 'All Notes', emoji: '🗂️' },
-          ].map((cat) => (
-            <div
-              key={cat.label}
-              className="flex flex-col items-center justify-center rounded-[8px] border border-[rgba(255,255,255,0.06)] transition-colors hover:border-[#6366f1] cursor-pointer"
-              style={{ background: '#141414', height: '70px' }}
-            >
-              <span className="mb-0.5" style={{ fontSize: '20px', lineHeight: 1 }}>{cat.emoji}</span>
-              <span className="text-[#f0f0f0] font-medium text-center leading-tight" style={{ fontSize: '0.85rem' }}>{cat.label}</span>
-            </div>
-          ))}
-        </div>
       </section>
 
-      <section id="notes" className="border-y border-[rgba(255,255,255,0.06)] bg-zinc-950/55 py-4">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-3 px-[24px] lg:grid-cols-[1fr_12rem_12rem_10rem_12rem]">
-          <div className="relative">
-            <Search
-              className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500"
-              size={18}
-              aria-hidden="true"
-            />
-            <input
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              className="h-9 w-full rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-panel pl-9 pr-3 text-sm text-white placeholder:text-zinc-500 outline-none focus:border-[#6366f1]"
-              placeholder="Search notes, subjects, exams..."
-              type="search"
-            />
-          </div>
-          
-          {[
-            { label: 'Filter by subject', value: subjectFilter, setter: setSubjectFilter, options: subjects },
-            { label: 'Filter by semester', value: semesterFilter, setter: setSemesterFilter, options: semesters },
-            { label: 'Filter by price', value: priceFilter, setter: setPriceFilter, options: priceFilters }
-          ].map((filter) => (
-            <label key={filter.label} className="relative">
-              <span className="sr-only">{filter.label}</span>
-              <Filter className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={16} aria-hidden="true" />
-              <select
-                value={filter.value}
-                onChange={(e) => filter.setter(e.target.value)}
-                className="h-9 w-full appearance-none rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-panel pl-9 pr-3 text-sm text-white outline-none focus:border-[#6366f1]"
+      <section id="notes" className="mx-auto w-full max-w-[1200px] px-[24px] pb-10">
+        <div className="mb-5">
+          <h2 className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Choose a Category</h2>
+          <p className="mt-1 text-sm text-zinc-500">Browse study resources by exam, university, or course.</p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+          {categoryCards.map((category) => {
+            const Icon = category.icon;
+
+            return (
+              <Link
+                key={category.label}
+                to={category.to}
+                className="flex h-[104px] flex-col items-center justify-center rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] text-center transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.03]"
               >
-                {filter.options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
-              </select>
-            </label>
-          ))}
-
-          <label className="relative">
-            <span className="sr-only">Sort notes</span>
-            <select
-              value={sortBy}
-              onChange={(event) => setSortBy(event.target.value)}
-              className="h-9 w-full appearance-none rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-panel px-3 text-sm text-white outline-none focus:border-[#6366f1]"
-            >
-              {sortOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </label>
+                <Icon className="text-[#6366f1]" size={22} aria-hidden="true" />
+                <span className="mt-3 text-sm font-medium leading-tight text-[#f0f0f0]">{category.label}</span>
+              </Link>
+            );
+          })}
         </div>
-      </section>
-
-      <section className="mx-auto w-full max-w-[1200px] px-[24px] py-8 lg:py-10">
-        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h2 className="text-[13px] font-medium text-zinc-400 uppercase tracking-wider">Trending Notes</h2>
-          </div>
-          <p className="text-xs text-zinc-500">
-            {filteredNotes.length} note packs found - page {page} of {totalPages}
-          </p>
-        </div>
-
-        {notesError && <ErrorMessage>{notesError}</ErrorMessage>}
-        {downloadError && <ErrorMessage>{downloadError}</ErrorMessage>}
-        {ratingError && <ErrorMessage>{ratingError}</ErrorMessage>}
-
-        {notesLoading ? (
-          <div className="rounded-lg border border-line bg-panel p-8 text-center text-zinc-400">
-            Loading notes from Firestore...
-          </div>
-        ) : (
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {visibleNotes.map((note) => (
-              <NoteCard
-                key={note.id}
-                note={note}
-                isDownloading={downloadingId === note.id}
-                isRating={ratingId === note.id}
-                onDownload={() => handleDownload(note)}
-                onRate={(rating) => handleRate(note, rating)}
-              />
-            ))}
-          </div>
-        )}
-
-        {!notesLoading && filteredNotes.length === 0 && (
-          <div className="rounded-lg border border-line bg-panel p-8 text-center text-zinc-400">
-            No uploaded notes match the current search and filters.
-          </div>
-        )}
-
-        {!notesLoading && filteredNotes.length > notesPerPage && (
-          <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
-        )}
       </section>
     </main>
   );
 }
-
-function NoteCard({ note, isDownloading, isRating, onDownload, onRate }) {
-  const averageRating = Number(note.rating || 0);
-
-  return (
-    <article className="flex flex-col rounded-[12px] border border-[rgba(255,255,255,0.04)] p-[20px] transition-all hover:-translate-y-1 hover:border-[rgba(255,255,255,0.08)] hover:bg-[rgba(255,255,255,0.02)]" style={{ background: '#141414' }}>
-      
-      <div className="mb-5">
-        <Link to={`/note/${note.id}`} className="block text-[1.1rem] font-medium leading-snug text-zinc-100 transition hover:text-[#6366f1] mb-2">
-          {note.title}
-        </Link>
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[12px] text-zinc-500">
-          <span className="capitalize">{note.subject?.toLowerCase() || 'General'}</span>
-          <span className="opacity-30">•</span>
-          <span>Sem {note.semester}</span>
-          <span className="opacity-30">•</span>
-          <span className={note.price ? "text-zinc-400" : "text-[#22c55e]"}>{note.price || 'Free'}</span>
-        </div>
-      </div>
-
-      <div className="mt-auto flex items-end justify-between pt-1">
-        <div className="flex flex-col gap-3.5">
-          <div className="[&>div]:!gap-3">
-            <Uploader name={note.uploaderName} avatar={note.uploaderAvatar} />
-          </div>
-          <div className="flex items-center gap-2 text-[11px] text-zinc-500">
-            <div className="[&_p]:hidden">
-              <RatingControl
-                value={averageRating}
-                count={Number(note.ratingCount || 0)}
-                disabled={isRating}
-                onRate={onRate}
-              />
-            </div>
-            <span className="font-medium text-zinc-400">{averageRating.toFixed(1)}</span>
-            <span className="opacity-30">•</span>
-            <span>{Number(note.downloads || 0)} dl</span>
-          </div>
-        </div>
-
-        <button
-          type="button"
-          onClick={onDownload}
-          disabled={isDownloading}
-          className="inline-flex h-[28px] items-center justify-center gap-1.5 rounded-[4px] px-2.5 text-[11px] font-medium text-zinc-400 transition hover:bg-white/5 hover:text-zinc-200 disabled:cursor-not-allowed disabled:opacity-60"
-        >
-          <Download size={13} aria-hidden="true" />
-          {isDownloading ? '...' : isFreeNote(note) ? 'Download' : 'Pay'}
-        </button>
-      </div>
-    </article>
-  );
-}
-
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
