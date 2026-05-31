@@ -13,6 +13,7 @@ import {
   Menu,
   NotebookTabs,
   Search,
+  Star,
   X,
 } from 'lucide-react';
 import { useAuth } from './AuthContext.jsx';
@@ -46,6 +47,27 @@ const categoryCards = [
     label: 'SPPU',
     icon: BookOpen,
     to: '/categories',
+  },
+];
+
+const featuredCatalogues = [
+  {
+    creator: 'Tejas Chinchole',
+    title: 'JEE Complete Bundle',
+    rating: '4.9',
+    resources: '48 Resources',
+  },
+  {
+    creator: 'Rahul Sharma',
+    title: 'Physics Master Collection',
+    rating: '4.8',
+    resources: '31 Resources',
+  },
+  {
+    creator: 'Aman Patel',
+    title: 'NEET Biology Collection',
+    rating: '4.7',
+    resources: '27 Resources',
   },
 ];
 
@@ -272,6 +294,40 @@ function HomePage() {
               </Link>
             );
           })}
+        </div>
+      </section>
+
+      <section className="mx-auto w-full max-w-[1200px] px-[24px] pb-12">
+        <div className="mb-5">
+          <h2 className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Featured Catalogues</h2>
+          <p className="mt-1 text-sm text-zinc-500">Curated study collections from student creators.</p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {featuredCatalogues.map((catalogue) => (
+            <article
+              key={catalogue.title}
+              className="flex min-h-[190px] flex-col rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-5 transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.025]"
+            >
+              <p className="text-xs font-medium uppercase tracking-wider text-zinc-500">{catalogue.creator}</p>
+              <h3 className="mt-3 text-lg font-semibold leading-snug text-[#f0f0f0]">{catalogue.title}</h3>
+
+              <div className="mt-4 flex items-center justify-between gap-4 text-sm text-zinc-400">
+                <span className="inline-flex items-center gap-1.5">
+                  <Star className="text-ember" size={15} fill="currentColor" aria-hidden="true" />
+                  {catalogue.rating}
+                </span>
+                <span>{catalogue.resources}</span>
+              </div>
+
+              <button
+                type="button"
+                className="mt-auto inline-flex h-10 items-center justify-center rounded-[6px] border border-[rgba(255,255,255,0.08)] px-4 text-sm font-medium text-zinc-200 transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.04]"
+              >
+                View Catalogue
+              </button>
+            </article>
+          ))}
         </div>
       </section>
     </main>
