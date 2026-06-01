@@ -29,7 +29,7 @@ const SppuBranchesPage = lazy(() => import('./pages/SppuBranchesPage.jsx'));
 const SemesterSelectionPage = lazy(() => import('./pages/SemesterSelectionPage.jsx'));
 const SubjectMarketplacePage = lazy(() => import('./pages/SubjectMarketplacePage.jsx'));
 const SubjectPlaceholderPage = lazy(() => import('./pages/SubjectPlaceholderPage.jsx'));
-const CataloguePlaceholderPage = lazy(() => import('./pages/CataloguePlaceholderPage.jsx'));
+const CatalogueDetailPage = lazy(() => import('./pages/CatalogueDetailPage.jsx'));
 const NoteDetailPage = lazy(() => import('./pages/NoteDetailPage.jsx'));
 
 const categoryCards = [
@@ -156,10 +156,10 @@ function App() {
           }
         />
         <Route
-          path="/catalogue/:catalogueId"
+          path="/sppu/:branchSlug/:semesterSlug/:subjectSlug/:catalogueId"
           element={
             <PageSuspense label="Loading catalogue...">
-              <CataloguePlaceholderPage />
+              <CatalogueDetailPage />
             </PageSuspense>
           }
         />

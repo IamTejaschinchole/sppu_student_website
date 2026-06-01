@@ -139,7 +139,7 @@ export default function SubjectPlaceholderPage() {
                 </div>
 
                 <Link
-                  to={`/catalogue/${catalogue.id}`}
+                  to={`/sppu/${branch.slug}/${semester.slug}/${subjectSlug}/${catalogue.id}`}
                   className="mt-auto inline-flex h-10 items-center justify-center rounded-[6px] border border-[rgba(255,255,255,0.08)] px-4 text-sm font-medium text-zinc-200 transition-colors duration-200 hover:border-[#6366f1]/70 hover:bg-white/[0.04]"
                 >
                   View Catalogue
