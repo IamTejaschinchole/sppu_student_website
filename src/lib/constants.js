@@ -1,13 +1,6 @@
-export const subjectCatalog = [
-  'Data Structures',
-  'Discrete Mathematics',
-  'Computer Graphics',
-  'Object Oriented Programming',
-  'Database Management Systems',
-  'Operating Systems',
-  'Computer Networks',
-  'Microprocessor',
-];
+import { getAllSppuSubjects } from '../data/sppuSubjects.js';
+
+export const subjectCatalog = getAllSppuSubjects();
 
 export const semesters = ['All', 'Semester 3', 'Semester 4'];
 export const priceFilters = ['All Prices', 'Free', 'Paid'];

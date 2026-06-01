@@ -26,7 +26,9 @@ const UploadPage = lazy(() => import('./pages/UploadPage.jsx'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage.jsx'));
 const CategoriesPage = lazy(() => import('./pages/CategoriesPage.jsx'));
 const SppuBranchesPage = lazy(() => import('./pages/SppuBranchesPage.jsx'));
-const BranchPlaceholderPage = lazy(() => import('./pages/BranchPlaceholderPage.jsx'));
+const SemesterSelectionPage = lazy(() => import('./pages/SemesterSelectionPage.jsx'));
+const SubjectMarketplacePage = lazy(() => import('./pages/SubjectMarketplacePage.jsx'));
+const SubjectPlaceholderPage = lazy(() => import('./pages/SubjectPlaceholderPage.jsx'));
 const NoteDetailPage = lazy(() => import('./pages/NoteDetailPage.jsx'));
 
 const categoryCards = [
@@ -121,10 +123,26 @@ function App() {
           }
         />
         <Route
+          path="/sppu/:branchSlug/:semesterSlug/:subjectSlug"
+          element={
+            <PageSuspense label="Loading subject...">
+              <SubjectPlaceholderPage />
+            </PageSuspense>
+          }
+        />
+        <Route
+          path="/sppu/:branchSlug/:semesterSlug"
+          element={
+            <PageSuspense label="Loading subjects...">
+              <SubjectMarketplacePage />
+            </PageSuspense>
+          }
+        />
+        <Route
           path="/sppu/:branchSlug"
           element={
-            <PageSuspense label="Loading branch...">
-              <BranchPlaceholderPage />
+            <PageSuspense label="Loading semesters...">
+              <SemesterSelectionPage />
             </PageSuspense>
           }
         />
