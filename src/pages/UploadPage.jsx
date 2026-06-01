@@ -1,355 +1,371 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, FileText, FileUp, ShieldCheck, Upload } from 'lucide-react';
-import { firebaseReady } from '../firebase.js';
-import { useAuth } from '../AuthContext.jsx';
-import { subjectCatalog } from '../lib/constants.js';
-import { getStorageErrorMessage } from '../lib/errors.js';
-import { formatBytes, getUserName, parseTags, sanitizeFilename } from '../lib/utils.js';
-import { Avatar, ErrorMessage } from '../components/ui.jsx';
+import { ArrowLeft, Plus, Trash2, FileUp, CheckCircle, Image as ImageIcon } from 'lucide-react';
+import { sppuBranches } from '../lib/sppu.js';
+import { getSppuSemestersForBranchSlug, getSppuSubjectsForRoute } from '../data/sppuSubjects.js';
+import { formatBytes } from '../lib/utils.js';
 
 export default function UploadPage() {
-  const { user } = useAuth();
   const navigate = useNavigate();
+  const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const [form, setForm] = useState({
     title: '',
-    subject: subjectCatalog[0],
-    semester: '3',
     description: '',
-    tags: '',
-    priceType: 'free',
-    priceAmount: '',
+    university: 'Savitribai Phule Pune University (SPPU)',
+    branch: '',
+    semester: '',
+    subject: '',
   });
-  const [file, setFile] = useState(null);
-  const [dragActive, setDragActive] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const [uploading, setUploading] = useState(false);
-  const [error, setError] = useState('');
 
-  function updateField(field, value) {
-    setForm((current) => ({ ...current, [field]: value }));
-    setError('');
+  const [coverImage, setCoverImage] = useState(null);
+  
+  const [resources, setResources] = useState([]);
+  const [resourceDraft, setResourceDraft] = useState({
+    title: '',
+    type: 'Notes',
+    description: '',
+    file: null,
+  });
+
+  // Cascading dropdowns
+  const availableSemesters = useMemo(() => {
+    if (!form.branch) return [];
+    return getSppuSemestersForBranchSlug(form.branch);
+  }, [form.branch]);
+
+  const availableSubjects = useMemo(() => {
+    if (!form.branch || !form.semester) return [];
+    return getSppuSubjectsForRoute(form.branch, form.semester);
+  }, [form.branch, form.semester]);
+
+  function handleFormChange(field, value) {
+    setForm((prev) => {
+      const next = { ...prev, [field]: value };
+      if (field === 'branch') {
+        next.semester = '';
+        next.subject = '';
+      }
+      if (field === 'semester') {
+        next.subject = '';
+      }
+      return next;
+    });
   }
 
-  function handleFileSelection(selectedFile) {
-    setError('');
+  function handleAddResource(e) {
+    e.preventDefault();
+    if (!resourceDraft.title || !resourceDraft.file) return;
 
-    if (!selectedFile) {
+    setResources((prev) => [
+      ...prev,
+      {
+        ...resourceDraft,
+        id: Date.now().toString(),
+      },
+    ]);
+    
+    setResourceDraft({
+      title: '',
+      type: 'Notes',
+      description: '',
+      file: null,
+    });
+  }
+
+  function handleRemoveResource(id) {
+    setResources((prev) => prev.filter(r => r.id !== id));
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    
+    // Validation
+    if (!form.title || !form.branch || !form.semester || !form.subject) return;
+    if (resources.length === 0) {
+      alert("Please add at least one resource.");
       return;
     }
 
-    const isPdf = selectedFile.type === 'application/pdf' || selectedFile.name.toLowerCase().endsWith('.pdf');
-
-    if (!isPdf) {
-      setFile(null);
-      setError('Only PDF files can be uploaded.');
-      return;
-    }
-
-    setFile(selectedFile);
+    setIsSubmitting(true);
+    
+    // Mock submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSuccess(true);
+    }, 1500);
   }
 
-  function handleDrag(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    setDragActive(event.type === 'dragenter' || event.type === 'dragover');
-  }
+  // Define Resource Types
+  const resourceTypes = ['Notes', 'PYQ', 'Practical', 'Assignment', 'Project'];
 
-  function handleDrop(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    setDragActive(false);
-    handleFileSelection(event.dataTransfer.files?.[0]);
-  }
-
-  async function handleSubmit(event) {
-    event.preventDefault();
-    setError('');
-
-    if (!file) {
-      setError('Choose a PDF file before uploading.');
-      return;
-    }
-
-    if (form.priceType === 'paid' && (!form.priceAmount || Number(form.priceAmount) <= 0)) {
-      setError('Enter a valid paid price.');
-      return;
-    }
-
-    setUploading(true);
-    setProgress(0);
-
-    try {
-      const services = await firebaseReady;
-      const { ref, uploadBytesResumable } = await import('firebase/storage');
-      const { addDoc, collection, serverTimestamp } = await import('firebase/firestore');
-      const safeName = sanitizeFilename(file.name);
-      const storagePath = `notes/${user.uid}/${Date.now()}-${safeName}`;
-      const fileRef = ref(services.storage, storagePath);
-      const uploadTask = uploadBytesResumable(fileRef, file, {
-        contentType: 'application/pdf',
-        customMetadata: {
-          uploadedBy: user.uid,
-          subject: form.subject,
-          semester: form.semester,
-        },
-      });
-
-      await new Promise((resolve, reject) => {
-        uploadTask.on(
-          'state_changed',
-          (snapshot) => {
-            const nextProgress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-            setProgress(nextProgress);
-          },
-          reject,
-          resolve,
-        );
-      });
-
-      const price = form.priceType === 'free' ? 'Free' : `Rs. ${Number(form.priceAmount).toFixed(0)}`;
-
-      await addDoc(collection(services.db, 'notes'), {
-        title: form.title.trim(),
-        subject: form.subject,
-        semester: Number(form.semester),
-        description: form.description.trim(),
-        tags: parseTags(form.tags),
-        price,
-        priceType: form.priceType,
-        priceAmount: form.priceType === 'paid' ? Number(form.priceAmount) : 0,
-        storagePath,
-        fileName: file.name,
-        uploadedBy: user.uid,
-        uploaderName: getUserName(user),
-        uploaderAvatar: user.photoURL || '',
-        createdAt: serverTimestamp(),
-        downloads: 0,
-        rating: 0,
-        ratingCount: 0,
-      });
-
-      navigate('/', { replace: true });
-    } catch (uploadError) {
-      console.error('Unable to upload note', uploadError);
-      setError(getStorageErrorMessage(uploadError));
-    } finally {
-      setUploading(false);
-    }
+  if (success) {
+    return (
+      <main className="mx-auto flex w-full max-w-[1200px] flex-col items-center px-[24px] pb-20 pt-20">
+        <div className="flex flex-col items-center rounded-lg border border-[rgba(255,255,255,0.06)] bg-[#141414] p-10 text-center max-w-md w-full shadow-lg">
+          <div className="grid h-16 w-16 place-items-center rounded-full bg-emerald-500/10 text-emerald-500">
+            <CheckCircle size={32} />
+          </div>
+          <h1 className="mt-6 text-2xl font-semibold text-white">Catalogue Published!</h1>
+          <p className="mt-3 text-zinc-400">
+            Your catalogue "{form.title}" containing {resources.length} resources is now live.
+          </p>
+          <button
+            onClick={() => navigate('/')}
+            className="mt-8 inline-flex h-11 w-full items-center justify-center rounded-[6px] bg-[#6366f1] px-4 text-sm font-medium text-white transition-colors hover:bg-[#4f46e5]"
+          >
+            Go to Homepage
+          </button>
+        </div>
+      </main>
+    );
   }
 
   return (
-    <main className="mx-auto grid w-full max-w-7xl gap-8 px-5 py-10 sm:px-8 lg:grid-cols-[0.84fr_1.16fr] lg:py-16">
-      <section className="rounded-lg border border-line bg-panel p-6">
-        <Link to="/" className="inline-flex items-center gap-2 text-sm text-zinc-400 transition hover:text-white">
-          <ArrowLeft size={17} aria-hidden="true" />
-          Back to marketplace
-        </Link>
-        <div className="mt-8 inline-flex rounded-md border border-mint/35 bg-mint/10 px-2.5 py-1 text-xs font-medium text-mint">
-          Firebase Storage upload
-        </div>
-        <h1 className="mt-4 text-4xl font-semibold leading-tight text-white">Upload PDF notes</h1>
-        <p className="mt-4 text-base leading-7 text-zinc-300">
-          Add a PDF, publish note details to Firestore, and make downloads available only to signed-in
-          students.
-        </p>
-        <div className="mt-8 flex items-center gap-3 rounded-lg border border-line bg-zinc-950/55 p-4">
-          <Avatar user={user} />
-          <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-white">{getUserName(user)}</p>
-            <p className="truncate text-xs text-zinc-500">{user?.email}</p>
-          </div>
-        </div>
-        <div className="mt-6 grid gap-3 text-sm text-zinc-300">
-          <div className="flex items-center gap-2">
-            <ShieldCheck size={17} className="text-mint" aria-hidden="true" />
-            Login is required before uploading.
-          </div>
-          <div className="flex items-center gap-2">
-            <FileText size={17} className="text-ember" aria-hidden="true" />
-            PDF files are stored in Firebase Storage.
-          </div>
-        </div>
-      </section>
+    <main className="mx-auto w-full max-w-[1200px] px-[24px] pb-20 pt-10">
+      <Link to="/" className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition hover:text-white">
+        <ArrowLeft size={16} aria-hidden="true" />
+        Back to Browse
+      </Link>
 
-      <section className="rounded-lg border border-line bg-panel p-6">
-        <form className="grid gap-5" onSubmit={handleSubmit}>
-          <div>
-            <label className="mb-2 block text-sm font-medium text-zinc-300" htmlFor="note-title">
-              Note title
-            </label>
-            <input
-              id="note-title"
-              required
-              disabled={uploading}
-              value={form.title}
-              onChange={(event) => updateField('title', event.target.value)}
-              className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 px-4 text-sm text-white placeholder:text-zinc-500 disabled:opacity-60"
-              placeholder="Example: DBMS Unit 2 normalization notes"
-            />
-          </div>
+      <div className="mb-8">
+        <h1 className="text-3xl font-semibold text-white">Upload Catalogue</h1>
+        <p className="mt-2 text-zinc-400">Bundle related study materials, notes, and PYQs together into a single catalogue.</p>
+      </div>
 
-          <div className="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-300" htmlFor="note-subject">
-                Subject
-              </label>
-              <select
-                id="note-subject"
-                disabled={uploading}
-                value={form.subject}
-                onChange={(event) => updateField('subject', event.target.value)}
-                className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 px-4 text-sm text-white disabled:opacity-60"
-              >
-                {subjectCatalog.map((subject) => (
-                  <option key={subject}>{subject}</option>
-                ))}
-              </select>
+      <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
+        {/* Left Column: Form */}
+        <div className="flex flex-col gap-8">
+          <section className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-white mb-6">1. Catalogue Details</h2>
+            <div className="grid gap-5">
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-300">Catalogue Title *</label>
+                <input
+                  required
+                  value={form.title}
+                  onChange={(e) => handleFormChange('title', e.target.value)}
+                  className="h-11 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-4 text-sm text-white placeholder:text-zinc-600 focus:border-[#6366f1] outline-none transition-colors"
+                  placeholder="E.g., Complete SEM 3 Notes Bundle"
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-300">Description</label>
+                <textarea
+                  value={form.description}
+                  onChange={(e) => handleFormChange('description', e.target.value)}
+                  className="min-h-24 w-full resize-y rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 p-4 text-sm text-white placeholder:text-zinc-600 focus:border-[#6366f1] outline-none transition-colors"
+                  placeholder="Describe what's included in this catalogue..."
+                />
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-300">Cover Image (Optional)</label>
+                <label className="flex h-24 cursor-pointer items-center justify-center rounded-[6px] border border-dashed border-[rgba(255,255,255,0.1)] bg-zinc-950/30 transition hover:border-[#6366f1]/50 hover:bg-zinc-950/50">
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="sr-only"
+                    onChange={(e) => setCoverImage(e.target.files?.[0])}
+                  />
+                  {coverImage ? (
+                    <span className="text-sm font-medium text-white">{coverImage.name}</span>
+                  ) : (
+                    <span className="inline-flex items-center gap-2 text-sm text-zinc-500">
+                      <ImageIcon size={18} />
+                      Upload Cover Image
+                    </span>
+                  )}
+                </label>
+              </div>
             </div>
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-300" htmlFor="note-semester">
-                Semester
-              </label>
-              <select
-                id="note-semester"
-                disabled={uploading}
-                value={form.semester}
-                onChange={(event) => updateField('semester', event.target.value)}
-                className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 px-4 text-sm text-white disabled:opacity-60"
-              >
-                <option value="3">Semester 3</option>
-                <option value="4">Semester 4</option>
-              </select>
-            </div>
-          </div>
+          </section>
 
-          <div>
-            <label className="mb-2 block text-sm font-medium text-zinc-300" htmlFor="note-description">
-              Description
-            </label>
-            <textarea
-              id="note-description"
-              required
-              disabled={uploading}
-              value={form.description}
-              onChange={(event) => updateField('description', event.target.value)}
-              className="min-h-32 w-full resize-y rounded-lg border border-line bg-zinc-950/55 px-4 py-3 text-sm text-white placeholder:text-zinc-500 disabled:opacity-60"
-              placeholder="Mention units covered, exam focus, diagrams, or lab programs."
-            />
-          </div>
+          <section className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-white mb-6">2. Academic Context</h2>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <div className="sm:col-span-2">
+                <label className="mb-2 block text-sm font-medium text-zinc-300">University</label>
+                <input
+                  disabled
+                  value={form.university}
+                  className="h-11 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-white/[0.02] px-4 text-sm text-zinc-500 cursor-not-allowed outline-none"
+                />
+              </div>
 
-          <div className="grid gap-5 sm:grid-cols-[1fr_0.7fr]">
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-300" htmlFor="note-tags">
-                Tags
-              </label>
-              <input
-                id="note-tags"
-                disabled={uploading}
-                value={form.tags}
-                onChange={(event) => updateField('tags', event.target.value)}
-                className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 px-4 text-sm text-white placeholder:text-zinc-500 disabled:opacity-60"
-                placeholder="SQL, ER, normalization"
-              />
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-300">Branch *</label>
+                <select
+                  required
+                  value={form.branch}
+                  onChange={(e) => handleFormChange('branch', e.target.value)}
+                  className="h-11 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-4 text-sm text-white focus:border-[#6366f1] outline-none transition-colors"
+                >
+                  <option value="" disabled>Select Branch</option>
+                  {sppuBranches.map(b => (
+                    <option key={b.slug} value={b.slug}>{b.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-zinc-300">Semester *</label>
+                <select
+                  required
+                  disabled={!form.branch}
+                  value={form.semester}
+                  onChange={(e) => handleFormChange('semester', e.target.value)}
+                  className="h-11 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-4 text-sm text-white focus:border-[#6366f1] outline-none transition-colors disabled:opacity-50"
+                >
+                  <option value="" disabled>Select Semester</option>
+                  {availableSemesters.map(s => (
+                    <option key={s.slug} value={s.slug}>{s.title}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="sm:col-span-2">
+                <label className="mb-2 block text-sm font-medium text-zinc-300">Subject *</label>
+                <select
+                  required
+                  disabled={!form.semester}
+                  value={form.subject}
+                  onChange={(e) => handleFormChange('subject', e.target.value)}
+                  className="h-11 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-4 text-sm text-white focus:border-[#6366f1] outline-none transition-colors disabled:opacity-50"
+                >
+                  <option value="" disabled>Select Subject</option>
+                  {availableSubjects.map(sub => (
+                    <option key={sub} value={sub}>{sub}</option>
+                  ))}
+                </select>
+              </div>
             </div>
-            <div>
-              <span className="mb-2 block text-sm font-medium text-zinc-300">Price</span>
-              <div className="grid h-12 grid-cols-2 rounded-lg border border-line bg-zinc-950/55 p-1">
-                {['free', 'paid'].map((type) => (
-                  <button
-                    key={type}
-                    type="button"
-                    disabled={uploading}
-                    onClick={() => updateField('priceType', type)}
-                    className={`rounded-md text-sm font-semibold capitalize transition ${
-                      form.priceType === type ? 'bg-mint text-ink' : 'text-zinc-400 hover:text-white'
-                    }`}
+          </section>
+
+          <section className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6 sm:p-8">
+            <h2 className="text-lg font-semibold text-white mb-6">3. Upload Resources</h2>
+            
+            <form onSubmit={handleAddResource} className="rounded-[8px] border border-dashed border-[rgba(255,255,255,0.1)] bg-white/[0.01] p-5">
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="sm:col-span-2">
+                  <label className="mb-2 block text-xs font-medium text-zinc-400">Resource Title *</label>
+                  <input
+                    required
+                    value={resourceDraft.title}
+                    onChange={(e) => setResourceDraft(prev => ({...prev, title: e.target.value}))}
+                    className="h-10 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-3 text-sm text-white placeholder:text-zinc-600 focus:border-[#6366f1] outline-none transition-colors"
+                    placeholder="E.g., Unit 1 handwritten notes"
+                  />
+                </div>
+                
+                <div>
+                  <label className="mb-2 block text-xs font-medium text-zinc-400">Resource Type *</label>
+                  <select
+                    required
+                    value={resourceDraft.type}
+                    onChange={(e) => setResourceDraft(prev => ({...prev, type: e.target.value}))}
+                    className="h-10 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-3 text-sm text-white focus:border-[#6366f1] outline-none transition-colors"
                   >
-                    {type}
+                    {resourceTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                  </select>
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-xs font-medium text-zinc-400">File *</label>
+                  <label className="flex h-10 cursor-pointer items-center justify-center gap-2 rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-3 text-sm text-zinc-300 transition hover:bg-white/[0.02]">
+                    <input
+                      type="file"
+                      accept=".pdf,.doc,.docx,.zip,.rar"
+                      className="sr-only"
+                      onChange={(e) => setResourceDraft(prev => ({...prev, file: e.target.files?.[0]}))}
+                    />
+                    <FileUp size={16} />
+                    <span className="truncate">{resourceDraft.file ? resourceDraft.file.name : 'Select File'}</span>
+                  </label>
+                </div>
+
+                <div className="sm:col-span-2">
+                  <label className="mb-2 block text-xs font-medium text-zinc-400">Description (Optional)</label>
+                  <input
+                    value={resourceDraft.description}
+                    onChange={(e) => setResourceDraft(prev => ({...prev, description: e.target.value}))}
+                    className="h-10 w-full rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-zinc-950/55 px-3 text-sm text-white placeholder:text-zinc-600 focus:border-[#6366f1] outline-none transition-colors"
+                    placeholder="E.g., Contains detailed explanations with examples"
+                  />
+                </div>
+
+                <div className="sm:col-span-2 flex justify-end pt-2">
+                  <button
+                    type="submit"
+                    disabled={!resourceDraft.title || !resourceDraft.file}
+                    className="inline-flex h-9 items-center justify-center gap-2 rounded-[6px] bg-white/[0.05] px-4 text-sm font-medium text-white transition hover:bg-white/[0.1] disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    <Plus size={16} />
+                    Add Resource
                   </button>
-                ))}
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        {/* Right Column: Preview & Publish */}
+        <div className="flex flex-col gap-6">
+          <div className="sticky top-24 rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-zinc-400">Catalogue Preview</h3>
+            
+            <div className="mt-5 rounded-[6px] bg-white/[0.02] p-4 border border-[rgba(255,255,255,0.03)]">
+              <h4 className="font-medium text-white line-clamp-2">{form.title || 'Untitled Catalogue'}</h4>
+              <p className="mt-2 text-xs text-zinc-500">
+                {form.branch ? sppuBranches.find(b => b.slug === form.branch)?.name : 'No branch'} • {form.semester ? availableSemesters.find(s => s.slug === form.semester)?.title : 'No semester'}
+              </p>
+              <div className="mt-3 flex items-center justify-between text-xs text-zinc-400 border-t border-[rgba(255,255,255,0.05)] pt-3">
+                <span>{resources.length} {resources.length === 1 ? 'Resource' : 'Resources'}</span>
+                <span>Ready to publish</span>
               </div>
             </div>
-          </div>
 
-          {form.priceType === 'paid' && (
-            <div>
-              <label className="mb-2 block text-sm font-medium text-zinc-300" htmlFor="note-price">
-                Paid price in rupees
-              </label>
-              <input
-                id="note-price"
-                required
-                min="1"
-                step="1"
-                type="number"
-                disabled={uploading}
-                value={form.priceAmount}
-                onChange={(event) => updateField('priceAmount', event.target.value)}
-                className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 px-4 text-sm text-white placeholder:text-zinc-500 disabled:opacity-60"
-                placeholder="49"
-              />
-            </div>
-          )}
-
-          <label
-            onDragEnter={handleDrag}
-            onDragOver={handleDrag}
-            onDragLeave={handleDrag}
-            onDrop={handleDrop}
-            className={`grid min-h-40 cursor-pointer place-items-center rounded-lg border border-dashed px-4 text-center text-sm transition ${
-              dragActive
-                ? 'border-mint bg-mint/10 text-teal-100'
-                : 'border-line bg-zinc-950/45 text-zinc-400 hover:border-mint/40 hover:bg-mint/10'
-            } ${uploading ? 'pointer-events-none opacity-60' : ''}`}
-          >
-            <input
-              type="file"
-              accept="application/pdf,.pdf"
-              disabled={uploading}
-              className="sr-only"
-              onChange={(event) => handleFileSelection(event.target.files?.[0])}
-            />
-            <span>
-              <FileUp className="mx-auto mb-3 text-zinc-500" size={30} aria-hidden="true" />
-              {file ? (
-                <>
-                  <span className="block font-semibold text-white">{file.name}</span>
-                  <span className="mt-1 block text-xs text-zinc-500">{formatBytes(file.size)}</span>
-                </>
+            <div className="mt-6">
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-500 mb-3">Added Resources</h4>
+              {resources.length === 0 ? (
+                <p className="text-sm text-zinc-600 italic">No resources added yet.</p>
               ) : (
-                <>
-                  <span className="block font-semibold text-white">Drop PDF here or click to browse</span>
-                  <span className="mt-1 block text-xs text-zinc-500">Only PDF files are accepted</span>
-                </>
+                <ul className="flex flex-col gap-2 max-h-[300px] overflow-y-auto pr-1">
+                  {resources.map((res) => (
+                    <li key={res.id} className="flex flex-col gap-1 rounded-[6px] border border-[rgba(255,255,255,0.04)] bg-zinc-950/40 p-3">
+                      <div className="flex items-start justify-between gap-2">
+                        <p className="truncate text-sm font-medium text-zinc-300">{res.title}</p>
+                        <button 
+                          onClick={() => handleRemoveResource(res.id)}
+                          className="rounded-md p-1 text-zinc-500 transition hover:bg-red-500/10 hover:text-red-400 shrink-0"
+                          title="Remove resource"
+                        >
+                          <Trash2 size={14} />
+                        </button>
+                      </div>
+                      <div className="flex gap-2 text-[10px] text-zinc-500">
+                        <span className="uppercase text-[#818cf8]">{res.type}</span>
+                        <span>•</span>
+                        <span>{res.file ? formatBytes(res.file.size) : ''}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               )}
-            </span>
-          </label>
-
-          {uploading && (
-            <div>
-              <div className="mb-2 flex items-center justify-between text-sm text-zinc-300">
-                <span>Uploading PDF</span>
-                <span>{progress}%</span>
-              </div>
-              <div className="h-3 overflow-hidden rounded-full bg-zinc-950">
-                <div className="h-full rounded-full bg-mint transition-all" style={{ width: `${progress}%` }} />
-              </div>
             </div>
-          )}
 
-          {error && <ErrorMessage>{error}</ErrorMessage>}
-
-          <button
-            type="submit"
-            disabled={uploading}
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            <Upload size={18} aria-hidden="true" />
-            {uploading ? 'Uploading...' : 'Upload PDF Notes'}
-          </button>
-        </form>
-      </section>
+            <button
+              onClick={handleSubmit}
+              disabled={isSubmitting || !form.title || !form.branch || !form.semester || !form.subject || resources.length === 0}
+              className="mt-8 inline-flex h-11 w-full items-center justify-center gap-2 rounded-[6px] bg-[#6366f1] px-4 text-sm font-medium text-white transition-colors hover:bg-[#4f46e5] disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              {isSubmitting ? 'Publishing...' : 'Publish Catalogue'}
+            </button>
+          </div>
+        </div>
+      </div>
     </main>
   );
 }
