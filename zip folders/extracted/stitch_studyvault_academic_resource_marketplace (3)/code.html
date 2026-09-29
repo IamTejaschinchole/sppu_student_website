@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#4cd7f6", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "border-glass-specular": "rgba(255, 255, 255, 0.20)", "secondary": "#4cd7f6", "inverse-on-surface": "#2c303a", "on-primary": "#002e6a", "on-secondary": "#003640", "on-tertiary-container": "#340080", "tertiary": "#d0bcff", "glow-primary": "rgba(77, 142, 255, 0.35)", "primary-container": "#4d8eff", "inverse-primary": "#005ac2", "on-tertiary-fixed": "#23005c", "surface-container": "#1c1f29", "on-secondary-container": "#00424e", "error-container": "#93000a", "primary-fixed-dim": "#adc6ff", "secondary-container": "#03b5d4", "alert-amber": "#f59e0b", "surface-tint": "#adc6ff", "surface-container-high": "#262a34", "border-glass-luminous": "rgba(76, 215, 246, 0.35)", "surface-glass-high": "rgba(26, 38, 64, 0.75)", "tertiary-container": "#a078ff", "on-surface-variant": "#c2c6d6", "outline-variant": "#424753", "surface-dim": "#0f131c", "inverse-surface": "#dfe2ef", "surface-glass-low": "rgba(10, 14, 23, 0.55)", "glow-cyan": "rgba(76, 215, 246, 0.25)", "surface-container-low": "#181b25", "surface-glass-base": "rgba(17, 24, 39, 0.65)", "on-tertiary": "#3c0091", "border-glass-subtle": "rgba(255, 255, 255, 0.10)", "success-emerald": "#10b981", "on-secondary-fixed-variant": "#004e5c", "on-background": "#dfe2ef", "surface-bright": "#353943", "on-primary-fixed-variant": "#004495", "primary-fixed": "#d8e2ff", "on-surface": "#dfe2ef", "surface-variant": "#31353f", "surface": "#0f131c", "tertiary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#5424af", "outline": "#8c909f", "on-primary-fixed": "#001a42", "canvas-void": "#06090e", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001f26", "glow-indigo": "rgba(160, 120, 255, 0.20)", "error": "#ffb4ab", "secondary-fixed": "#acedff", "tertiary-fixed-dim": "#d0bcff", "primary": "#adc6ff", "background": "#0f131c", "on-primary-container": "#00285d", "on-error": "#690005", "alert-coral": "#f43f5e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-lg": "3.5rem", "gutter-lg": "1.75rem", "space-xl": "2.25rem", "space-sm": "0.5rem", "margin": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-md": "2rem", "space-md": "1rem", "gutter": "1.25rem" }, "fontFamily": { "body-lg": ["Inter", "sans-serif"], "headline-md": ["Outfit", "sans-serif"], "body-sm": ["Inter", "sans-serif"], "label-sm": ["Plus Jakarta Sans", "sans-serif"], "body-md": ["Inter", "sans-serif"], "display-hero": ["Outfit", "sans-serif"], "label-md": ["Plus Jakarta Sans", "sans-serif"], "headline-lg": ["Outfit", "sans-serif"], "headline-sm": ["Outfit", "sans-serif"], "display-hero-mobile": ["Outfit", "sans-serif"], "headline-lg-mobile": ["Outfit", "sans-serif"], "title-md": ["Plus Jakarta Sans", "sans-serif"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen" style="background-image: linear-gradient(rgba(15, 19, 28, 0.6) 0%, rgba(10, 14, 23, 0.88) 60%, rgba(9, 14, 27, 0.98) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG14CsLAZ97xTQC9muJ4oZbRuKxxI3izq9sE1mJOo8jxtv_vdyxqVDmbULK2Cj15sZmCTeMyG8Agf1HBc1np7ijdF7vFqRHSoLMvVu55-S0HxI0IRI9zOeT8Zouh1b37fcH-22RUnU7gXcElIVXV-5bCVwXytKLEslCe-1-4Ayk8AMcdo4mE1Fi_YwpiJA-Ggfcct4rDaV1-KkoPX-hdO8b2Jc2GnxFsezaMyzaiGBFfn7pu5L1eJ8BMfimXgEt-ow'); background-attachment: fixed; background-size: cover; background-position: center top; background-repeat: no-repeat;"><header class="fixed top-0 left-0 w-full z-50 bg-surface-glass-low backdrop-blur-xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.5)] border-b border-border-glass-subtle"><div class="h-20 w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors tracking-tight">StudyVault</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">SPPU Edition</span></div></a><div class="hidden xl:flex items-center bg-surface-glass-base backdrop-blur-md px-space-md py-space-xs rounded-full border border-border-glass-subtle gap-space-sm focus-within:border-secondary transition-all w-72"><span class="material-symbols-outlined text-outline text-lg">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Search papers, notes, units..." type="text"/><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline-variant border border-border-glass-subtle">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="home" href="#">Home</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="browse" href="#">Browse</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="upload" href="#">Upload</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="library" href="#">My Library</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="dashboard" href="#">Dashboard</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center gap-space-xs bg-primary-container text-on-primary-container px-space-md py-space-sm rounded-xl font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all shadow-[0_0_20px_rgba(77,142,255,0.35)]" data-path="upload" href="#"><span class="material-symbols-outlined text-sm">upload_file</span><span class="">Share Vault</span></a><button aria-label="Notifications" class="p-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high rounded-full transition-colors relative" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-dim"></span></button><a class="flex items-center gap-space-xs p-1 rounded-full hover:ring-2 hover:ring-secondary/40 transition-all" data-path="profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-border-glass-specular" src="https://lh3.googleusercontent.com/aida/AEtjO1Vxmg5yQl0IXyUgyFSwhJ9N0ReSIFEZrQUdY1GqM2YMHGj-BwggkA9mZpRIAMPbNWOtHFXS0NwwfRqK5Svc7cyGxxcV-H0Wi0agzQSsbk4Mb7g6YgZeilId-oZf2lHr-aOHmTOp_rQs-_WxMiNQgUPiYekmAacWVir7RMOxY5rO6aM-iIDXsPMa8uqMh-OWUi_QdACL16ZAyQggLdSeUm4PWE4xGSU7fgCUMwgRs7JSHw2Ql8U1FnBbUQ"/></a></div></div></header><main class="w-full pt-20 relative z-10"><div class="flex flex-col w-full relative">
+<div class="relative w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-xl">
+<!-- Atmospheric Ambient Glows behind Profile Stage -->
+<div class="absolute top-12 left-1/4 w-96 h-96 rounded-full bg-secondary/15 blur-[120px] pointer-events-none -z-10"></div>
+<div class="absolute top-36 right-1/4 w-[480px] h-[480px] rounded-full bg-tertiary-container/20 blur-[140px] pointer-events-none -z-10"></div>
+<!-- Profile Hero Glass Card (Level 1 Elevation) -->
+<section class="w-full mt-space-lg rounded-xl bg-surface-glass-base/80 backdrop-blur-2xl p-space-lg md:p-space-xl shadow-xl relative overflow-hidden border-border-glass-specular border">
+<!-- Specular Top Rim Gradient -->
+<div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary-fixed-dim/40 to-transparent"></div>
+<!-- Top Utility / Quick Meta Row -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm mb-space-lg">
+<div class="flex flex-wrap items-center gap-space-sm">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest/60 text-secondary font-label-sm text-label-sm backdrop-blur-md">
+<span class="material-symbols-outlined text-sm text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+            Gold Verified Contributor
+          </span>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm">
+<span class="text-outline">PRN:</span> 72149820J
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm">school</span>
+            SPPU 2019/2024 Pattern
+          </span>
+</div>
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-success-emerald animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Active on Pune Campus Hub</span>
+</div>
+</div>
+<!-- Main Profile Banner Body -->
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-xl">
+<!-- Student Identity Group -->
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-space-lg">
+<div class="relative group shrink-0"><div class="absolute -inset-1 rounded-full bg-gradient-to-r from-secondary via-primary-container to-tertiary-container opacity-60 blur-md group-hover:opacity-100 transition-opacity"></div><div class="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-surface-container-high/90 border border-border-glass-specular backdrop-blur-2xl flex flex-col items-center justify-center shadow-2xl shadow-[0_0_20px_rgba(77,142,255,0.35)]"><span class="material-symbols-outlined text-secondary text-2xl mb-0.5" style="font-variation-settings: 'FILL' 1;">school</span><span class="font-headline-lg text-headline-lg font-bold text-on-surface tracking-tight bg-gradient-to-r from-secondary via-primary-fixed-dim to-tertiary bg-clip-text text-transparent">TC</span><span class="font-label-sm text-[10px] uppercase tracking-widest text-secondary font-semibold">SPPU • PICT</span></div><div class="absolute bottom-1 right-1 bg-surface-container-lowest text-secondary rounded-full p-1 shadow-lg ring-2 ring-surface-dim" title="Top Ranked Scholar"><span class="material-symbols-outlined text-base block" style="font-variation-settings: 'FILL' 1;">verified</span></div></div>
+<div class="space-y-space-xs">
+<div class="flex flex-wrap items-center gap-space-sm">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">Tejas Chinchole</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded bg-primary-container/20 text-primary-fixed-dim font-label-sm text-label-sm">
+                Rank #1 in IT Dept
+              </span>
+</div>
+<p class="font-title-md text-title-md text-on-surface-variant font-medium">
+              Information Technology • Third Year (TE), Semester 5 • Savitribai Phule Pune University (SPPU) | Pune Institute of Computer Technology (PICT)
+            </p>
+<p class="font-body-sm text-body-sm text-outline flex items-center gap-1.5 pt-0.5">
+<span class="material-symbols-outlined text-base text-secondary">account_balance</span>
+              Savitribai Phule Pune University • Pune Institute of Computer Technology (PICT)
+            </p>
+<!-- Human Student Bio -->
+<p class="font-body-sm text-body-sm text-on-surface/90 max-w-2xl pt-1 leading-relaxed">
+              TE IT @ PICT Pune ('25) • Uploading my handwritten class notes, solved In-Sem papers, and clean lab records. Just sharing what helped me score 9.2+ CGPA so nobody has to pull blind all-nighters before exams.
+            </p>
+</div>
+</div>
+<!-- Call to Actions -->
+<div class="flex flex-wrap sm:flex-nowrap lg:flex-col xl:flex-row items-stretch gap-space-sm w-full lg:w-auto self-stretch lg:self-center">
+<button class="flex-1 lg:flex-none inline-flex items-center justify-center gap-space-xs bg-primary-container text-on-primary-container font-label-md text-label-md px-space-md py-space-sm rounded-xl shadow-lg hover:bg-primary hover:text-on-primary transition-all font-semibold" type="button">
+<span class="material-symbols-outlined text-base">edit</span>
+<span class="">Edit Profile</span>
+</button>
+<button class="flex-1 lg:flex-none inline-flex items-center justify-center gap-space-xs bg-surface-container-high/80 text-on-surface font-label-md text-label-md px-space-md py-space-sm rounded-xl hover:bg-surface-bright transition-all shadow-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-base text-secondary">share</span>
+<span class="">Share Profile</span>
+</button>
+<button class="flex-1 lg:flex-none inline-flex items-center justify-center gap-space-xs bg-surface-container-high/80 text-on-surface font-label-md text-label-md px-space-md py-space-sm rounded-xl hover:bg-surface-bright transition-all shadow-sm font-semibold" type="button">
+<span class="material-symbols-outlined text-base text-tertiary">payments</span>
+<span class="">UPI Settings</span>
+</button>
+</div>
+</div>
+<!-- Quick Metrics Strip -->
+<div class="mt-space-xl pt-space-lg bg-surface-container-low/50 -mx-space-lg md:-mx-space-xl px-space-lg md:px-space-xl">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+<div class="flex items-center gap-space-md">
+<div class="p-space-sm rounded-xl bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">48</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Notes &amp; Papers Uploaded</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="p-space-sm rounded-xl bg-primary-container/10 text-primary-fixed-dim">
+<span class="material-symbols-outlined text-2xl">download</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">2.3K</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Student Downloads</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="p-space-sm rounded-xl bg-alert-amber/10 text-alert-amber">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">4.8 <span class="font-body-sm text-body-sm text-outline">/ 5.0</span></div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Academic Rating</div>
+</div>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="p-space-sm rounded-xl bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined text-2xl">military_tech</span>
+</div>
+<div>
+<div class="font-headline-md text-headline-md text-on-surface font-bold">#1 IT Dept</div>
+<div class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Department Contributor</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Workspace (Split Layout) -->
+<div class="mt-space-xl grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+<!-- Primary Tabbed Panels (8 of 12 columns) -->
+<section class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Frosted Segmented Tab Control -->
+<div class="w-full overflow-x-auto pb-1">
+<div class="inline-flex p-1.5 rounded-xl bg-surface-glass-base/90 backdrop-blur-xl shadow-md min-w-full sm:min-w-0" id="profile-tabs" role="tablist">
+<button class="tab-btn px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all bg-primary-container text-on-primary-container shadow-sm font-semibold" data-tab="published" type="button">
+              Published Resources (48)
+            </button>
+<button class="tab-btn px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" data-tab="reviews" type="button">
+              Reviews &amp; Endorsements (142)
+            </button>
+<button class="tab-btn px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" data-tab="badges" type="button">
+              Badges &amp; Certs
+            </button>
+<button class="tab-btn px-space-md py-space-xs rounded-lg font-label-md text-label-md transition-all text-on-surface-variant hover:text-on-surface font-semibold" data-tab="about" type="button">
+              Curriculum Focus
+            </button>
+</div>
+</div>
+<!-- Filter Sub-bar for Resources Tab -->
+<div class="flex flex-wrap items-center justify-between gap-space-md bg-surface-glass-low/60 backdrop-blur-lg p-space-md rounded-xl" id="filter-shelf">
+<div class="flex items-center gap-space-xs overflow-x-auto w-full sm:w-auto">
+<button class="px-3 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-semibold" type="button">All Semesters</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Sem 5 (TE)</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">In-Sem Decoders</button>
+<button class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface font-label-sm text-label-sm" type="button">Free Access</button>
+</div>
+<div class="flex items-center gap-space-sm ml-auto">
+<span class="font-label-sm text-label-sm text-outline">Sort:</span>
+<select class="bg-surface-container-high text-on-surface font-label-sm text-label-sm px-2.5 py-1 rounded-lg outline-none cursor-pointer">
+<option>Most Downloaded</option>
+<option>Highest Rated</option>
+<option>Recently Added</option>
+</select>
+</div>
+</div>
+<!-- TAB CONTENT: Published Resources (Default) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-gutter" id="tab-published">
+<!-- Resource Card 1 -->
+<article class="group rounded-xl bg-surface-glass-base/70 backdrop-blur-xl p-space-md flex flex-col justify-between hover:bg-surface-glass-high/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 relative">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-medium">Database Mgmt</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-alert-amber font-semibold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-2 font-semibold">
+                DBMS Unit 1 to 4 Handwritten In-Sem Notes (With SQL &amp; ER Diagrams)
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                My personal lecture notes + 5 years solved In-Sem questions with step-by-step relational algebra &amp; normalization.
+              </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-glass-subtle/40 flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">download</span> 842</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">description</span> 46 pgs</span>
+</div>
+<span class="font-label-md text-label-md text-success-emerald font-semibold">Free</span>
+</div>
+</article>
+<!-- Resource Card 2 -->
+<article class="group rounded-xl bg-surface-glass-base/70 backdrop-blur-xl p-space-md flex flex-col justify-between hover:bg-surface-glass-high/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 relative">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-medium">Theory of Comp</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-alert-amber font-semibold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors line-clamp-2 font-semibold">
+                Theory of Computation: DFA/NFA &amp; Turing Machine Cheatsheet
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                Simplified state transition tables, pumping lemma proofs, and tips to avoid diagram errors in End-Sem.
+              </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-glass-subtle/40 flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">download</span> 619</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">description</span> 38 pgs</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold">₹49</span>
+</div>
+</article>
+<!-- Resource Card 3 -->
+<article class="group rounded-xl bg-surface-glass-base/70 backdrop-blur-xl p-space-md flex flex-col justify-between hover:bg-surface-glass-high/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 relative">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm font-medium">Operating Systems</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-alert-amber font-semibold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.9
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-2 font-semibold">
+                OS CPU Scheduling &amp; Banker's Algorithm Solved Numericals
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                Hand-calculated Gantt charts for Round Robin, SJF, and Banker's algorithm step-by-step tables with clean markings.
+              </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-glass-subtle/40 flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">download</span> 512</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">description</span> 24 pgs</span>
+</div>
+<span class="font-label-md text-label-md text-success-emerald font-semibold">Free</span>
+</div>
+</article>
+<!-- Resource Card 4 -->
+<article class="group rounded-xl bg-surface-glass-base/70 backdrop-blur-xl p-space-md flex flex-col justify-between hover:bg-surface-glass-high/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 relative">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm font-medium">Computer Networks</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-alert-amber font-semibold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.7
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-2 font-semibold">
+                Computer Networks Subnetting &amp; Routing Numerical Guide
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                Quick subnet mask calculation tricks + 12 solved university numericals from previous question papers.
+              </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-glass-subtle/40 flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">download</span> 430</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">description</span> 31 pgs</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold">₹39</span>
+</div>
+</article>
+<!-- Resource Card 5 -->
+<article class="group rounded-xl bg-surface-glass-base/70 backdrop-blur-xl p-space-md flex flex-col justify-between hover:bg-surface-glass-high/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 relative">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary/10 text-tertiary font-label-sm text-label-sm font-medium">HCI &amp; UX</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-alert-amber font-semibold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 4.8
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-tertiary transition-colors line-clamp-2 font-semibold">
+                HCI 2-Day Rapid Revision Notes
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                Summary of Nielsen's heuristics, GOMS model diagrams, and short question-answers for quick exam prep.
+              </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-glass-subtle/40 flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">download</span> 210</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">description</span> 19 pgs</span>
+</div>
+<span class="font-label-md text-label-md text-success-emerald font-semibold">Free</span>
+</div>
+</article>
+<!-- Resource Card 6 -->
+<article class="group rounded-xl bg-surface-glass-base/70 backdrop-blur-xl p-space-md flex flex-col justify-between hover:bg-surface-glass-high/90 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-1 relative">
+<div class="space-y-space-sm">
+<div class="flex items-center justify-between">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/20 text-primary font-label-sm text-label-sm font-medium">Software Engg</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-alert-amber font-semibold">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span> 5.0
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors line-clamp-2 font-semibold">
+                Software Engineering: Agile &amp; Design Patterns Summary
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 leading-relaxed">
+                UML diagram templates, sprint lifecycle breakdowns, and high-scoring 5-mark answer formats.
+              </p>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-border-glass-subtle/40 flex items-center justify-between">
+<div class="flex items-center gap-space-sm text-outline font-label-sm text-label-sm">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">download</span> 180</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">description</span> 22 pgs</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-semibold">₹29</span>
+</div>
+</article>
+</div>
+<!-- Pagination Bar -->
+<div class="flex items-center justify-between pt-space-md">
+<span class="font-body-sm text-body-sm text-outline">Showing 1–6 of 48 verified resources</span>
+<div class="flex items-center gap-space-xs">
+<button class="p-2 rounded-lg bg-surface-container-high text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-base">chevron_left</span>
+</button>
+<span class="px-3 py-1 rounded-lg bg-primary-container text-on-primary-container font-label-sm text-label-sm font-semibold">1</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface cursor-pointer">2</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface cursor-pointer">3</span>
+<span class="px-3 py-1 rounded-lg bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm hover:text-on-surface cursor-pointer">8</span>
+<button class="p-2 rounded-lg bg-surface-container-high text-outline hover:text-on-surface">
+<span class="material-symbols-outlined text-base">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Right Rail: Badges, Verified Peer Feedback & Circles (4 of 12 columns) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- Study Badges Panel -->
+<div class="rounded-xl bg-surface-glass-base/80 backdrop-blur-2xl p-space-lg shadow-xl relative overflow-hidden">
+<div class="flex items-center justify-between mb-space-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Study Badges</h2>
+</div>
+<span class="font-label-sm text-label-sm text-outline">3 Earned</span>
+</div>
+<div class="space-y-space-md">
+<!-- Badge Item 1 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low/70 hover:bg-surface-container-high/60 transition-colors">
+<div class="p-2.5 rounded-xl bg-secondary/15 text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">Syllabus Legend</h4>
+<span class="px-1.5 py-0.5 rounded bg-secondary/20 text-secondary font-label-sm text-[10px]">Tier 3</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Mapped all 6 units to official SPPU 2024 credit pattern</p>
+</div>
+</div>
+<!-- Badge Item 2 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low/70 hover:bg-surface-container-high/60 transition-colors">
+<div class="p-2.5 rounded-xl bg-tertiary-container/20 text-tertiary shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">Junior Helper</h4>
+<span class="px-1.5 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-[10px]">Philanthropy</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Contributed 30+ open manuals freely downloadable by fellow engineering students</p>
+</div>
+</div>
+<!-- Badge Item 3 -->
+<div class="flex items-start gap-space-md p-space-md rounded-xl bg-surface-container-low/70 hover:bg-surface-container-high/60 transition-colors">
+<div class="p-2.5 rounded-xl bg-alert-amber/15 text-alert-amber shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+</div>
+<div class="space-y-0.5">
+<div class="flex items-center gap-1.5">
+<h4 class="font-label-md text-label-md text-on-surface font-semibold">In-Sem Topper Pick</h4>
+<span class="px-1.5 py-0.5 rounded bg-alert-amber/20 text-alert-amber font-label-sm text-[10px]">Hall of Fame</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">Authored the most referenced Mid-Term exam prep solution bank with 99.4% question alignment</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Academic Endorsements Widget -->
+<div class="rounded-xl bg-surface-glass-base/80 backdrop-blur-2xl p-space-lg shadow-xl relative">
+<div class="flex items-center justify-between mb-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Faculty &amp; Peer Reviews</h2>
+<span class="font-label-sm text-label-sm text-secondary hover:underline cursor-pointer">View all 142</span>
+</div>
+<div class="space-y-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low/60 space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Prof. S. R. Deshmukh</span>
+<span class="font-label-sm text-label-sm text-outline">Dept. Faculty Coordinator</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-relaxed">
+                “Tejas makes some of the neatest relational schema diagrams I've seen in class. Extremely reliable reference material for semester exam prep.”
+              </p>
+<div class="flex items-center gap-1 text-alert-amber pt-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">5.0</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low/60 space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Ananya Kulkarni</span>
+<span class="font-label-sm text-label-sm text-outline">TE IT • COEP Pune</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-relaxed">
+                “Scored 28/30 in In-Sem TOC purely based on his finite state machines step breakdown. Absolute lifesaver!”
+              </p>
+<div class="flex items-center gap-1 text-alert-amber pt-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">5.0</span>
+</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low/60 space-y-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface font-semibold">Rohan Kothari</span>
+<span class="font-label-sm text-label-sm text-outline">Comp Engg • VIT Pune</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant italic leading-relaxed">
+                “Clear diagrams and zero fluff. Downloaded his OS notes 2 hours before the test and passed comfortably.”
+              </p>
+<div class="flex items-center gap-1 text-alert-amber pt-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-sm text-label-sm text-outline ml-1">5.0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- University Peer Connections -->
+<div class="rounded-xl bg-surface-glass-base/80 backdrop-blur-2xl p-space-lg shadow-xl relative">
+<div class="flex items-center justify-between mb-space-md">
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Pune Peer Circle</h2>
+<span class="font-label-sm text-label-sm text-outline">320 Peers</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-secondary font-label-md text-label-md">
+                  RK
+                </div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Rohan Kothari</h4>
+<p class="font-body-sm text-body-sm text-outline">Comp Engg • VIT Pune</p>
+</div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-colors" title="Connect">
+<span class="material-symbols-outlined text-lg block">person_add</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-tertiary font-label-md text-label-md">
+                  SM
+                </div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Shruti More</h4>
+<p class="font-body-sm text-body-sm text-outline">AI &amp; DS • MIT WPU</p>
+</div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-colors" title="Connect">
+<span class="material-symbols-outlined text-lg block">person_add</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg hover:bg-surface-container-high transition-colors">
+<div class="flex items-center gap-space-sm">
+<div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-primary-fixed-dim font-label-md text-label-md">
+                  VJ
+                </div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface leading-tight font-semibold">Varun Joshi</h4>
+<p class="font-body-sm text-body-sm text-outline">EnTC • Cummins COE</p>
+</div>
+</div>
+<button class="p-1.5 rounded-lg bg-surface-container text-secondary hover:bg-secondary hover:text-on-secondary transition-colors" title="Connect">
+<span class="material-symbols-outlined text-lg block">person_add</span>
+</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</div>
+<script>
+  // Simple interactive tab switching logic
+  const tabBtns = document.querySelectorAll('#profile-tabs .tab-btn');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => {
+        b.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+        b.classList.add('text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-sm');
+      btn.classList.remove('text-on-surface-variant');
+    });
+  });
+</script></main><footer class="w-full bg-surface-glass-low backdrop-blur-2xl border-t border-border-glass-subtle mt-space-xl relative z-10"><div class="max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">StudyVault</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">The decentralized academic repository and peer marketplace engineered for Savitribai Phule Pune University (SPPU) engineering, computer science, and management curricula.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/30 font-medium">SPPU 2024 Pattern</span><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30 font-medium">Peer Verified</span></div></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Curricula &amp; Branches</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Computer Engineering</li><li class="hover:text-secondary transition-colors cursor-pointer">Information Technology</li><li class="hover:text-secondary transition-colors cursor-pointer">AI &amp; Data Science</li><li class="hover:text-secondary transition-colors cursor-pointer">Electronics &amp; Telecomm</li><li class="hover:text-secondary transition-colors cursor-pointer">Mechanical Engineering</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Resources</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">EndSem InSem Papers</li><li class="hover:text-secondary transition-colors cursor-pointer">Faculty Lecture Notes</li><li class="hover:text-secondary transition-colors cursor-pointer">Lab Manuals &amp; Code</li><li class="hover:text-secondary transition-colors cursor-pointer">SPPU Decoders &amp; Solutions</li><li class="hover:text-secondary transition-colors cursor-pointer">Contributor Rewards</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Ecosystem</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Peer Bounty Program</li><li class="hover:text-secondary transition-colors cursor-pointer">Academic Honor Code</li><li class="hover:text-secondary transition-colors cursor-pointer">API Documentation</li><li class="hover:text-secondary transition-colors cursor-pointer">Privacy Architecture</li><li class="hover:text-secondary transition-colors cursor-pointer">Contact Pune Chapter</li></ul></div></div><div class="mt-space-xl pt-space-lg border-t border-border-glass-subtle flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-label-sm text-label-sm text-outline">© 2024 StudyVault SPPU Chapter. Engineered for high-throughput academic discovery.</p><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-outline"><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Syllabus Mapping</a><a class="hover:text-on-surface transition-colors" href="#">System Status</a></div></div></div></footer></body></html>

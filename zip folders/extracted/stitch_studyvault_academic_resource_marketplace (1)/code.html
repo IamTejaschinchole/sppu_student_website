@@ -1,0 +1,596 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen" style="background-image: linear-gradient(180deg, rgba(15, 19, 28, 0.78) 0%, rgba(10, 14, 23, 0.92) 100%), url('https://lh3.googleusercontent.com/aida/AEtjO1V0uD0DkEJyNUTB-piOWT9Q-NxeCMAmaFNTJpR77EpRTPvgHuIRHWJ1f_sneSlehHIehmK7YLrtHOu_QFcQoEwcUEJ15ZbMLyTfmQHL2GVKopnEDp_uuiFUsJOME6G7cmZZ0coZaam7z722gzBfJFSH4YKOiGpVux6pf5Pe62tKdDsZZ0BNVtPrWRLY8at1LlPbs7R12Mp55-fpUV5sFLoTJQFta9wAKEc3NP8rviUo8NwzCumAcSH628j-diNggvgdCfWYElV7'); background-attachment: fixed; background-size: cover; background-position: center;"><svg class="inline-defs-container" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden"></svg><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#4cd7f6", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "border-glass-specular": "rgba(255, 255, 255, 0.20)", "secondary": "#4cd7f6", "inverse-on-surface": "#2c303a", "on-primary": "#002e6a", "on-secondary": "#003640", "on-tertiary-container": "#340080", "tertiary": "#d0bcff", "glow-primary": "rgba(77, 142, 255, 0.35)", "primary-container": "#4d8eff", "inverse-primary": "#005ac2", "on-tertiary-fixed": "#23005c", "surface-container": "#1c1f29", "on-secondary-container": "#00424e", "error-container": "#93000a", "primary-fixed-dim": "#adc6ff", "secondary-container": "#03b5d4", "alert-amber": "#f59e0b", "surface-tint": "#adc6ff", "surface-container-high": "#262a34", "border-glass-luminous": "rgba(76, 215, 246, 0.35)", "surface-glass-high": "rgba(26, 38, 64, 0.75)", "tertiary-container": "#a078ff", "on-surface-variant": "#c2c6d6", "outline-variant": "#424753", "surface-dim": "#0f131c", "inverse-surface": "#dfe2ef", "surface-glass-low": "rgba(10, 14, 23, 0.55)", "glow-cyan": "rgba(76, 215, 246, 0.25)", "surface-container-low": "#181b25", "surface-glass-base": "rgba(17, 24, 39, 0.65)", "on-tertiary": "#3c0091", "border-glass-subtle": "rgba(255, 255, 255, 0.10)", "success-emerald": "#10b981", "on-secondary-fixed-variant": "#004e5c", "on-background": "#dfe2ef", "surface-bright": "#353943", "on-primary-fixed-variant": "#004495", "primary-fixed": "#d8e2ff", "on-surface": "#dfe2ef", "surface-variant": "#31353f", "surface": "#0f131c", "tertiary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#5424af", "outline": "#8c909f", "on-primary-fixed": "#001a42", "canvas-void": "#06090e", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001f26", "glow-indigo": "rgba(160, 120, 255, 0.20)", "error": "#ffb4ab", "secondary-fixed": "#acedff", "tertiary-fixed-dim": "#d0bcff", "primary": "#adc6ff", "background": "#0f131c", "on-primary-container": "#00285d", "on-error": "#690005", "alert-coral": "#f43f5e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-lg": "3.5rem", "gutter-lg": "1.75rem", "space-xl": "2.25rem", "space-sm": "0.5rem", "margin": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-md": "2rem", "space-md": "1rem", "gutter": "1.25rem" }, "fontFamily": { "body-lg": ["Inter"], "headline-md": ["Plus Jakarta Sans"], "body-sm": ["Inter"], "label-sm": ["Inter"], "body-md": ["Inter"], "display-hero": ["Plus Jakarta Sans"], "label-md": ["Inter"], "headline-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script><style>.bg-surface-glass-base{background:rgba(12,18,30,0.42)!important;backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important;border:1px solid rgba(255,255,255,0.12)!important;box-shadow:inset 0 1px 0 0 rgba(255,255,255,0.18),0 12px 36px -4px rgba(0,0,0,0.45)!important;}.bg-surface-glass-low{background:rgba(15,22,36,0.36)!important;backdrop-filter:blur(18px)!important;-webkit-backdrop-filter:blur(18px)!important;border:1px solid rgba(255,255,255,0.10)!important;box-shadow:inset 0 1px 0 0 rgba(255,255,255,0.14),0 8px 24px -2px rgba(0,0,0,0.35)!important;}.bg-surface-glass-low:hover,.bg-surface-glass-high{background:rgba(22,32,54,0.48)!important;backdrop-filter:blur(22px)!important;-webkit-backdrop-filter:blur(22px)!important;border:1px solid rgba(255,255,255,0.16)!important;box-shadow:inset 0 1px 0 0 rgba(255,255,255,0.22),0 16px 40px -4px rgba(0,0,0,0.5)!important;}.bg-surface-container-high\/60{background:rgba(255,255,255,0.05)!important;backdrop-filter:blur(16px)!important;-webkit-backdrop-filter:blur(16px)!important;border:1px solid rgba(255,255,255,0.08)!important;}.from-surface-glass-high.via-surface-glass-base.to-surface-container-lowest{background:linear-gradient(135deg,rgba(26,38,68,0.55) 0%,rgba(13,20,34,0.45) 60%,rgba(8,12,20,0.60) 100%)!important;backdrop-filter:blur(28px)!important;-webkit-backdrop-filter:blur(28px)!important;border:1px solid rgba(255,255,255,0.14)!important;box-shadow:inset 0 1px 0 0 rgba(255,255,255,0.2),0 20px 48px -6px rgba(0,0,0,0.55)!important;}</style><header class="fixed top-0 left-0 w-full z-50 bg-surface-glass-low backdrop-blur-xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.5)] border-b border-border-glass-subtle"><div class="h-20 w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors">StudyVault</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">SPPU Edition</span></div></a><div class="hidden xl:flex items-center bg-surface-glass-base backdrop-blur-md px-space-md py-space-xs rounded-full border border-border-glass-subtle gap-space-sm focus-within:border-secondary transition-all w-72"><span class="material-symbols-outlined text-outline text-lg">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Search papers, notes, units..." type="text"><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline-variant border border-border-glass-subtle">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a aria-current="page" class="px-space-md py-space-sm rounded-lg transition-all bg-primary-container text-on-primary-container font-headline-sm" data-path="home" href="#">Home</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="browse" href="#">Browse</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="upload" href="#">Upload</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="library" href="#">My Library</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="dashboard" href="#">Dashboard</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center gap-space-xs bg-primary-container text-on-primary-container px-space-md py-space-sm rounded-xl font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all shadow-[0_0_20px_rgba(77,142,255,0.35)]" data-path="upload" href="#"><span class="material-symbols-outlined text-sm">upload_file</span><span class="">Share Vault</span></a><button aria-label="Notifications" class="p-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high rounded-full transition-colors relative" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-dim"></span></button><a class="flex items-center gap-space-xs p-1 rounded-full hover:ring-2 hover:ring-secondary/40 transition-all" data-path="profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-border-glass-specular" src="https://lh3.googleusercontent.com/aida/AEtjO1Vxmg5yQl0IXyUgyFSwhJ9N0ReSIFEZrQUdY1GqM2YMHGj-BwggkA9mZpRIAMPbNWOtHFXS0NwwfRqK5Svc7cyGxxcV-H0Wi0agzQSsbk4Mb7g6YgZeilId-oZf2lHr-aOHmTOp_rQs-_WxMiNQgUPiYekmAacWVir7RMOxY5rO6aM-iIDXsPMa8uqMh-OWUi_QdACL16ZAyQggLdSeUm4PWE4xGSU7fgCUMwgRs7JSHw2Ql8U1FnBbUQ"></a></div></div></header><main class="w-full pt-20 relative z-10"><div class="flex flex-col w-full relative overflow-hidden">
+<!-- Dynamic Ambient Mesh Flares -->
+<div class="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary-container/20 blur-[140px] pointer-events-none -z-10"></div>
+<div class="absolute top-[25%] -right-32 w-[550px] h-[550px] rounded-full bg-secondary/15 blur-[150px] pointer-events-none -z-10"></div>
+<div class="absolute top-[60%] left-1/3 w-[700px] h-[500px] rounded-full bg-tertiary-container/15 blur-[160px] pointer-events-none -z-10"></div>
+<!-- HERO SECTION -->
+<section class="relative w-full overflow-hidden pt-8 pb-20">
+  <!-- Full Bleed Hero Background Image & Atmospheric Gradient Overlays -->
+  <div class="absolute inset-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdajAN9AJq-DwNYeSgnH6WZO0MO57N0JC0JltnCgOs4lA-ydR2zGmO4be8PzpfhHk1fax_BpMz9_SAyxy3frQQRCq5D17aYFTEGFTbE1oQmLJmlZNR7E0SftRI0NIhB3lu1jcHeCWP5EjEMmq1Ns7qx40k1ugDZqlgRN8Qw8Mzr-Vg1k1EL1VBexTbO4iiTNWvZy1VYjrdLfaPNo514ac0LUjxVvyQgLC1Iw7Em_Ypzw8YZ8sfq_4AN45eA-S74wH3" alt="SPPU University Campus Holographic Study Vista" class="w-full h-full object-cover object-center lg:object-right opacity-85 select-none">
+    <!-- Heavy Left & Top-to-Bottom Multi-stop Dark Vignette Gradients for Crystal Clear Text Legibility -->
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0a0e17] via-[#0a0e17]/85 md:via-[#0a0e17]/75 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0e17]/90 via-transparent to-[#0a0e17]"></div>
+    <div class="absolute inset-0 bg-[#0a0e17]/35 mix-blend-multiply"></div>
+  </div>
+
+  <div class="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+      <!-- Left Content Column -->
+      <div class="lg:col-span-7 flex flex-col space-y-space-lg">
+        <!-- Curricular Badge -->
+        <div class="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-surface-glass-high backdrop-blur-md shadow-sm border border-border-glass-subtle">
+          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+          <span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">SPPU Engineering Vault • Verified Sem 1–8 Prep</span>
+        </div>
+        <!-- Headline -->
+        <div class="space-y-space-xs"><h1 class="font-display-hero text-display-hero text-on-surface tracking-tight leading-[1.08]">Everything you need to clear your SPPU exams, <br><span class="bg-gradient-to-r from-secondary via-primary to-tertiary bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(76,215,246,0.35)]">In one place.</span></h1><p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl pt-2">Class notes that actually make sense, solved previous year papers, and faculty-stamped lab codes. Shared by students who topped the unit tests.</p></div>
+        <!-- Glass Search Capsule -->
+        <div class="w-full max-w-2xl bg-surface-glass-base backdrop-blur-2xl p-2 rounded-2xl shadow-xl border border-border-glass-subtle">
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+            <div class="flex items-center gap-3 px-3 py-2 flex-grow min-w-0">
+              <span class="material-symbols-outlined text-secondary text-2xl">search</span>
+              <input class="bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-outline w-full min-w-0 focus:ring-0" id="hero-search-input" placeholder="Search subjects, question papers, topic names (e.g. Insem PYQs, Microprocessors)..." type="text">
+            </div>
+            <button class="inline-flex items-center justify-center gap-2 bg-primary-container hover:bg-primary text-on-primary-container hover:text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md transition-all shadow-[0_0_24px_rgba(77,142,255,0.45)] active:scale-95 cursor-pointer whitespace-nowrap" onclick="triggerSearch()" type="button">
+              <span class="">Find Notes</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+        <!-- Popular Tags Pills -->
+        <div class="flex flex-wrap items-center gap-2 text-on-surface-variant"><span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-1">Quick Search:</span><button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all backdrop-blur-md cursor-pointer border border-border-glass-subtle" onclick="setQuery('DBMS Insem')" type="button">DBMS Insem</button><button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all backdrop-blur-md cursor-pointer border border-border-glass-subtle" onclick="setQuery('DSA Decoders')" type="button">DSA Decoders</button><button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all backdrop-blur-md cursor-pointer border border-border-glass-subtle" onclick="setQuery('Computer Networks Labs')" type="button">Computer Networks Labs</button><button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all backdrop-blur-md cursor-pointer border border-border-glass-subtle" onclick="setQuery('OS 2019 Pattern')" type="button">OS 2019 Pattern</button></div>
+        <!-- Key Metrics Strip -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4"><div class="bg-surface-glass-low backdrop-blur-xl p-3.5 rounded-xl shadow-md border border-border-glass-subtle"><div class="flex items-center gap-2 text-secondary mb-1"><span class="material-symbols-outlined text-lg">group</span><span class="font-headline-sm text-headline-sm text-on-surface font-bold">5K+</span></div><p class="font-label-sm text-label-sm text-outline">Active Engineers</p></div><div class="bg-surface-glass-low backdrop-blur-xl p-3.5 rounded-xl shadow-md border border-border-glass-subtle"><div class="flex items-center gap-2 text-primary mb-1"><span class="material-symbols-outlined text-lg">menu_book</span><span class="font-headline-sm text-headline-sm text-on-surface font-bold">2,800+</span></div><p class="font-label-sm text-label-sm text-outline">Verified Uploads</p></div><div class="bg-surface-glass-low backdrop-blur-xl p-3.5 rounded-xl shadow-md border border-border-glass-subtle"><div class="flex items-center gap-2 text-tertiary mb-1"><span class="material-symbols-outlined text-lg">verified_user</span><span class="font-headline-sm text-headline-sm text-on-surface font-bold">500+</span></div><p class="font-label-sm text-label-sm text-outline">Student Contributors</p></div><div class="bg-surface-glass-low backdrop-blur-xl p-3.5 rounded-xl shadow-md border border-border-glass-subtle"><div class="flex items-center gap-2 text-alert-amber mb-1"><span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span><span class="font-headline-sm text-headline-sm text-on-surface font-bold">4.9</span></div><p class="font-label-sm text-label-sm text-outline">Average Rating</p></div></div>
+      </div>
+      <!-- Right Column: Subtle Translucent Hologram Badges Seamlessly Floating Over Background Scene -->
+      <div class="lg:col-span-5 relative flex items-center justify-center min-h-[480px]">
+        <!-- Floating Translucent Resource Directory Card -->
+        <div class="absolute bottom-4 right-0 z-20 bg-surface-container-lowest/85 backdrop-blur-xl border border-border-glass-specular p-4 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300 w-72"><div class="flex items-center gap-2 mb-3 pb-2 border-b border-border-glass-subtle text-secondary"><span class="material-symbols-outlined text-base">verified</span><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">What’s Inside the Vault</span></div><div class="space-y-2.5"><div class="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer"><span class="material-symbols-outlined text-secondary text-sm mt-0.5">sticky_note_2</span><div><span class="font-label-sm text-label-sm font-medium block">Handwritten Class Notes</span><span class="font-body-sm text-[10px] text-outline block">Toppers' ink notes with neat diagrams</span></div></div><div class="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer"><span class="material-symbols-outlined text-primary text-sm mt-0.5">description</span><div><span class="font-label-sm text-label-sm font-medium block">Solved Insem &amp; Endsem Papers</span><span class="font-body-sm text-[10px] text-outline block">Step-by-step marking scheme answers</span></div></div><div class="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer"><span class="material-symbols-outlined text-success-emerald text-sm mt-0.5">science</span><div><span class="font-label-sm text-label-sm font-medium block">Tested Lab Codes &amp; Write-ups</span><span class="font-body-sm text-[10px] text-outline block">Verified outputs for practical vivas</span></div></div><div class="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer"><span class="material-symbols-outlined text-alert-coral text-sm mt-0.5">assignment</span><div><span class="font-label-sm text-label-sm font-medium block">Assignment Solutions</span><span class="font-body-sm text-[10px] text-outline block">Ready reference for weekly submissions</span></div></div><div class="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer"><span class="material-symbols-outlined text-alert-amber text-sm mt-0.5">quiz</span><div><span class="font-label-sm text-label-sm font-medium block">Important Question Banks</span><span class="font-body-sm text-[10px] text-outline block">High-frequency exam questions</span></div></div></div></div>
+        <!-- Top Right University Portal Pill -->
+        <div class="absolute top-2 right-4 z-20 px-4 py-2 rounded-full bg-surface-container-lowest/80 backdrop-blur-xl border border-border-glass-specular shadow-lg flex items-center gap-2.5">
+          <span class="material-symbols-outlined text-secondary text-lg">account_balance</span>
+          <span class="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">Savitribai Phule Pune University</span>
+        </div>
+        <!-- Floating 'Learn • Share • Grow' Script Accent -->
+        <div class="absolute top-20 right-8 z-10 hidden sm:flex flex-col text-right opacity-90 pointer-events-none select-none">
+          <span class="font-display-hero text-3xl text-primary/80 italic drop-shadow-[0_0_15px_rgba(173,198,255,0.5)]">Learn</span>
+          <span class="font-display-hero text-3xl text-secondary/80 italic drop-shadow-[0_0_15px_rgba(76,215,246,0.5)] -mt-1.5">Share</span>
+          <span class="font-display-hero text-3xl text-tertiary/80 italic drop-shadow-[0_0_15px_rgba(208,188,255,0.5)] -mt-1.5">Grow</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- BROWSE BY CATEGORY -->
+<!-- Electric Lightning & Luminous Celestial Energy Waves Background Layer for Lower Sections --><div class="absolute top-[680px] left-0 right-0 bottom-0 pointer-events-none -z-10 overflow-hidden select-none"><style>@keyframes lightning-flash{0%,92%,96%,100%{opacity:0.25;filter:drop-shadow(0 0 15px rgba(76,215,246,0.3));}93%{opacity:0.85;filter:drop-shadow(0 0 35px rgba(173,198,255,0.9)) drop-shadow(0 0 70px rgba(76,215,246,0.8));}94%{opacity:0.35;}95%{opacity:0.95;filter:drop-shadow(0 0 45px rgba(208,188,255,0.95)) drop-shadow(0 0 85px rgba(0,242,254,0.9));}}@keyframes lightning-strike-secondary{0%,87%,91%,100%{opacity:0.18;}88%{opacity:0.75;filter:drop-shadow(0 0 30px rgba(56,189,248,0.85));}89%{opacity:0.25;}90%{opacity:0.9;filter:drop-shadow(0 0 40px rgba(129,140,248,0.9));}}@keyframes wave-float-1{0%{transform:translateY(0) scaleY(1) rotate(0deg);}50%{transform:translateY(-28px) scaleY(1.08) rotate(1deg);}100%{transform:translateY(0) scaleY(1) rotate(0deg);}}@keyframes wave-float-2{0%{transform:translateY(0) scaleX(1) rotate(0deg);}50%{transform:translateY(32px) scaleX(1.06) rotate(-1.5deg);}100%{transform:translateY(0) scaleX(1) rotate(0deg);}}@keyframes pulse-orb{0%,100%{opacity:0.45;transform:scale(1);}50%{opacity:0.8;transform:scale(1.15);}}</style><!-- Ambient Plasma Glow Orbs --><div class="absolute top-10 left-[5%] w-[650px] h-[650px] rounded-full bg-secondary/15 blur-[140px] mix-blend-screen animate-pulse"></div><div class="absolute top-[750px] right-[8%] w-[700px] h-[700px] rounded-full bg-primary-container/20 blur-[160px] mix-blend-screen" style="animation: pulse-orb 8s ease-in-out infinite;"></div><div class="absolute bottom-[200px] left-[15%] w-[800px] h-[600px] rounded-full bg-tertiary-container/20 blur-[170px] mix-blend-screen" style="animation: pulse-orb 10s ease-in-out infinite 3s;"></div><!-- Flowing Electric Energy Ribbons & Waves --><svg class="absolute top-0 left-0 w-full h-[1800px] opacity-40 mix-blend-screen" fill="none" preserveAspectRatio="none" viewBox="0 0 1440 1800" xmlns="http://www.w3.org/2000/svg"><g style="animation: wave-float-1 14s ease-in-out infinite;"><path d="M-100 200 C300 450, 700 50, 1100 350 C1300 500, 1500 320, 1600 400" stroke="url(#grad-electric-1)" stroke-dasharray="12 6" stroke-linecap="round" stroke-width="2.5"></path><path d="M-80 230 C320 480, 680 90, 1080 380 C1280 520, 1480 360, 1600 430" filter="url(#blur-glow)" opacity="0.6" stroke="url(#grad-electric-1)" stroke-width="7"></path></g><g style="animation: wave-float-2 18s ease-in-out infinite 2s;"><path d="M-50 780 C400 600, 850 980, 1200 750 C1400 620, 1550 700, 1650 730" stroke="url(#grad-electric-2)" stroke-linecap="round" stroke-width="3"></path><path d="M-50 780 C400 600, 850 980, 1200 750 C1400 620, 1550 700, 1650 730" filter="url(#blur-glow)" opacity="0.55" stroke="url(#grad-electric-2)" stroke-width="9"></path></g><g style="animation: wave-float-1 20s ease-in-out infinite 5s;"><path d="M-100 1350 C350 1150, 750 1450, 1150 1280 C1350 1190, 1500 1320, 1600 1300" stroke="url(#grad-electric-3)" stroke-linecap="round" stroke-width="2.5"></path><path d="M-100 1350 C350 1150, 750 1450, 1150 1280 C1350 1190, 1500 1320, 1600 1300" filter="url(#blur-glow)" opacity="0.5" stroke="url(#grad-electric-3)" stroke-width="8"></path></g><defs><linearGradient id="grad-electric-1" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#00f2fe" stop-opacity="0.1"></stop><stop offset="30%" stop-color="#38bdf8" stop-opacity="0.85"></stop><stop offset="70%" stop-color="#818cf8" stop-opacity="0.9"></stop><stop offset="100%" stop-color="#c084fc" stop-opacity="0.15"></stop></linearGradient><linearGradient id="grad-electric-2" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#c084fc" stop-opacity="0.15"></stop><stop offset="40%" stop-color="#818cf8" stop-opacity="0.85"></stop><stop offset="75%" stop-color="#00f2fe" stop-opacity="0.95"></stop><stop offset="100%" stop-color="#38bdf8" stop-opacity="0.1"></stop></linearGradient><linearGradient id="grad-electric-3" x1="0%" x2="100%" y1="0%" y2="0%"><stop offset="0%" stop-color="#38bdf8" stop-opacity="0.2"></stop><stop offset="50%" stop-color="#00f2fe" stop-opacity="0.8"></stop><stop offset="80%" stop-color="#a078ff" stop-opacity="0.75"></stop><stop offset="100%" stop-color="#38bdf8" stop-opacity="0.1"></stop></linearGradient><filter height="200%" id="blur-glow" width="200%" x="-50%" y="-50%"><feGaussianBlur in="SourceGraphic" stdDeviation="6"></feGaussianBlur></filter></defs></svg><!-- Crisp Branched Electric Lightning Strikes with Periodic Atmospheric Flash Pulses --><div class="absolute top-28 left-[3%] w-[580px] h-[750px] pointer-events-none mix-blend-screen" style="animation: lightning-flash 7.5s infinite;"><svg class="w-full h-full" fill="none" viewBox="0 0 500 700" xmlns="http://www.w3.org/2000/svg"><path d="M220 0 L210 110 L250 125 L180 260 L225 275 L140 430 L185 445 L110 590 L150 600 L80 700" stroke="#38bdf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path><path d="M220 0 L210 110 L250 125 L180 260 L225 275 L140 430 L185 445 L110 590 L150 600 L80 700" opacity="0.6" stroke="#00f2fe" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"></path><path d="M210 110 L150 150 L165 210 L120 250" opacity="0.85" stroke="#818cf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M180 260 L240 310 L220 370 L280 430" opacity="0.8" stroke="#c084fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M140 430 L80 470 L95 530 L50 580" opacity="0.75" stroke="#38bdf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"></path><path d="M110 590 L160 625 L145 670" opacity="0.7" stroke="#818cf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path></svg></div><!-- Secondary Branching Lightning Bolt (Mid-Right across Trending Resources & Contributors) --><div class="absolute top-[820px] right-[4%] w-[520px] h-[800px] pointer-events-none mix-blend-screen" style="animation: lightning-strike-secondary 9.5s infinite 3.5s;"><svg class="w-full h-full" fill="none" viewBox="0 0 500 750" xmlns="http://www.w3.org/2000/svg"><path d="M280 0 L295 120 L255 138 L320 280 L275 300 L350 460 L295 480 L360 630 L310 645 L370 750" stroke="#00f2fe" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path><path d="M280 0 L295 120 L255 138 L320 280 L275 300 L350 460 L295 480 L360 630 L310 645 L370 750" opacity="0.6" stroke="#818cf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"></path><path d="M295 120 L355 160 L335 220 L380 265" opacity="0.8" stroke="#c084fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M320 280 L250 330 L270 390 L210 450" opacity="0.85" stroke="#38bdf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path><path d="M350 460 L410 505 L395 565 L445 615" opacity="0.75" stroke="#00f2fe" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.3"></path><path d="M295 480 L230 520 L245 570" opacity="0.7" stroke="#818cf8" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"></path></svg></div><!-- Lower Subtle Atmospheric Electric Flash Field --><div class="absolute bottom-[100px] left-[30%] w-[600px] h-[600px] rounded-full bg-secondary/10 blur-[130px] mix-blend-screen pointer-events-none" style="animation: pulse-orb 6.5s ease-in-out infinite 1.5s;"></div><!-- Stylized Broken & Shattered Glass Effect Layer --><div class="absolute inset-0 pointer-events-none select-none overflow-hidden"><style>@keyframes glass-shimmer{0%,100%{opacity:0.35;}50%{opacity:0.65;}}@keyframes shard-float{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-8px) rotate(0.8deg);}}</style><!-- Primary Radial Glass Fracture Network (Left/Center behind Categories & Curricular Matrix) --><svg class="absolute top-10 left-[2%] w-[850px] h-[950px] opacity-40 mix-blend-screen" style="animation: glass-shimmer 10s ease-in-out infinite;" fill="none" viewBox="0 0 850 950" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="glass-edge-1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"></stop><stop offset="35%" stop-color="#4cd7f6" stop-opacity="0.85"></stop><stop offset="70%" stop-color="#adc6ff" stop-opacity="0.4"></stop><stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"></stop></linearGradient><linearGradient id="shard-fill-1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="rgba(76,215,246,0.12)"></stop><stop offset="50%" stop-color="rgba(255,255,255,0.04)"></stop><stop offset="100%" stop-color="rgba(13,20,34,0.0)"></stop></linearGradient><linearGradient id="shard-fill-2" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="rgba(208,188,255,0.14)"></stop><stop offset="60%" stop-color="rgba(77,142,255,0.05)"></stop><stop offset="100%" stop-color="transparent"></stop></linearGradient><filter id="glass-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2.5" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><!-- Faceted Angular Glass Shards --><polygon points="320,280 430,210 510,320 380,360" fill="url(#shard-fill-1)" stroke="url(#glass-edge-1)" stroke-width="1.5" filter="url(#glass-glow)"></polygon><polygon points="320,280 240,190 350,140 430,210" fill="url(#shard-fill-2)" stroke="url(#glass-edge-1)" stroke-width="1.2"></polygon><polygon points="320,280 380,360 290,440 210,360" fill="url(#shard-fill-1)" stroke="url(#glass-edge-1)" stroke-width="1.4"></polygon><polygon points="210,360 140,310 180,220 240,190 320,280" fill="url(#shard-fill-2)" stroke="url(#glass-edge-1)" stroke-width="1.2"></polygon><polygon points="380,360 510,320 580,420 470,490" fill="url(#shard-fill-2)" stroke="url(#glass-edge-1)" stroke-width="1.4"></polygon><polygon points="380,360 470,490 390,560 290,440" fill="url(#shard-fill-1)" stroke="url(#glass-edge-1)" stroke-width="1.3"></polygon><!-- Spidering Glass Fracture Stress Lines --><path d="M320 280 L80 120 M320 280 L160 40 M320 280 L20 460 M320 280 L90 680 M320 280 L290 840 M380 360 L560 670 M510 320 L780 260 M430 210 L680 70 M350 140 L460 10" stroke="url(#glass-edge-1)" stroke-width="1.5" stroke-linecap="round" filter="url(#glass-glow)"></path><path d="M240 190 L110 220 L70 260 M380 360 L450 420 L580 470 L720 530 M290 440 L210 520 L180 630 M510 320 L620 370 L740 390" stroke="url(#glass-edge-1)" stroke-width="0.8" stroke-dasharray="14 4" stroke-linecap="round" opacity="0.75"></path><!-- Impact Point Specular Starburst --><circle cx="320" cy="280" r="5" fill="#ffffff" filter="url(#glass-glow)"></circle><circle cx="320" cy="280" r="18" stroke="#4cd7f6" stroke-width="1" opacity="0.5"></circle><circle cx="320" cy="280" r="35" stroke="#adc6ff" stroke-width="0.75" stroke-dasharray="4 4" opacity="0.4"></circle></svg><!-- Secondary Shattered Crystal Prism Cluster (Right side behind Trending Resources & Upload Banner) --><svg class="absolute top-[720px] right-[2%] w-[780px] h-[900px] opacity-45 mix-blend-screen" style="animation: shard-float 12s ease-in-out infinite 2s;" fill="none" viewBox="0 0 780 900" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="glass-edge-2" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.75"></stop><stop offset="40%" stop-color="#4cd7f6" stop-opacity="0.8"></stop><stop offset="80%" stop-color="#d0bcff" stop-opacity="0.6"></stop><stop offset="100%" stop-color="#38bdf8" stop-opacity="0.15"></stop></linearGradient><linearGradient id="shard-fill-3" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(76,215,246,0.14)"></stop><stop offset="50%" stop-color="rgba(208,188,255,0.06)"></stop><stop offset="100%" stop-color="rgba(255,255,255,0.01)"></stop></linearGradient></defs><!-- Angular Broken Glass Shards Floating in Equilibrium --><polygon points="450,380 560,280 620,410 490,470" fill="url(#shard-fill-3)" stroke="url(#glass-edge-2)" stroke-width="1.4"></polygon><polygon points="450,380 370,300 460,230 560,280" fill="url(#shard-fill-3)" stroke="url(#glass-edge-2)" stroke-width="1.2"></polygon><polygon points="450,380 490,470 380,560 320,450" fill="url(#shard-fill-3)" stroke="url(#glass-edge-2)" stroke-width="1.5"></polygon><polygon points="490,470 620,410 680,530 570,610" fill="url(#shard-fill-3)" stroke="url(#glass-edge-2)" stroke-width="1.3"></polygon><polygon points="320,450 230,390 280,310 370,300 450,380" fill="url(#shard-fill-3)" stroke="url(#glass-edge-2)" stroke-width="1.1"></polygon><polygon points="490,470 570,610 480,690 380,560" fill="url(#shard-fill-3)" stroke="url(#glass-edge-2)" stroke-width="1.4"></polygon><!-- Peripheral Split Fractures & Micro-Cracks --><path d="M450 380 L690 140 M450 380 L760 310 M450 380 L730 680 M490 470 L590 820 M380 560 L240 760 M320 450 L110 520 M370 300 L180 190 M460 230 L490 60" stroke="url(#glass-edge-2)" stroke-width="1.3" stroke-linecap="round"></path><path d="M560 280 L660 210 L740 180 M620 410 L730 450 M570 610 L680 690 M380 560 L310 680 L280 810 M230 390 L160 410 L90 450" stroke="url(#glass-edge-2)" stroke-width="0.8" stroke-dasharray="10 5" stroke-linecap="round" opacity="0.7"></path><!-- High-reflection Specular Glass Facet Glint --><line x1="430" y1="360" x2="470" y2="400" stroke="#ffffff" stroke-width="2" stroke-linecap="round"></line><circle cx="450" cy="380" r="4" fill="#ffffff"></circle><circle cx="450" cy="380" r="22" stroke="#4cd7f6" stroke-width="0.75" opacity="0.5"></circle></svg></div></div><section class="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12">
+<div class="flex items-end justify-between mb-8">
+<div><p class="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-1">Study by Material Type</p><h2 class="font-headline-lg text-headline-lg text-on-surface">Pick What You Need Today</h2><p class="font-body-md text-body-md text-on-surface-variant mt-1">Whether you are cramming 12 hours before Insem or completing lab files at 2 AM.</p></div>
+<a class="hidden sm:inline-flex items-center gap-1.5 font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">
+<span class="">View all directories</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+<!-- Category Glass Cards Grid -->
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+<!-- Category 1 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-xl p-5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between cursor-pointer hover:-translate-y-1">
+<div>
+<div class="w-12 h-12 rounded-xl bg-primary/15 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shadow-sm mb-4">
+<span class="material-symbols-outlined text-2xl">edit_note</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-primary transition-colors">Lecture Notes</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">Crisp handwritten and typed summaries for fast unit revision.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">1,240 files</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary text-base transform group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-xl p-5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between cursor-pointer hover:-translate-y-1">
+<div>
+<div class="w-12 h-12 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-300 shadow-sm mb-4">
+<span class="material-symbols-outlined text-2xl">history_edu</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-secondary transition-colors">Past PYQs</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">2015 &amp; 2019 pattern papers solved with working steps.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">680 solved</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-secondary text-base transform group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Category 3 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-xl p-5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between cursor-pointer hover:-translate-y-1">
+<div>
+<div class="w-12 h-12 rounded-xl bg-success-emerald/15 flex items-center justify-center text-success-emerald group-hover:bg-success-emerald group-hover:text-surface-container-lowest transition-all duration-300 shadow-sm mb-4">
+<span class="material-symbols-outlined text-2xl">science</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-success-emerald transition-colors">Lab Practicals</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">Clean source code, circuit connections, and viva Q&amp;As.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">430 repos</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-success-emerald text-base transform group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Category 4 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-xl p-5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between cursor-pointer hover:-translate-y-1">
+<div>
+<div class="w-12 h-12 rounded-xl bg-alert-coral/15 flex items-center justify-center text-alert-coral group-hover:bg-alert-coral group-hover:text-surface-container-lowest transition-all duration-300 shadow-sm mb-4">
+<span class="material-symbols-outlined text-2xl">assignment</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-alert-coral transition-colors">Assignments</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">Weekly tutorial sets and sample answers.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">510 sets</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-alert-coral text-base transform group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Category 5 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-xl p-5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between cursor-pointer hover:-translate-y-1">
+<div>
+<div class="w-12 h-12 rounded-xl bg-tertiary/15 flex items-center justify-center text-tertiary group-hover:bg-tertiary group-hover:text-on-tertiary transition-all duration-300 shadow-sm mb-4">
+<span class="material-symbols-outlined text-2xl">quiz</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-tertiary transition-colors">Question Banks</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">Repeated questions ranked by university weightage.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">320 banks</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-tertiary text-base transform group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+<!-- Category 6 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-xl p-5 rounded-2xl transition-all duration-300 shadow-md hover:shadow-2xl flex flex-col justify-between cursor-pointer hover:-translate-y-1">
+<div>
+<div class="w-12 h-12 rounded-xl bg-alert-amber/15 flex items-center justify-center text-alert-amber group-hover:bg-alert-amber group-hover:text-surface-container-lowest transition-all duration-300 shadow-sm mb-4">
+<span class="material-symbols-outlined text-2xl">menu_book</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-alert-amber transition-colors">Decoders &amp; Guides</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">Last-night crash notes to pass and score high.</p>
+</div>
+<div class="flex items-center justify-between pt-4 mt-2">
+<span class="font-label-sm text-label-sm text-outline">190 guides</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-alert-amber text-base transform group-hover:translate-x-1 transition-all">chevron_right</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SPPU CURRICULAR EXPLORER SELECTOR BAR -->
+<section class="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-8">
+  <div class="bg-surface-glass-base backdrop-blur-2xl p-6 sm:p-7 rounded-3xl shadow-xl border border-border-glass-subtle space-y-5 relative overflow-hidden">
+    <!-- Header Row -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-2 border-b border-border-glass-subtle/50">
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center shadow-sm border border-secondary/20 flex-shrink-0">
+          <span class="material-symbols-outlined text-xl">tune</span>
+        </div>
+        <div>
+          <h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">Filter by Your Branch &amp; Semester</h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Jump straight to your syllabus without digging through endless folders.</p>
+        </div>
+      </div>
+      <button class="self-start sm:self-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-label-md text-label-md text-secondary hover:text-primary hover:bg-surface-glass-high transition-all cursor-pointer border border-transparent hover:border-border-glass-subtle active:scale-95" type="button">
+        <span class="material-symbols-outlined text-base">restart_alt</span>
+        <span class="">Reset Filters</span>
+      </button>
+    </div>
+
+    <!-- 4 Filter Dropdown Selectors Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-1">
+      <!-- Dropdown 1: University -->
+      <div class="group bg-surface-glass-low hover:bg-surface-glass-high px-4 py-3 rounded-xl border border-border-glass-subtle hover:border-secondary/40 transition-all duration-200 flex items-center justify-between cursor-pointer shadow-sm">
+        <div class="flex items-center gap-3 min-w-0 pr-2">
+          <div class="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-lg">account_balance</span>
+          </div>
+          <div class="min-w-0 truncate">
+            <span class="block text-[11px] font-label-sm uppercase tracking-wider text-outline group-hover:text-secondary/80 transition-colors leading-tight">University Board</span>
+            <span class="block text-sm font-semibold text-on-surface truncate mt-0.5">SPPU (Pune University)</span>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-outline text-lg group-hover:text-secondary group-hover:translate-y-0.5 transition-all flex-shrink-0">expand_more</span>
+      </div>
+
+      <!-- Dropdown 2: Branch -->
+      <div class="group bg-surface-glass-low hover:bg-surface-glass-high px-4 py-3 rounded-xl border border-border-glass-subtle hover:border-primary/40 transition-all duration-200 flex items-center justify-between cursor-pointer shadow-sm">
+        <div class="flex items-center gap-3 min-w-0 pr-2">
+          <div class="w-8 h-8 rounded-lg bg-primary/15 text-primary flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-lg">memory</span>
+          </div>
+          <div class="min-w-0 truncate">
+            <span class="block text-[11px] font-label-sm uppercase tracking-wider text-outline group-hover:text-primary/80 transition-colors leading-tight">Discipline / Branch</span>
+            <span class="block text-sm font-semibold text-on-surface truncate mt-0.5">Information Technology</span>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-outline text-lg group-hover:text-primary group-hover:translate-y-0.5 transition-all flex-shrink-0">expand_more</span>
+      </div>
+
+      <!-- Dropdown 3: Semester -->
+      <div class="group bg-surface-glass-low hover:bg-surface-glass-high px-4 py-3 rounded-xl border border-border-glass-subtle hover:border-tertiary/40 transition-all duration-200 flex items-center justify-between cursor-pointer shadow-sm">
+        <div class="flex items-center gap-3 min-w-0 pr-2">
+          <div class="w-8 h-8 rounded-lg bg-tertiary/15 text-tertiary flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-lg">calendar_month</span>
+          </div>
+          <div class="min-w-0 truncate">
+            <span class="block text-[11px] font-label-sm uppercase tracking-wider text-outline group-hover:text-tertiary/80 transition-colors leading-tight">Academic Term</span>
+            <span class="block text-sm font-semibold text-on-surface truncate mt-0.5">Semester 5 (TE Sem 1)</span>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-outline text-lg group-hover:text-tertiary group-hover:translate-y-0.5 transition-all flex-shrink-0">expand_more</span>
+      </div>
+
+      <!-- Dropdown 4: Subject Track -->
+      <div class="group bg-surface-glass-low hover:bg-surface-glass-high px-4 py-3 rounded-xl border border-border-glass-subtle hover:border-success-emerald/40 transition-all duration-200 flex items-center justify-between cursor-pointer shadow-sm">
+        <div class="flex items-center gap-3 min-w-0 pr-2">
+          <div class="w-8 h-8 rounded-lg bg-success-emerald/15 text-success-emerald flex items-center justify-center flex-shrink-0">
+            <span class="material-symbols-outlined text-lg">data_object</span>
+          </div>
+          <div class="min-w-0 truncate">
+            <span class="block text-[11px] font-label-sm uppercase tracking-wider text-outline group-hover:text-success-emerald/80 transition-colors leading-tight">Subject Track</span>
+            <span class="block text-sm font-semibold text-on-surface truncate mt-0.5">Data Structures &amp; Algo</span>
+          </div>
+        </div>
+        <span class="material-symbols-outlined text-outline text-lg group-hover:text-success-emerald group-hover:translate-y-0.5 transition-all flex-shrink-0">expand_more</span>
+      </div>
+    </div>
+
+    <!-- Quick Filter Tags Row -->
+    <div class="flex flex-wrap items-center gap-2 pt-1 text-on-surface-variant">
+      <span class="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-1.5 flex items-center gap-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+        Quick Filters:
+      </span>
+      <button class="px-3 py-1 rounded-full bg-secondary/15 text-secondary border border-secondary/30 font-label-sm text-label-sm transition-all hover:bg-secondary hover:text-on-secondary cursor-pointer shadow-sm" type="button">All SPPU</button>
+      <button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all border border-border-glass-subtle cursor-pointer" type="button">Comp Engg</button>
+      <button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all border border-border-glass-subtle cursor-pointer" type="button">IT</button>
+      <button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all border border-border-glass-subtle cursor-pointer" type="button">AI &amp; DS</button>
+      <button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all border border-border-glass-subtle cursor-pointer" type="button">Sem 3 (SE)</button>
+      <button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all border border-border-glass-subtle cursor-pointer" type="button">Sem 5 (TE)</button>
+      <button class="px-3 py-1 rounded-full bg-surface-glass-low hover:bg-surface-glass-high text-on-surface-variant hover:text-secondary font-label-sm text-label-sm transition-all border border-border-glass-subtle cursor-pointer" type="button">Sem 7 (BE)</button>
+    </div>
+  </div>
+</section>
+<!-- TRENDING SPPU RESOURCES (CARD GRID) -->
+<section class="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12">
+<div class="flex items-end justify-between mb-8">
+<div><div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary mb-2"><span class="material-symbols-outlined text-sm">local_fire_department</span><span class="font-label-sm text-label-sm font-semibold uppercase">Trending on Campus</span></div><h2 class="font-headline-lg text-headline-lg text-on-surface">Most Downloaded Notes This Week</h2><p class="font-body-md text-body-md text-on-surface-variant mt-1">The exact files students are studying right now for the upcoming exams.</p></div>
+<a class="hidden sm:inline-flex items-center gap-1.5 font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">
+<span class="">Explore all 2.8k resources</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+<!-- 5 Card Glass Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<!-- Card 1 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Handwritten engineering notebook with clean handwritten algorithmic trees and graph drawings for Data Structures SPPU curriculum with neon cyan lighting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDLEwshr94e-6-xWBoYy9zsJrXBse0JyOpimi_16xkE8BWub_DmcETlrnjYPUwzEAWcIdwwYItV5R9XEylZEF1JB8B-e3jawKuCB32Nk_DfXgXbVK9riQeRk-Ygt31jYw8lfQlQ6Y9QOHbW9xlS3v9ccglAcTu-XDx_f-yiDTCIYM6WT0c-A2qEg_OfPbCHs6dTqsk9h52xrqvtw_VV5uqnVAilkJB7jElwPMMS1X0ZpUNBi2ckuKo')"></div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+              Notes
+            </div>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center backdrop-blur-md transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-secondary transition-colors line-clamp-1">Data Structures Complete</h3>
+<p class="font-body-sm text-body-sm text-outline truncate mt-0.5">SPPU • IT • Semester 3 • 2024 Pat</p>
+<!-- Metrics Row -->
+<div class="flex items-center gap-3 mt-3 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1 text-alert-amber">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.8</span>
+<span class="text-outline">(124)</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">1.5k</span>
+</div>
+</div>
+<!-- Contributor Row -->
+<div class="flex items-center gap-2 mt-3 pt-3">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary font-label-sm text-label-sm font-bold">TC</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Tejas Chinchole</span>
+</div>
+</div>
+<!-- Price & Action -->
+<div class="flex items-center justify-between pt-4 mt-3">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">₹49</span>
+<button class="bg-primary-container/20 hover:bg-primary-container text-primary hover:text-on-primary-container px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm transition-all shadow-sm cursor-pointer" type="button">
+            Get Vault
+          </button>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Digital compilation of Database Management System exam paper solutions with tabular schema designs illuminated in deep violet glow" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDaC3Rw2KPlcJR8qYyfd3LjtSLToOwDf-49P9IEuI6P624z7v80pd96bXRL21wItNnUgFWnk65xEFq4N7w-ge08TdLKkIVm_CDsd8cIpJq_hwefiFUXoUaJaByyT31Ji7rRdhaYw-PhACBKgzgHHVseeSJHYzYlgiUvwvBIPYMXEfGdQJzfqj8JFTCEq3Z7Dcb5ImJUMsnlXkuiM6vdWwrQZASxnuFKkRij9cvBXKTw1XJkxXpssZM')"></div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-tertiary-container/90 text-on-tertiary-container font-label-sm text-label-sm font-semibold">
+              PYQ Solved
+            </div>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center backdrop-blur-md transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-tertiary transition-colors line-clamp-1">DBMS PYQs 2021-2024</h3>
+<p class="font-body-sm text-body-sm text-outline truncate mt-0.5">SPPU • Computer • Sem 4</p>
+<div class="flex items-center gap-3 mt-3 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1 text-alert-amber">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.9</span>
+<span class="text-outline">(312)</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">2.8k</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-3 pt-3">
+<div class="w-6 h-6 rounded-full bg-tertiary/20 flex items-center justify-center text-tertiary font-label-sm text-label-sm font-bold">RS</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Rahul Sharma</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3">
+<span class="font-headline-sm text-headline-sm text-success-emerald font-bold">FREE</span>
+<button class="bg-success-emerald/15 hover:bg-success-emerald text-success-emerald hover:text-surface-container-lowest px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm transition-all shadow-sm cursor-pointer" type="button">
+            Instant Access
+          </button>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Technical laboratory manual displaying network topology diagram with packet tracer simulation traces and terminal code screenshots" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCflvAYfJVUrfI0UvO4FhwtPKRgWkiZYgeWUcAaVV7gruct3iU3LsmEzuMBBrybeY2B8eTQO8Df6JMRN4wqQ7Erbr6e3esklaOco7pJupJTLmUopje7k8z1-BfHAwsqSwVNQg1Ycjdt0DNS6dy9C_wjD-ht4hwF5xen8Ny4e4NeHD8vNQxqB0p3MM2TjtKISKWh326-X9J9b8yCijMAqhUyXgHFzOgxG-iE3U-4VNr5lEU2yTXzy-s')"></div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-success-emerald/90 text-surface-container-lowest font-label-sm text-label-sm font-semibold">
+              Practical Lab
+            </div>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center backdrop-blur-md transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-success-emerald transition-colors line-clamp-1">Networks Lab Manual</h3>
+<p class="font-body-sm text-body-sm text-outline truncate mt-0.5">SPPU • IT • Semester 5</p>
+<div class="flex items-center gap-3 mt-3 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1 text-alert-amber">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.7</span>
+<span class="text-outline">(88)</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">890</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-3 pt-3">
+<div class="w-6 h-6 rounded-full bg-secondary/20 flex items-center justify-center text-secondary font-label-sm text-label-sm font-bold">AP</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Aman Patel</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">₹39</span>
+<button class="bg-primary-container/20 hover:bg-primary-container text-primary hover:text-on-primary-container px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm transition-all shadow-sm cursor-pointer" type="button">
+            Get Vault
+          </button>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Operating systems engineering notes detailing process scheduling algorithms, memory paging, and semaphore diagrams with clean handwriting" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNxYI_kgeYO3PD9_1u70USZrbL4PaY5Gk9Fwrh7d04cMhXVj-ZOp-CWcSgtVDmtarfqvXR6Y0pE5O8os2OWt4t3hOkOPguSkGgWEdFW0zQG5AgEY2rkII_KjVDW3LMjCYnTXpqOrnH8w-6Aciy3e9VjAnkhZ_ap_ok9tRe7hW_uhX6C9F7u5BC7J5dO9OO2CX8r1ZE5fgHQNP32yTE9jZGZKQWic-mn3PZVm7bnOQDhTLphzCEkTI')"></div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-secondary-container/90 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+              Notes
+            </div>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center backdrop-blur-md transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-secondary transition-colors line-clamp-1">Operating Systems 101</h3>
+<p class="font-body-sm text-body-sm text-outline truncate mt-0.5">SPPU • Computer • Sem 5</p>
+<div class="flex items-center gap-3 mt-3 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1 text-alert-amber">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.8</span>
+<span class="text-outline">(150)</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">1.8k</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-3 pt-3">
+<div class="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center text-primary font-label-sm text-label-sm font-bold">PK</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Priya Kulkarni</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">₹49</span>
+<button class="bg-primary-container/20 hover:bg-primary-container text-primary hover:text-on-primary-container px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm transition-all shadow-sm cursor-pointer" type="button">
+            Get Vault
+          </button>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-glass-low hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+<div>
+<!-- Thumbnail Container -->
+<div class="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-3.5 bg-surface-container-high">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105" data-alt="Object Oriented Programming study guide handbook with modern C++ class inheritance blueprints and polymorph design graphics" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbKPJj3iethvvadMXXvQAB9dgPvCCFL8fHuIugINrQBY9v-_ek8E_0F8_tGmDOZXSjBYKn9J_sG200l13ZTacgz4yD57PvAMZnrjFZtly0oyS3ymrHmExPgVO09RAuDLF_De_b3kwQfYXe3kIoDG5oP2o7kkiKRnDeDvVEgFEhjyXTWOcVtlD8ATzPSnD596jEZhCz8CqzwMBGWYnfj5SBhNxgeVnOmVOJE_cZGdeSl0yWolrKYjY')"></div>
+<div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-full bg-alert-amber/90 text-surface-container-lowest font-label-sm text-label-sm font-semibold">
+              Guide
+            </div>
+<button aria-label="Bookmark" class="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-surface-container-lowest/80 hover:bg-surface-container-lowest text-on-surface flex items-center justify-center backdrop-blur-md transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">bookmark</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface text-base group-hover:text-alert-amber transition-colors line-clamp-1">OOP &amp; Design Patterns</h3>
+<p class="font-body-sm text-body-sm text-outline truncate mt-0.5">SPPU • AI&amp;DS • Sem 3</p>
+<div class="flex items-center gap-3 mt-3 pt-2 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-1 text-alert-amber">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold text-on-surface">4.9</span>
+<span class="text-outline">(92)</span>
+</div>
+<div class="flex items-center gap-1 text-outline">
+<span class="material-symbols-outlined text-sm">download</span>
+<span class="">1.2k</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-3 pt-3">
+<div class="w-6 h-6 rounded-full bg-alert-amber/20 flex items-center justify-center text-alert-amber font-label-sm text-label-sm font-bold">VJ</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Vijay Jadhav</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-4 mt-3">
+<span class="font-headline-sm text-headline-sm text-success-emerald font-bold">FREE</span>
+<button class="bg-success-emerald/15 hover:bg-success-emerald text-success-emerald hover:text-surface-container-lowest px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm transition-all shadow-sm cursor-pointer" type="button">
+            Instant Access
+          </button>
+</div>
+</div>
+</div>
+</section>
+<!-- TOP CONTRIBUTORS & UPLOAD PROMO BENTO -->
+<section class="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12 pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
+<!-- Top Contributors Deck (7 cols) -->
+<div class="lg:col-span-7 bg-surface-glass-base backdrop-blur-2xl p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-6">
+<div><div class="inline-flex items-center gap-1.5 text-secondary mb-1"><span class="material-symbols-outlined text-base">military_tech</span><span class="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Student Voices</span></div><h3 class="font-headline-lg text-headline-lg text-on-surface">Top Contributors on StudyVault</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Rank holders recognized for university-wide academic impact</p></div>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="#">Leaderboard</a>
+</div>
+<!-- Contributors Row Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Contributor 1 -->
+<div class="bg-surface-glass-low p-4 rounded-2xl flex flex-col items-center text-center shadow-md relative overflow-hidden group hover:bg-surface-glass-high transition-all">
+<div class="absolute -top-6 -right-6 w-16 h-16 bg-secondary/15 rounded-full blur-xl"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover" data-alt="Portrait photograph of young Indian engineering student smiling confidently in front of technical university setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBt7wBzXv7w4uP4QZOx28zFxUMO92xBEc0XEsWK3Cg2heg2ekIyrBN2Yu8bmYFlRtC0I1XtDjmw19U1WLUi17bPzq54CPcVI43s0qH6N-yIZMRPieUrIkjG6P3qbZS7aFSqkvH3AzrLGc0Iq2V643VoedBwdrnrORvoI4JxKiHg2qcmlGY-wkAkrXDpCS7t98RELpcM2fubDt9-tWVMgD8cd6UqjwQt-lAVoBG6bChA2L7Psv3BTyc">
+<div class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-secondary flex items-center justify-center text-[10px] text-surface-container-lowest font-bold">
+                  1
+                </div>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Tejas Chinchole</h4>
+<span class="font-label-sm text-label-sm text-secondary">Information Tech • TE</span>
+<div class="w-full grid grid-cols-3 gap-1 mt-4 pt-3 text-center">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold block">48</span>
+<span class="font-label-sm text-[10px] text-outline">Uploads</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold block">3.2k</span>
+<span class="font-label-sm text-[10px] text-outline">Reads</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-alert-amber font-bold block">4.9★</span>
+<span class="font-label-sm text-[10px] text-outline">Rating</span>
+</div>
+</div>
+</div>
+<!-- Contributor 2 -->
+<div class="bg-surface-glass-low p-4 rounded-2xl flex flex-col items-center text-center shadow-md relative overflow-hidden group hover:bg-surface-glass-high transition-all">
+<div class="absolute -top-6 -right-6 w-16 h-16 bg-primary/15 rounded-full blur-xl"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of modern Indian computer engineering researcher in high tech university workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqdQ_AFVLy12CfFAagh0oVjBf1btlXT45sCsoofboiCFCg0hwKtHON8GzRa2iW9yZ8eeZVDiuClQqwigyDO80muEW1ErYabG7G1Z5xgioa2sLGlXOY4A-3jOQoyFi4HRwLAp-hv46CbpkeyCqpHHsT8_MVxQ00Dqr0IsQFKFT7-9TYk7XdR8xJszC6sUx0Wt5gjFayYO0q6qS5DKMNrGhFHQvUjmBwU-57afuJf7DJn9RNtTXVR3Q">
+<div class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-primary flex items-center justify-center text-[10px] text-on-primary font-bold">
+                  2
+                </div>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Rahul Sharma</h4>
+<span class="font-label-sm text-label-sm text-primary">Computer Engg • BE</span>
+<div class="w-full grid grid-cols-3 gap-1 mt-4 pt-3 text-center">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold block">32</span>
+<span class="font-label-sm text-[10px] text-outline">Uploads</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold block">2.1k</span>
+<span class="font-label-sm text-[10px] text-outline">Reads</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-alert-amber font-bold block">4.8★</span>
+<span class="font-label-sm text-[10px] text-outline">Rating</span>
+</div>
+</div>
+</div>
+<!-- Contributor 3 -->
+<div class="bg-surface-glass-low p-4 rounded-2xl flex flex-col items-center text-center shadow-md relative overflow-hidden group hover:bg-surface-glass-high transition-all">
+<div class="absolute -top-6 -right-6 w-16 h-16 bg-tertiary/15 rounded-full blur-xl"></div>
+<div class="w-16 h-16 rounded-full overflow-hidden mb-3 relative">
+<img class="w-full h-full object-cover" data-alt="Portrait photo of smiling female engineering student with books on laptop in SPPU library campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpgrri16WINKN4Z6yDO7LQzYFPXkiJvQHcVr3wxknHcYBK5lVrdmUbfT9PwmDSueM51_YEu6LFgRB2lXvc7AoNPdNayCpZyqFhP5I4gtQSJhYqP0jGVTPX80xXuGa8inrh7BaNjv5buASDA2YeEuxwdixqfPD-utiCMvxXqDuxYQA81s7KjfLfOhUyuGAkDiQoyHORXsgk6rLkevPH-5cn7-nPxiMnNUGt66lF9fCOQolb30UIxy8">
+<div class="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-tertiary flex items-center justify-center text-[10px] text-on-tertiary font-bold">
+                  3
+                </div>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface text-base">Aman Patel</h4>
+<span class="font-label-sm text-label-sm text-tertiary">AI &amp; Data Science • TE</span>
+<div class="w-full grid grid-cols-3 gap-1 mt-4 pt-3 text-center">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold block">27</span>
+<span class="font-label-sm text-[10px] text-outline">Uploads</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-on-surface font-bold block">1.8k</span>
+<span class="font-label-sm text-[10px] text-outline">Reads</span>
+</div>
+<div>
+<span class="font-label-sm text-label-sm text-alert-amber font-bold block">4.7★</span>
+<span class="font-label-sm text-[10px] text-outline">Rating</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Honorarium Callout Banner inside widget -->
+<div class="mt-6 p-4 rounded-2xl bg-surface-container-high/60 backdrop-blur-md flex items-center justify-between gap-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl">redeem</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Contributors receive verified peer honorariums directly per authentic download.</p>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold whitespace-nowrap cursor-pointer hover:underline">Learn more</span>
+</div>
+</div>
+<!-- Upload CTA Card (5 cols) -->
+<div class="lg:col-span-5 relative rounded-3xl overflow-hidden bg-gradient-to-br from-surface-glass-high via-surface-glass-base to-surface-container-lowest p-8 backdrop-blur-2xl shadow-2xl flex flex-col justify-between"><div class="absolute top-0 right-0 w-52 h-52 bg-secondary/20 rounded-full blur-[80px] pointer-events-none"></div><div class=""><div class="w-14 h-14 rounded-2xl bg-secondary/15 text-secondary flex items-center justify-center mb-6 shadow-md"><span class="material-symbols-outlined text-3xl">cloud_upload</span></div><h3 class="font-headline-lg text-headline-lg text-on-surface leading-tight">Got neat notes or working lab code?</h3><p class="font-body-md text-body-md text-on-surface-variant mt-3">Help your juniors get through exam week and earn beer money every time someone unlocks your notes.</p><ul class="space-y-2 mt-6"><li class="flex items-center gap-2.5 font-body-sm text-body-sm text-on-surface"><span class="material-symbols-outlined text-success-emerald text-lg">check_circle</span><span class="">Set your own price (free or ₹10 - ₹49)</span></li><li class="flex items-center gap-2.5 font-body-sm text-body-sm text-on-surface"><span class="material-symbols-outlined text-success-emerald text-lg">check_circle</span><span class="">Instant UPI payouts directly to your account</span></li><li class="flex items-center gap-2.5 font-body-sm text-body-sm text-on-surface"><span class="material-symbols-outlined text-success-emerald text-lg">check_circle</span><span class="">Full credit on your verified campus profile</span></li></ul></div><div class="pt-8"><a class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-container to-secondary text-on-surface-lowest px-6 py-4 rounded-xl font-headline-sm text-headline-sm font-semibold transition-all shadow-[0_0_30px_rgba(76,215,246,0.35)] hover:shadow-[0_0_40px_rgba(76,215,246,0.55)] hover:scale-[1.01] active:scale-95" href="#"><span class="material-symbols-outlined">upload_file</span><span class="">Upload &amp; Start Earning</span></a></div></div>
+</div>
+</section>
+</div>
+<script>
+  function triggerSearch() {
+    const input = document.getElementById('hero-search-input');
+    if (input && input.value.trim().length > 0) {
+      alert('Searching StudyVault SPPU for: "' + input.value.trim() + '"');
+    } else {
+      input.focus();
+    }
+  }
+
+  function setQuery(term) {
+    const input = document.getElementById('hero-search-input');
+    if (input) {
+      input.value = term;
+      input.focus();
+    }
+  }
+</script></main><footer class="w-full bg-surface-glass-low backdrop-blur-2xl border-t border-border-glass-subtle mt-space-xl relative z-10"><div class="max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"><span class="font-headline-sm text-headline-sm text-on-surface">StudyVault</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Built by SPPU students, for SPPU students. Sharing knowledge without the gatekeeping.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/30">SPPU 2024 Pattern</span><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30">Peer Verified</span></div></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider">Curricula &amp; Branches</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Computer Engineering</li><li class="hover:text-secondary transition-colors cursor-pointer">Information Technology</li><li class="hover:text-secondary transition-colors cursor-pointer">AI &amp; Data Science</li><li class="hover:text-secondary transition-colors cursor-pointer">Electronics &amp; Telecomm</li><li class="hover:text-secondary transition-colors cursor-pointer">Mechanical Engineering</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider">Resources</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">EndSem InSem Papers</li><li class="hover:text-secondary transition-colors cursor-pointer">Faculty Lecture Notes</li><li class="hover:text-secondary transition-colors cursor-pointer">Lab Manuals &amp; Code</li><li class="hover:text-secondary transition-colors cursor-pointer">SPPU Decoders &amp; Solutions</li><li class="hover:text-secondary transition-colors cursor-pointer">Contributor Rewards</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider">Ecosystem</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Peer Bounty Program</li><li class="hover:text-secondary transition-colors cursor-pointer">Academic Honor Code</li><li class="hover:text-secondary transition-colors cursor-pointer">API Documentation</li><li class="hover:text-secondary transition-colors cursor-pointer">Privacy Architecture</li><li class="hover:text-secondary transition-colors cursor-pointer">Contact Pune Chapter</li></ul></div></div><div class="mt-space-xl pt-space-lg border-t border-border-glass-subtle flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-label-sm text-label-sm text-outline">© 2024 StudyVault SPPU Chapter. Engineered for high-throughput academic discovery.</p><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-outline"><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Syllabus Mapping</a><a class="hover:text-on-surface transition-colors" href="#">System Status</a></div></div></div></footer>
+
+
+
+
+
+
+
+</body></html>

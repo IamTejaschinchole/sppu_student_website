@@ -1,38 +1,18 @@
 import { Link } from 'react-router-dom';
-import { Home, ArrowLeft } from 'lucide-react';
+import { ArrowRight, BookOpen, Home, MapPin } from 'lucide-react';
+import notFoundBackground from '../assets/stitch/not-found-background.jpg';
+import notFoundCampus from '../assets/stitch/not-found-campus.jpg';
 
 export default function NotFoundPage() {
   return (
-    <main className="stitch-page mx-auto flex min-h-[calc(100vh-84px)] w-full max-w-[1200px] flex-col items-center justify-center px-5 py-12 text-center">
-      <div className="grid h-20 w-20 place-items-center rounded-2xl border border-glass bg-bg-surface/60 text-brand-primary">
-        <span className="text-4xl font-bold">404</span>
-      </div>
-      
-      <h1 className="mt-8 text-3xl font-bold text-text-primary sm:text-4xl">
-        Page not found
-      </h1>
-      
-      <p className="mt-4 max-w-md text-text-secondary">
-        The page you're looking for doesn't exist or has been moved. Let's get you back on track.
-      </p>
-      
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
-        <Link
-          to="/"
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-primary px-6 text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-primary/90 hover:shadow-brand-glow"
-        >
-          <Home size={18} aria-hidden="true" />
-          Go to Homepage
-        </Link>
-        
-        <button
-          onClick={() => window.history.back()}
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-glass bg-bg-surface/60 px-6 text-sm font-semibold text-text-primary transition-all duration-200 hover:border-brand-primary/50 hover:bg-bg-surface/80"
-        >
-          <ArrowLeft size={18} aria-hidden="true" />
-          Go Back
-        </button>
-      </div>
+    <main className="relative min-h-[calc(100vh-80px)] overflow-hidden bg-[#070b14] text-slate-200">
+      <div className="pointer-events-none fixed inset-0 bg-cover bg-center" style={{ backgroundImage: `linear-gradient(rgba(7,11,20,.74),rgba(7,11,20,.9)), url(${notFoundBackground})`, backgroundAttachment: 'fixed', backgroundPosition: 'center top' }} />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_68%_38%,rgba(77,142,255,.18),transparent_25%),radial-gradient(circle_at_22%_64%,rgba(76,215,246,.1),transparent_25%)]" />
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-80px)] w-full max-w-[1380px] items-center px-5 py-16 sm:px-8 lg:px-14"><div className="grid w-full items-center gap-10 lg:grid-cols-[1.05fr_.95fr]">
+        <div className="group relative overflow-hidden rounded-2xl border border-white/15 bg-slate-950/45 shadow-[0_24px_64px_-12px_rgba(0,0,0,.65)] backdrop-blur-xl"><img src={notFoundCampus} alt="SPPU campus at night" className="h-[360px] w-full object-cover brightness-75 contrast-110 transition duration-700 group-hover:scale-105 sm:h-[470px]" /><div className="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-slate-950/10" /><div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-3"><span className="flex max-w-[70%] items-center gap-2 rounded-full border border-white/15 bg-slate-950/65 px-3 py-2 text-xs font-semibold text-slate-200 backdrop-blur-md"><MapPin size={14} className="text-amber-300" /> SPPU campus reference</span><span className="rounded-full border border-cyan-300/20 bg-slate-950/65 px-3 py-2 text-xs font-semibold text-cyan-300 backdrop-blur-md">StudyVault</span></div></div>
+        <section className="max-w-xl"><p className="font-display text-8xl font-extrabold leading-none tracking-tight text-transparent [background:linear-gradient(180deg,#d8e2ff_0%,#4d8eff_75%)] bg-clip-text drop-shadow-[0_0_28px_rgba(77,142,255,.4)] sm:text-9xl">404</p><h1 className="mt-5 font-display text-4xl font-extrabold tracking-tight text-white sm:text-6xl">Page Not Found</h1><p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">Looks like you took a wrong turn or this study note has been moved. The resource you’re searching for doesn’t exist or is currently offline.</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link to="/" className="inline-flex h-14 items-center justify-center gap-2 rounded-xl bg-blue-500 px-6 text-sm font-bold text-slate-950 shadow-[0_0_24px_rgba(77,142,255,.35)] transition hover:bg-blue-400"><Home size={18} /> Go to Home</Link><Link to="/categories" className="inline-flex h-14 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/10 px-6 text-sm font-bold text-slate-100 backdrop-blur-md transition hover:border-cyan-300/45 hover:bg-white/15"><BookOpen size={18} className="text-cyan-300" /> Browse Resources</Link></div><div className="mt-10 border-t border-white/10 pt-7"><p className="text-xs font-bold uppercase tracking-wider text-slate-400">Explore StudyVault</p><div className="mt-3 flex flex-wrap gap-2"><Link to="/categories" className="inline-flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-300 transition hover:border-cyan-300/40 hover:text-cyan-200">Browse notes <ArrowRight size={13} /></Link><Link to="/sppu" className="inline-flex items-center gap-1 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-xs text-slate-300 transition hover:border-cyan-300/40 hover:text-cyan-200">SPPU branches <ArrowRight size={13} /></Link></div></div></section>
+      </div></div>
+      <footer className="relative z-10 border-t border-white/10 bg-[rgba(7,11,20,.75)] px-5 py-6 text-xs text-slate-500 backdrop-blur-2xl sm:px-8 lg:px-14"><div className="mx-auto flex max-w-[1380px] flex-wrap items-center justify-between gap-3"><span className="flex items-center gap-2"><span className="h-2 w-2 rounded-full bg-emerald-400" /> StudyVault SPPU Student Repository</span><span>Curriculum · Syllabus · Academic Honor Code · Contact Support</span><span>© 2025 StudyVault</span></div></footer>
     </main>
   );
 }

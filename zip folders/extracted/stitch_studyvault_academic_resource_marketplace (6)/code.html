@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#4cd7f6", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "border-glass-specular": "rgba(255, 255, 255, 0.20)", "secondary": "#4cd7f6", "inverse-on-surface": "#2c303a", "on-primary": "#002e6a", "on-secondary": "#003640", "on-tertiary-container": "#340080", "tertiary": "#d0bcff", "glow-primary": "rgba(77, 142, 255, 0.35)", "primary-container": "#4d8eff", "inverse-primary": "#005ac2", "on-tertiary-fixed": "#23005c", "surface-container": "#1c1f29", "on-secondary-container": "#00424e", "error-container": "#93000a", "primary-fixed-dim": "#adc6ff", "secondary-container": "#03b5d4", "alert-amber": "#f59e0b", "surface-tint": "#adc6ff", "surface-container-high": "#262a34", "border-glass-luminous": "rgba(76, 215, 246, 0.35)", "surface-glass-high": "rgba(26, 38, 64, 0.75)", "tertiary-container": "#a078ff", "on-surface-variant": "#c2c6d6", "outline-variant": "#424753", "surface-dim": "#0f131c", "inverse-surface": "#dfe2ef", "surface-glass-low": "rgba(10, 14, 23, 0.55)", "glow-cyan": "rgba(76, 215, 246, 0.25)", "surface-container-low": "#181b25", "surface-glass-base": "rgba(17, 24, 39, 0.65)", "on-tertiary": "#3c0091", "border-glass-subtle": "rgba(255, 255, 255, 0.10)", "success-emerald": "#10b981", "on-secondary-fixed-variant": "#004e5c", "on-background": "#dfe2ef", "surface-bright": "#353943", "on-primary-fixed-variant": "#004495", "primary-fixed": "#d8e2ff", "on-surface": "#dfe2ef", "surface-variant": "#31353f", "surface": "#0f131c", "tertiary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#5424af", "outline": "#8c909f", "on-primary-fixed": "#001a42", "canvas-void": "#06090e", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001f26", "glow-indigo": "rgba(160, 120, 255, 0.20)", "error": "#ffb4ab", "secondary-fixed": "#acedff", "tertiary-fixed-dim": "#d0bcff", "primary": "#adc6ff", "background": "#0f131c", "on-primary-container": "#00285d", "on-error": "#690005", "alert-coral": "#f43f5e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-lg": "3.5rem", "gutter-lg": "1.75rem", "space-xl": "2.25rem", "space-sm": "0.5rem", "margin": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-md": "2rem", "space-md": "1rem", "gutter": "1.25rem" }, "fontFamily": { "body-lg": ["Inter", "sans-serif"], "headline-md": ["Outfit", "sans-serif"], "body-sm": ["Inter", "sans-serif"], "label-sm": ["Plus Jakarta Sans", "sans-serif"], "body-md": ["Inter", "sans-serif"], "display-hero": ["Outfit", "sans-serif"], "label-md": ["Plus Jakarta Sans", "sans-serif"], "headline-lg": ["Outfit", "sans-serif"], "headline-sm": ["Outfit", "sans-serif"], "display-hero-mobile": ["Outfit", "sans-serif"], "headline-lg-mobile": ["Outfit", "sans-serif"], "title-md": ["Plus Jakarta Sans", "sans-serif"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen" style="background-image: linear-gradient(rgba(15, 19, 28, 0.6) 0%, rgba(10, 14, 23, 0.88) 60%, rgba(9, 14, 27, 0.98) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG14CsLAZ97xTQC9muJ4oZbRuKxxI3izq9sE1mJOo8jxtv_vdyxqVDmbULK2Cj15sZmCTeMyG8Agf1HBc1np7ijdF7vFqRHSoLMvVu55-S0HxI0IRI9zOeT8Zouh1b37fcH-22RUnU7gXcElIVXV-5bCVwXytKLEslCe-1-4Ayk8AMcdo4mE1Fi_YwpiJA-Ggfcct4rDaV1-KkoPX-hdO8b2Jc2GnxFsezaMyzaiGBFfn7pu5L1eJ8BMfimXgEt-ow'); background-attachment: fixed; background-size: cover; background-position: center top; background-repeat: no-repeat;"><header class="fixed top-0 left-0 w-full z-50 bg-surface-glass-low backdrop-blur-xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.5)] border-b border-border-glass-subtle"><div class="h-20 w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors tracking-tight">StudyVault</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">SPPU Edition</span></div></a><div class="hidden xl:flex items-center bg-surface-glass-base backdrop-blur-md px-space-md py-space-xs rounded-full border border-border-glass-subtle gap-space-sm focus-within:border-secondary transition-all w-72"><span class="material-symbols-outlined text-outline text-lg">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Search papers, notes, units..." type="text"/><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline-variant border border-border-glass-subtle">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="home" href="#">Home</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="browse" href="#">Browse</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="upload" href="#">Upload</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="library" href="#">My Library</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="dashboard" href="#">Dashboard</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center gap-space-xs bg-primary-container text-on-primary-container px-space-md py-space-sm rounded-xl font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all shadow-[0_0_20px_rgba(77,142,255,0.35)]" data-path="upload" href="#"><span class="material-symbols-outlined text-sm">upload_file</span><span class="">Share Vault</span></a><button aria-label="Notifications" class="p-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high rounded-full transition-colors relative" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-dim"></span></button><a class="flex items-center gap-space-xs p-1 rounded-full hover:ring-2 hover:ring-secondary/40 transition-all" data-path="profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-border-glass-specular" src="https://lh3.googleusercontent.com/aida/AEtjO1Vxmg5yQl0IXyUgyFSwhJ9N0ReSIFEZrQUdY1GqM2YMHGj-BwggkA9mZpRIAMPbNWOtHFXS0NwwfRqK5Svc7cyGxxcV-H0Wi0agzQSsbk4Mb7g6YgZeilId-oZf2lHr-aOHmTOp_rQs-_WxMiNQgUPiYekmAacWVir7RMOxY5rO6aM-iIDXsPMa8uqMh-OWUi_QdACL16ZAyQggLdSeUm4PWE4xGSU7fgCUMwgRs7JSHw2Ql8U1FnBbUQ"/></a></div></div></header><main class="w-full pt-20 relative z-10"><div class="flex flex-col w-full">
+<div class="relative w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-lg">
+<!-- Atmospheric Ambient Blooms -->
+<div class="absolute top-12 left-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+<div class="absolute top-48 right-10 w-[480px] h-[480px] bg-tertiary-container/15 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+<!-- Breadcrumb Trajectory -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs mb-space-lg flex-wrap">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-sm">home</span>
+        Browse
+      </a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">
+        Computer Engineering
+      </a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-secondary transition-colors" href="#">
+        Data Structures
+      </a>
+<span class="material-symbols-outlined text-xs text-outline">chevron_right</span>
+<span class="font-label-md text-label-md text-secondary bg-secondary/10 px-2.5 py-0.5 rounded-full">
+        Handwritten Notes
+      </span>
+</nav>
+<!-- Main Resource Hero Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-start">
+<!-- Left Column: Document Interactive Viewer (7 Cols) -->
+<section class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Document Glass Viewport -->
+<div class="relative w-full rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl overflow-hidden group">
+<!-- Top Specular Gloss Highlight -->
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-glass-specular to-transparent z-20"></div>
+<!-- Document Viewer Canvas -->
+<div class="relative aspect-[4/3] sm:aspect-[16/11] w-full bg-surface-container-lowest flex items-center justify-center p-space-sm sm:p-space-md overflow-hidden">
+<!-- Document Image Placeholder -->
+<img alt="Data Structures Handwritten Notes Unit 1" class="w-full h-full object-contain rounded-lg shadow-2xl transition-all duration-300 select-none" data-alt="A detailed authentic handwritten engineering study notebook page containing clear ballpoint pen notations on data structures, drawing binary search trees, node pointer arrows, asymptotic time complexity big-O tables, dry-run matrix, subtle graph diagrams, high-resolution student notebook under warm ambient desk light with midnight cyan background reflections" id="mainDocPreview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuXYWerY4GWjGYRe2J60vUOYhJ9ZhUV-yKysDQQtWD5FMswknjr__6ZxOLssT18Wlf3h7VtbVOm6a5UyyKLn4w2ndBk4P-q3L5-oItT-O3zJkkHbAL8zZmeZW49N0ql64kSkZjTBlvdVvOT3eilyUcLs0lvY6kTA8UJe2uEg5L59TmCrczIBOk8dF3-sjCdR3pyqu3WcyRxreRN2-cSmNcMoVo-2ZTHREsUgDUTefEX91fSztRNdY"/>
+<!-- Left Navigation Arrow -->
+<button aria-label="Previous Page" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-glass-base backdrop-blur-md text-on-surface flex items-center justify-center hover:bg-surface-glass-high hover:text-secondary transition-all shadow-lg active:scale-95 group-hover:opacity-100 opacity-80 z-20" onclick="prevPage()" type="button">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<!-- Right Navigation Arrow -->
+<button aria-label="Next Page" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-surface-glass-base backdrop-blur-md text-on-surface flex items-center justify-center hover:bg-surface-glass-high hover:text-secondary transition-all shadow-lg active:scale-95 group-hover:opacity-100 opacity-80 z-20" onclick="nextPage()" type="button">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+<!-- Page Counter Capsule -->
+<div class="absolute bottom-3 right-3 px-3 py-1 rounded-full bg-surface-glass-base backdrop-blur-md text-on-surface font-label-sm text-label-sm shadow-md flex items-center gap-1.5 z-20">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span id="pageCounterDisplay">1 / 24</span>
+</div>
+<!-- Zoom & Fullscreen Toolbar -->
+<div class="absolute top-3 right-3 flex items-center gap-1.5 z-20">
+<button aria-label="Zoom document" class="w-8 h-8 rounded-full bg-surface-glass-base backdrop-blur-md text-on-surface hover:text-secondary flex items-center justify-center transition-colors shadow-md" onclick="toggleZoom()" type="button">
+<span class="material-symbols-outlined text-sm">zoom_in</span>
+</button>
+<button aria-label="Expand fullscreen" class="w-8 h-8 rounded-full bg-surface-glass-base backdrop-blur-md text-on-surface hover:text-secondary flex items-center justify-center transition-colors shadow-md" onclick="toggleFullscreen()" type="button">
+<span class="material-symbols-outlined text-sm">fullscreen</span>
+</button>
+</div>
+</div>
+<!-- Bottom Utility Ribbon -->
+<div class="px-space-md py-space-sm bg-surface-glass-base flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">verified_user</span>
+              100% SPPU 2024 Syllabus Aligned
+            </span>
+<span class="hidden sm:inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">auto_stories</span>
+              High Definition 300 DPI Scans
+            </span>
+</div>
+</div>
+<!-- Thumbnail Filmstrip Carousel -->
+<div class="w-full">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-semibold">Page Previews</span>
+<span class="font-label-sm text-label-sm text-secondary cursor-pointer hover:underline">View All 24</span>
+</div>
+<div class="flex items-center gap-space-sm overflow-x-auto pb-space-xs scrollbar-none snap-x">
+<button class="thumb-btn flex-shrink-0 w-20 h-24 rounded-lg bg-surface-container-high overflow-hidden shadow-md relative focus:outline-none transition-all scale-100 ring-2 ring-secondary" data-page="1" onclick="switchThumb(1)" type="button">
+<img alt="Page 1 preview" class="w-full h-full object-cover opacity-90" data-alt="Micro thumbnail scan of student handwritten notes showing title page of Data Structures trees and graphs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1DI6MVNhySMZIwBq-YFfrrHDCxjsu7uk9XGmpVKRTq_M36cn53qI3gqESM1MxqnxDLBNOxG8esTFLnJc51LaVfQtop6K_9bh-BkABufdOtZnASlMePXqMyP2Lo6wG4FTiaC6tpwMW7rayHFRbjUDv_RMXOK0iHikkteF8HoxHP_Sl06itwnxVHb0PFGLxIFxpXqJn6SANUxK09huN_aVryO6Yv1KcnnrQMARrGuozZJBjRD31tZE"/>
+<span class="absolute bottom-1 right-1 px-1 bg-surface-container-lowest/80 rounded font-label-sm text-label-sm text-on-surface">P.1</span>
+</button>
+<button class="thumb-btn flex-shrink-0 w-20 h-24 rounded-lg bg-surface-container-high overflow-hidden shadow-md relative focus:outline-none transition-all opacity-70 hover:opacity-100" data-page="2" onclick="switchThumb(2)" type="button">
+<img alt="Page 2 preview" class="w-full h-full object-cover" data-alt="Micro thumbnail scan of handwritten notes with linked list singly and doubly node drawings with pointer memory addresses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd3RYgL7YR0XooCI4FEB19MwliuETXWRoDHL1MDQRHiFutvY1HnndjljRG_CKq3EPwOQ-eJ4dkNMjyg1lO5ib3Y-BL7-i4f4G0A3Nc8k741jUzTwD15HmgB7wtp5732UOWySBrb80GD6aCCBPhR_HcEMlcal9ajdkxO-xQ59aUufkevtOFADOBTexzXWiZxAEvJhyOKJFulttvXeweU7zJ6qgJxaZNA6I4npGkeUD2Fp1zweQqeSI"/>
+<span class="absolute bottom-1 right-1 px-1 bg-surface-container-lowest/80 rounded font-label-sm text-label-sm text-on-surface">P.2</span>
+</button>
+<button class="thumb-btn flex-shrink-0 w-20 h-24 rounded-lg bg-surface-container-high overflow-hidden shadow-md relative focus:outline-none transition-all opacity-70 hover:opacity-100" data-page="3" onclick="switchThumb(3)" type="button">
+<img alt="Page 3 preview" class="w-full h-full object-cover" data-alt="Micro thumbnail scan of student handwritten notes showing AVL tree rotations with color coded left right rotations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3c0eE4-kDChpUoMrdwqIcjlYs8MR9lybsMsQkbDznVS8dEAMc0vGHyL7rqSpB_RZsRFuxZF_hoxEc2lSUvNRoDqkVbDD3GYJcdYx-qAuC_vPArXSRcZaNiADnWZ7tx4H8YXVjQgZYIMQlpMGqEHu-TfTjmYtlhkBki7WnIWPT4cUfdpflAQIZ8FJ9jNWl94HmK9AyUSPfSH23HA81dBeYnBuL03F6_n_E5w2aeqR5gP56Dur3aok"/>
+<span class="absolute bottom-1 right-1 px-1 bg-surface-container-lowest/80 rounded font-label-sm text-label-sm text-on-surface">P.3</span>
+</button>
+<button class="thumb-btn flex-shrink-0 w-20 h-24 rounded-lg bg-surface-container-high overflow-hidden shadow-md relative focus:outline-none transition-all opacity-70 hover:opacity-100" data-page="4" onclick="switchThumb(4)" type="button">
+<img alt="Page 4 preview" class="w-full h-full object-cover" data-alt="Micro thumbnail scan of engineering handwritten notes with Dijkstra algorithm shortest path graph steps and adjacency matrix" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDs3ineI09M1KA-4YsjIqsKaoYS3Hhkpjc-aAvDkgR97XQpJfbnayUa5Kjs096-ln7EMNqBc5ooyHHm8skqTjyozwq1UdP16kQR01OT0vzUc22S8Z3B16r6mQDaiv2SGDvHHdAxglO8f1bTxQZNvpv149gkezYMlOL1VTJWe1FhqJkQOua3mRD3HScGzoWVsB5ZhhicsQfKE1sZGz-KyM4Csj2LNbn4px9mjbczEKDEn-G71tcofyI"/>
+<span class="absolute bottom-1 right-1 px-1 bg-surface-container-lowest/80 rounded font-label-sm text-label-sm text-on-surface">P.4</span>
+</button>
+<button class="thumb-btn flex-shrink-0 w-20 h-24 rounded-lg bg-surface-container-high overflow-hidden shadow-md relative focus:outline-none transition-all opacity-70 hover:opacity-100" data-page="5" onclick="switchThumb(5)" type="button">
+<img alt="Page 5 preview" class="w-full h-full object-cover" data-alt="Micro thumbnail scan of handwritten notes on hashing techniques collision resolution open addressing and chaining" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzUDG5a2eWyWP55NNB1rjXR2Rym_l2hsuZrsoihUUwlYQr_PdyxeogUMlIyI5IIJwV9HfYJGpp4NLTWo7nBR0PyM4LubR5Sr7uoUtpJElPGDoZhcODOiob4TCo5vupCrME5Ym1df7Tr1o0b7h3mHV1dKUrNmwJk4fVIPbFtRqsJbpSqQoIoxXZ7Z0uWXF8XDe3QOpahjH_V8-_zTiohQaREZdD4j703h7bHjFcTZF0XLW66ryW0CM"/>
+<span class="absolute bottom-1 right-1 px-1 bg-surface-container-lowest/80 rounded font-label-sm text-label-sm text-on-surface">P.5</span>
+</button>
+<div class="flex-shrink-0 w-20 h-24 rounded-lg bg-surface-glass-low flex flex-col items-center justify-center text-outline gap-1 cursor-pointer hover:text-secondary transition-colors">
+<span class="material-symbols-outlined text-lg">more_horiz</span>
+<span class="font-label-sm text-label-sm">+19 more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Column: Metadata, Author & Action Deck (5 Cols) -->
+<section class="lg:col-span-5 flex flex-col gap-space-lg">
+<div class="rounded-xl bg-surface-glass-high backdrop-blur-2xl p-space-lg shadow-xl relative overflow-hidden flex flex-col gap-space-md">
+<!-- Glass Top Specular -->
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-glass-specular to-transparent"></div>
+<!-- Badges Cluster -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-primary-container/20 text-primary-fixed flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-xs">description</span>
+              Notes
+            </span>
+<span class="px-3 py-1 rounded-full font-label-sm text-label-sm bg-success-emerald/15 text-success-emerald flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+              Verified 2024
+            </span>
+<span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-tertiary-container/15 text-tertiary font-medium">
+              Syllabus 2019/24
+            </span>
+</div>
+<!-- Title & Subtitle -->
+<div class="space-y-space-xs">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-snug">
+              Data Structures Complete Handwritten Notes
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              Complete DSA notes with clean hand-drawn diagrams, runtime complexity tables, and practice questions. Covers arrays, linked lists, stacks, queues, trees, graphs, and dynamic programming with solved SPPU PYQs.
+            </p>
+</div>
+<!-- Author Row -->
+<div class="flex items-center justify-between py-space-sm bg-surface-glass-base px-space-md rounded-xl">
+<div class="flex items-center gap-space-sm">
+<div class="relative">
+<img alt="Tejas Chinchole Profile" class="w-11 h-11 rounded-full object-cover shadow-md" data-alt="Portrait of an Indian engineering college student creator smiling, wearing dark jacket with subtle neon reflections in library setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR1cyxi9IQiktV6RSVfBPU7Sc6w-HIflpMtDL-LSnkxD7qV70XCj-AzPaOIs2WAkj-M06eMYYp-L4BgXpsVifkJtDqM-mb2NRie6u0_m6fUXK42vmVlM851dtmDo6AReeo9BHIbB5wo1rD3aUD64eE-NfQ3Si1QsydrBE1qIARmE8yO2HmG3ctDW6uMTnPZPSXsIu31Viqc505veud2dHcwYHX-yEsREM0qtK3-Q-Iubt8nA8aNF4"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-success-emerald ring-2 ring-surface-dim"></span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-on-surface hover:text-secondary cursor-pointer transition-colors">
+                  Tejas Chinchole
+                </span>
+<span class="font-body-sm text-body-sm text-outline">
+                  3.2k followers • SPPU Rank #4
+                </span>
+</div>
+</div>
+<button class="font-label-md text-label-md px-3.5 py-1.5 rounded-full bg-surface-container text-on-surface hover:bg-secondary hover:text-on-secondary transition-all shadow-sm flex items-center gap-1" id="followBtn" onclick="toggleFollow()" type="button">
+<span class="material-symbols-outlined text-sm">person_add</span>
+<span>Follow</span>
+</button>
+</div>
+<!-- Stats Matrix -->
+<div class="grid grid-cols-3 gap-space-xs py-space-xs text-center bg-surface-container-low/60 rounded-xl p-space-sm">
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1 text-alert-amber font-title-md text-title-md">
+<span class="material-symbols-outlined text-base fill-1" style="font-variation-settings: 'FILL' 1;">star</span>
+                4.8
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">320 reviews</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1 text-secondary font-title-md text-title-md">
+<span class="material-symbols-outlined text-base">download</span>
+                2.4K
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Downloads</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="flex items-center gap-1 text-tertiary font-title-md text-title-md">
+<span class="material-symbols-outlined text-base">pages</span>
+                24 Pages
+              </div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Full PDF</span>
+</div>
+</div>
+<!-- Tag Chips -->
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant hover:text-on-surface cursor-pointer">
+              #DataStructures
+            </span>
+<span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant hover:text-on-surface cursor-pointer">
+              #DSA
+            </span>
+<span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant hover:text-on-surface cursor-pointer">
+              #HandwrittenNotes
+            </span>
+<span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant hover:text-on-surface cursor-pointer">
+              #Syllabus2019
+            </span>
+<span class="px-2.5 py-1 rounded-md font-label-sm text-label-sm bg-surface-container-highest text-on-surface-variant hover:text-on-surface cursor-pointer">
+              #Sem3
+            </span>
+</div>
+<!-- Action Buttons Deck -->
+<div class="flex flex-col sm:flex-row items-center gap-space-sm pt-space-xs">
+<button class="w-full sm:flex-1 py-3.5 px-space-lg rounded-xl font-label-md text-label-md bg-primary-container text-on-primary-container font-semibold hover:bg-primary-fixed hover:text-on-primary-fixed-variant transition-all shadow-[0_0_24px_rgba(77,142,255,0.4)] flex items-center justify-center gap-2 group active:scale-[0.98]" onclick="triggerDownload()" type="button">
+<span class="material-symbols-outlined text-lg group-hover:-translate-y-0.5 transition-transform">download</span>
+<span>Download (PDF - 24 MB)</span>
+</button>
+<button class="w-full sm:w-auto py-3.5 px-space-lg rounded-xl font-label-md text-label-md bg-surface-glass-base text-on-surface hover:bg-surface-glass-high hover:text-secondary transition-all shadow-md flex items-center justify-center gap-2 active:scale-[0.98]" id="saveLibraryBtn" onclick="toggleSaveLibrary()" type="button">
+<span class="material-symbols-outlined text-lg" id="saveIcon">bookmark_border</span>
+<span id="saveText">Save</span>
+</button>
+</div>
+<!-- Academic Honor Code Pledge Note -->
+<p class="font-body-sm text-body-sm text-outline text-center flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">verified</span>
+            Peer-reviewed &amp; verified under SPPU Engineering Honor Code
+          </p>
+</div>
+</section>
+</div>
+<!-- Tabbed Detailed Specifications & Context (Bottom Section) -->
+<section class="mt-space-xl">
+<!-- Nav Tabs Bar -->
+<div class="flex items-center gap-space-md border-b-0 bg-surface-glass-base px-space-md py-space-xs rounded-xl backdrop-blur-xl mb-space-lg overflow-x-auto scrollbar-none">
+<button class="tab-btn px-space-md py-space-sm font-label-md text-label-md text-secondary bg-surface-container rounded-lg font-semibold flex items-center gap-1.5 transition-all shadow-sm" onclick="activateTab('overview', this)" type="button">
+<span class="material-symbols-outlined text-sm">article</span>
+          Overview
+        </button>
+<button class="tab-btn px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-lg transition-all flex items-center gap-1.5" onclick="activateTab('preview', this)" type="button">
+<span class="material-symbols-outlined text-sm">visibility</span>
+          Preview (24 Pages)
+        </button>
+<button class="tab-btn px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-lg transition-all flex items-center gap-1.5" onclick="activateTab('reviews', this)" type="button">
+<span class="material-symbols-outlined text-sm">star</span>
+          Reviews (320)
+        </button>
+<button class="tab-btn px-space-md py-space-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface rounded-lg transition-all flex items-center gap-1.5" onclick="activateTab('related', this)" type="button">
+<span class="material-symbols-outlined text-sm">share</span>
+          Related Resources
+        </button>
+</div>
+<!-- Tab 1: Overview Content -->
+<div class="tab-panel grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg" id="tab-overview">
+<!-- Left: Longform Human Student Description (8 Cols) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl space-y-space-md relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-glass-specular to-transparent"></div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">school</span>
+              About this resource
+            </h2>
+<p class="font-body-md text-body-md text-on-surface leading-relaxed">
+              These are my personal complete handwritten lecture and revision notes for <strong class="text-secondary font-semibold">Data Structures (SPPU Course Code 210243)</strong>, prepared during my 2nd year Semester 3 at Pune Institute of Computer Technology (PICT).
+            </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              It thoroughly addresses all 6 units mandated by the Savitribai Phule Pune University syllabus. Every abstract concept is complemented by pencil-and-pen pointer diagrams, memory stack allocations, step-by-step tree rebalancing dry runs, and actual handwritten C++ implementations alongside algorithm pseudo-code.
+            </p>
+<!-- Curricular Breakdown Bento Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-secondary font-semibold">Unit 1 &amp; 2: Fundamentals &amp; Stacks/Queues</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Linear data structures, pointer mechanics, infix to postfix conversions, monotonic queue paradigms, and circular buffer algorithms.</p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-secondary font-semibold">Unit 3 &amp; 4: Non-Linear Trees &amp; BST</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Complete traversals (Inorder, Preorder, Postorder, Morris traversal), AVL balance factor calculations, and threaded binary trees.</p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-secondary font-semibold">Unit 5: Graph Theory &amp; Spanning Trees</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">BFS, DFS, Prim’s &amp; Kruskal’s Minimum Spanning Tree with union-find disjoint sets, topological sort, and Dijkstra’s shortest path.</p>
+</div>
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-md text-label-md text-secondary font-semibold">Unit 6: Hashing &amp; Search Structures</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hash collision strategies, double hashing, quadratic probing, B-Trees index node splitting, and external sorting mechanics.</p>
+</div>
+</div>
+<!-- Authentic Student Pro-Tip Callout -->
+<div class="p-space-md rounded-lg bg-primary-container/15 flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5">tips_and_updates</span>
+<div>
+<span class="font-label-md text-label-md text-primary-fixed font-semibold block">Author Exam Tip:</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  Focus specially on pages 14–19 for InSem and EndSem — the 7-mark question on AVL deletion and Prim’s MST algorithm dry-run are verbatim solved from past 5 SPPU question papers.
+                </p>
+</div>
+</div>
+</div>
+<!-- Peer Community Reviews Spotlight -->
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl space-y-space-md relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-glass-specular to-transparent"></div>
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Top Verified Reviews</h3>
+<span class="font-label-md text-label-md text-secondary cursor-pointer hover:underline">Write a Review</span>
+</div>
+<!-- Review Item 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-secondary/20 text-secondary font-headline-sm text-xs flex items-center justify-center font-bold">
+                    RP
+                  </div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Rohan Patel</span>
+<span class="font-label-sm text-label-sm text-outline">COEP Pune • 3rd Sem</span>
+</div>
+</div>
+<div class="flex items-center text-alert-amber text-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                "Saved my InSem score entirely. The graph representations and AVL rotation diagrams are ten times clearer than any textbook. Downloaded right into GoodNotes."
+              </p>
+</div>
+<!-- Review Item 2 -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-8 h-8 rounded-full bg-tertiary/20 text-tertiary font-headline-sm text-xs flex items-center justify-center font-bold">
+                    SK
+                  </div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-semibold block">Snehal Kadam</span>
+<span class="font-label-sm text-label-sm text-outline">MIT WPU • IT Department</span>
+</div>
+</div>
+<div class="flex items-center text-alert-amber text-xs">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm">star_half</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                "Clean handwriting and very sharp scans. The dry run tables for dynamic programming subset sums made it so intuitive."
+              </p>
+</div>
+</div>
+</div>
+<!-- Right: Resource Meta Specifications Matrix (4 Cols) -->
+<aside class="lg:col-span-4 flex flex-col gap-space-lg">
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl space-y-space-md relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-glass-specular to-transparent"></div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">info</span>
+              Resource Info
+            </h3>
+<div class="space-y-space-sm divide-y-0">
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Subject</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">Data Structures</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Branch</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">Computer Engineering</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Semester</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">Semester 3 (SE)</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Pattern</span>
+<span class="font-label-md text-label-md text-secondary font-medium text-right">SPPU 2019 / 2024</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Format</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">High-Res PDF</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Page Count</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">24 Pages (48 Sheets)</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">File Size</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">24.2 MB</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">Uploaded</span>
+<span class="font-label-md text-label-md text-on-surface font-medium text-right">2 weeks ago</span>
+</div>
+<div class="flex items-center justify-between py-1.5">
+<span class="font-label-md text-label-md text-outline">License</span>
+<span class="font-label-md text-label-md text-tertiary font-medium text-right">CC BY-NC 4.0</span>
+</div>
+</div>
+<!-- Instant Quality Verification Score -->
+<div class="pt-space-sm">
+<div class="flex items-center justify-between mb-1.5">
+<span class="font-label-sm text-label-sm text-outline">Quality Score</span>
+<span class="font-label-sm text-label-sm text-success-emerald font-semibold">98% Match Rate</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-success-emerald rounded-full w-[98%]"></div>
+</div>
+</div>
+</div>
+<!-- Contributor Support Box -->
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl flex flex-col gap-space-sm relative overflow-hidden">
+<div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border-glass-specular to-transparent"></div>
+<div class="flex items-center gap-space-xs text-secondary font-headline-sm text-headline-sm">
+<span class="material-symbols-outlined text-lg">volunteer_activism</span>
+              Support Student Creators
+            </div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Tejas spent 35+ hours compiling these notes for the Pune engineering cohort. Leave a star or tip a coffee to fund more uploads!
+            </p>
+<button class="w-full py-2.5 px-space-md rounded-lg font-label-md text-label-md bg-secondary/10 text-secondary hover:bg-secondary hover:text-on-secondary transition-all font-semibold flex items-center justify-center gap-1.5 shadow-sm" onclick="tipContributor()" type="button">
+<span class="material-symbols-outlined text-sm">local_cafe</span>
+              Send Chai / Coffee (₹50)
+            </button>
+</div>
+</aside>
+</div>
+<!-- Tab 2: Preview Panel (Hidden by default, switched by JS) -->
+<div class="tab-panel hidden space-y-space-md" id="tab-preview">
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-sm">Complete Page Thumbnails Directory</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">Click any page spread to view high-resolution scan immediately in the interactive viewer.</p>
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-space-md">
+<div class="cursor-pointer group flex flex-col items-center" onclick="switchThumb(1)">
+<div class="aspect-[3/4] w-full rounded-lg bg-surface-container-high overflow-hidden shadow-md group-hover:ring-2 group-hover:ring-secondary transition-all">
+<img alt="Preview Page 1" class="w-full h-full object-cover" data-alt="Handwritten page preview unit 1 data structure introduction notes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVN_uN7jmDmivMaw_MkttH1biZHrCpMnhyn3tp1C9qONtUuM8c2S4REoZmesWisaV8qq01-975IP8lqCwdoPZPQ2MYtnV6L5e_Rgv71JIFMuMSghA_aCuez5UVNrAS7PjTU2kA82dzz7K6w8ItM7RRZMijZUYvS5ZPtatD5cGBrEeJtHI922uOTAHKxDLBBogHy7DV9i6sQ6BJueKfo-QjaAHzBisdzLnHmmZ0WxQQ_O0zE2qqZ-c"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">Page 1 • Intro</span>
+</div>
+<div class="cursor-pointer group flex flex-col items-center" onclick="switchThumb(2)">
+<div class="aspect-[3/4] w-full rounded-lg bg-surface-container-high overflow-hidden shadow-md group-hover:ring-2 group-hover:ring-secondary transition-all">
+<img alt="Preview Page 2" class="w-full h-full object-cover" data-alt="Handwritten page preview linked lists nodes memory layout diagrams" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoRBtzXTjgDxEZggCarXkY895q1DR0at3JUqho_y7pjpug-DZhnSaNHpCQSk1AJQXelX1UMUKrYUOiG45XjJeA32dAXXSjFGqxK6rxEIkBga8owG2QNlRX8wlOnG-v6dVaPnhWymqex4zI2wNF5-si2Z8JLU7TRt5ovBOtNfzzlX0Z1UNsM4sa3FIcB1LLU3SZYZ-esE2GSnR99S-TwzllMWe6kSZTdidtTJsMziPKeKMQtsw_6U4"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">Page 2 • Linked Lists</span>
+</div>
+<div class="cursor-pointer group flex flex-col items-center" onclick="switchThumb(3)">
+<div class="aspect-[3/4] w-full rounded-lg bg-surface-container-high overflow-hidden shadow-md group-hover:ring-2 group-hover:ring-secondary transition-all">
+<img alt="Preview Page 3" class="w-full h-full object-cover" data-alt="Handwritten page preview binary trees traversal recursive stack traces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYTo_d1rg_Edg7dJENdstepweU4_aiJgWUE_l0e4F58hPpvziNCvyRi3tOtJTieoq8W5HTyM8PjuynlLCtxGvzprIccWaP82AT44sBqfmcioS8Ts-9XI3SIgpyS_sThibje-iW4ns7MJypPNCpY36dmH3UOdoI1S-L4IQjfnHX0JoO4dnviEQaVyyDNPtzR3VeZTyfBQiDQXJPRPXTr0LhPNbeGioywiIxoEgpvpdw2nDAQ3lyYOw"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">Page 3 • Binary Trees</span>
+</div>
+<div class="cursor-pointer group flex flex-col items-center" onclick="switchThumb(4)">
+<div class="aspect-[3/4] w-full rounded-lg bg-surface-container-high overflow-hidden shadow-md group-hover:ring-2 group-hover:ring-secondary transition-all">
+<img alt="Preview Page 4" class="w-full h-full object-cover" data-alt="Handwritten page preview graph algorithms adjacency lists BFS DFS" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmGv2r88t6z2rDpK1RsHlAr4tifsOKNDn4kuiS45MhgRf55yaaD0Y2O94A6YLiZw5Kfl3m4MZzgsSW2d6uIlxJKqNOkLkBqGQoHHcc3hnMtcu5ImaIyzxu7eOs-s2ynx2peoQnaU2RtWzIoyR4DP0hAkyyXYZwpXp44YHcOn-u1Fzw6Hj5gnXrAqltQZtiwT2Oq0_TR8VdBmT-OLL2FjtdFuSazRMwdMDMkyiWumEJRbKWdgSEwfo"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">Page 4 • Graphs</span>
+</div>
+<div class="cursor-pointer group flex flex-col items-center" onclick="switchThumb(5)">
+<div class="aspect-[3/4] w-full rounded-lg bg-surface-container-high overflow-hidden shadow-md group-hover:ring-2 group-hover:ring-secondary transition-all">
+<img alt="Preview Page 5" class="w-full h-full object-cover" data-alt="Handwritten page preview hashing probe tables collision resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcQrwNVFk7xirC7L8zOJIdxR9jsmt1HxU1mHtz1iqpoDlYuU2ztwfR3YKcurgl4pfQkgE-1mqjeb4mPbeNz5VdaQqC0eh1gpOER8uklqgXT1w--LD5nGXfWQP9gbHMAFyWkhPMU5jmbp4yGYvNJ5c8AUFsfeegXwbhS7PIXa8bq256bs08f1D7pAqUMen6iA8fm0NaySzJDdbuHiFY641FgLQkX4Xma9cyx-C9DM49k5cz_OCnuQE"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">Page 5 • Hashing</span>
+</div>
+<div class="cursor-pointer group flex flex-col items-center" onclick="switchThumb(6)">
+<div class="aspect-[3/4] w-full rounded-lg bg-surface-container-high overflow-hidden shadow-md group-hover:ring-2 group-hover:ring-secondary transition-all">
+<img alt="Preview Page 6" class="w-full h-full object-cover" data-alt="Handwritten page preview dynamic programming knapsack problem tables" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCB6MbBRMJ4jQ_VZ6eOGJpgWMj__B73H_vYnrDfWbHzQhiGDImDuJcFTqQE3Rrl8Pf98hqKO2KC-cw6HaEE0FkVgYy_jAedzzEfj3Gktt70xSsEQzHLhJSTqz_lpSP3OfBCCg4fFfriCOXsWfIPgqd83mSiKhNiM--hZxKa_iUseNdz_q6PU2gtbFKzjIaO25IXB5Uz2TtLJqlBfs7qkPPOYsRDH7lFHEqyXnuFQ4kilk8VnaIIazc"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1.5">Page 6 • DP Solved</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 3: Reviews Panel -->
+<div class="tab-panel hidden space-y-space-md" id="tab-reviews">
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Student Feedback &amp; Verification Ratings</h3>
+<span class="font-label-md text-label-md text-secondary">320 Total Submissions</span>
+</div>
+<!-- Rating breakdown bar visualization -->
+<div class="p-space-md rounded-lg bg-surface-container-low grid grid-cols-1 md:grid-cols-2 gap-space-lg items-center">
+<div class="flex items-center gap-space-md">
+<div class="text-display-hero font-display-hero text-on-surface font-extrabold leading-none">4.8</div>
+<div>
+<div class="flex text-alert-amber text-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star_half</span>
+</div>
+<span class="font-label-sm text-label-sm text-outline">Based on verified SPPU engineering students</span>
+</div>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="w-12 text-outline">5 stars</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[85%]"></div>
+</div>
+<span class="w-8 text-right text-on-surface-variant">85%</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="w-12 text-outline">4 stars</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[12%]"></div>
+</div>
+<span class="w-8 text-right text-on-surface-variant">12%</span>
+</div>
+<div class="flex items-center gap-2 font-label-sm text-label-sm">
+<span class="w-12 text-outline">3 stars</span>
+<div class="flex-1 h-2 bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary rounded-full w-[3%]"></div>
+</div>
+<span class="w-8 text-right text-on-surface-variant">3%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab 4: Related Resources Panel -->
+<div class="tab-panel hidden space-y-space-md" id="tab-related">
+<div class="p-space-lg rounded-xl bg-surface-glass-high backdrop-blur-2xl shadow-xl">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-space-md">More from Savitribai Phule Pune University Sem 3</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-glass-base transition-all cursor-pointer group flex flex-col gap-space-xs">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-tertiary/15 text-tertiary w-fit">PYQ Papers</span>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Data Structures SPPU 2019-2023 Solved InSem &amp; EndSem</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Compiled by Rohit Sharma • 1.8K downloads</p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-glass-base transition-all cursor-pointer group flex flex-col gap-space-xs">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-secondary/15 text-secondary w-fit">Lab Manual</span>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Data Structures Lab (DSL) Verified C++ Code &amp; Output</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Compiled by Aman Patel • 3.1K downloads</p>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low hover:bg-surface-glass-base transition-all cursor-pointer group flex flex-col gap-space-xs">
+<span class="px-2 py-0.5 rounded-full font-label-sm text-label-sm bg-primary/15 text-primary w-fit">Formula Sheet</span>
+<h4 class="font-title-md text-title-md text-on-surface group-hover:text-secondary transition-colors">Discrete Mathematics (DM) Last Minute Revision Formulae</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Compiled by Sneha Kulkarni • 950 downloads</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+<script>
+  let currentPage = 1;
+  const totalPages = 24;
+
+  function updatePageDisplay() {
+    const counter = document.getElementById('pageCounterDisplay');
+    if (counter) {
+      counter.innerText = `${currentPage} / ${totalPages}`;
+    }
+    // Update thumbnail highlights
+    document.querySelectorAll('.thumb-btn').forEach((btn) => {
+      const pageNum = parseInt(btn.getAttribute('data-page'), 10);
+      if (pageNum === currentPage) {
+        btn.classList.add('ring-2', 'ring-secondary', 'opacity-100');
+        btn.classList.remove('opacity-70');
+      } else {
+        btn.classList.remove('ring-2', 'ring-secondary');
+        btn.classList.add('opacity-70');
+      }
+    });
+  }
+
+  function prevPage() {
+    if (currentPage > 1) {
+      currentPage--;
+      updatePageDisplay();
+    }
+  }
+
+  function nextPage() {
+    if (currentPage < totalPages) {
+      currentPage++;
+      updatePageDisplay();
+    }
+  }
+
+  function switchThumb(page) {
+    currentPage = page;
+    updatePageDisplay();
+  }
+
+  let isZoomed = false;
+  function toggleZoom() {
+    const img = document.getElementById('mainDocPreview');
+    if (!img) return;
+    isZoomed = !isZoomed;
+    if (isZoomed) {
+      img.classList.add('scale-125');
+    } else {
+      img.classList.remove('scale-125');
+    }
+  }
+
+  function toggleFullscreen() {
+    const viewer = document.getElementById('mainDocPreview')?.parentElement;
+    if (!viewer) return;
+    if (!document.fullscreenElement) {
+      viewer.requestFullscreen().catch(err => console.log(err));
+    } else {
+      document.exitFullscreen().catch(err => console.log(err));
+    }
+  }
+
+  let isFollowing = false;
+  function toggleFollow() {
+    const btn = document.getElementById('followBtn');
+    if (!btn) return;
+    isFollowing = !isFollowing;
+    if (isFollowing) {
+      btn.innerHTML = `<span class="material-symbols-outlined text-sm">check</span><span>Following</span>`;
+      btn.classList.add('bg-secondary', 'text-on-secondary');
+      btn.classList.remove('bg-surface-container', 'text-on-surface');
+    } else {
+      btn.innerHTML = `<span class="material-symbols-outlined text-sm">person_add</span><span>Follow</span>`;
+      btn.classList.remove('bg-secondary', 'text-on-secondary');
+      btn.classList.add('bg-surface-container', 'text-on-surface');
+    }
+  }
+
+  let isSaved = false;
+  function toggleSaveLibrary() {
+    const btn = document.getElementById('saveLibraryBtn');
+    const icon = document.getElementById('saveIcon');
+    const text = document.getElementById('saveText');
+    if (!btn || !icon || !text) return;
+    
+    isSaved = !isSaved;
+    if (isSaved) {
+      icon.innerText = 'bookmark';
+      text.innerText = 'Saved';
+      btn.classList.add('bg-secondary/20', 'text-secondary');
+    } else {
+      icon.innerText = 'bookmark_border';
+      text.innerText = 'Save';
+      btn.classList.remove('bg-secondary/20', 'text-secondary');
+    }
+  }
+
+  function triggerDownload() {
+    const originalText = "Download (PDF - 24 MB)";
+    const target = event.currentTarget.querySelector('span:last-child');
+    if (target) {
+      target.innerText = "Initiating PDF Export...";
+      setTimeout(() => {
+        target.innerText = "Downloaded ✓";
+        setTimeout(() => {
+          target.innerText = originalText;
+        }, 2000);
+      }, 900);
+    }
+  }
+
+  function tipContributor() {
+    alert("Thank you! Supporting peer student contributors directly empowers decentralized SPPU study resources.");
+  }
+
+  function activateTab(tabId, element) {
+    // Hide all tab panels
+    document.querySelectorAll('.tab-panel').forEach(panel => {
+      panel.classList.add('hidden');
+    });
+
+    // Remove active styles from buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.remove('text-secondary', 'bg-surface-container', 'font-semibold', 'shadow-sm');
+      btn.classList.add('text-on-surface-variant');
+    });
+
+    // Show current tab panel
+    const currentPanel = document.getElementById(`tab-${tabId}`);
+    if (currentPanel) {
+      currentPanel.classList.remove('hidden');
+    }
+
+    // Apply active styles to clicked button
+    element.classList.add('text-secondary', 'bg-surface-container', 'font-semibold', 'shadow-sm');
+    element.classList.remove('text-on-surface-variant');
+  }
+</script></main><footer class="w-full bg-surface-glass-low backdrop-blur-2xl border-t border-border-glass-subtle mt-space-xl relative z-10"><div class="max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">StudyVault</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">The decentralized academic repository and peer marketplace engineered for Savitribai Phule Pune University (SPPU) engineering, computer science, and management curricula.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/30 font-medium">SPPU 2024 Pattern</span><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30 font-medium">Peer Verified</span></div></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Curricula &amp; Branches</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Computer Engineering</li><li class="hover:text-secondary transition-colors cursor-pointer">Information Technology</li><li class="hover:text-secondary transition-colors cursor-pointer">AI &amp; Data Science</li><li class="hover:text-secondary transition-colors cursor-pointer">Electronics &amp; Telecomm</li><li class="hover:text-secondary transition-colors cursor-pointer">Mechanical Engineering</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Resources</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">EndSem InSem Papers</li><li class="hover:text-secondary transition-colors cursor-pointer">Faculty Lecture Notes</li><li class="hover:text-secondary transition-colors cursor-pointer">Lab Manuals &amp; Code</li><li class="hover:text-secondary transition-colors cursor-pointer">SPPU Decoders &amp; Solutions</li><li class="hover:text-secondary transition-colors cursor-pointer">Contributor Rewards</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Ecosystem</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Peer Bounty Program</li><li class="hover:text-secondary transition-colors cursor-pointer">Academic Honor Code</li><li class="hover:text-secondary transition-colors cursor-pointer">API Documentation</li><li class="hover:text-secondary transition-colors cursor-pointer">Privacy Architecture</li><li class="hover:text-secondary transition-colors cursor-pointer">Contact Pune Chapter</li></ul></div></div><div class="mt-space-xl pt-space-lg border-t border-border-glass-subtle flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-label-sm text-label-sm text-outline">© 2024 StudyVault SPPU Chapter. Engineered for high-throughput academic discovery.</p><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-outline"><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Syllabus Mapping</a><a class="hover:text-on-surface transition-colors" href="#">System Status</a></div></div></div></footer></body></html>

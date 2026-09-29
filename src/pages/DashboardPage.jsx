@@ -28,6 +28,7 @@ import { useSellerPayments } from '../hooks/useSellerPayments.js';
 import { Avatar, DashboardStat, ErrorMessage } from '../components/ui.jsx';
 import { BookmarkButton } from '../components/BookmarkButton.jsx';
 import { ensurePublicProfile } from '../lib/profileActions.js';
+import dashboardBackground from '../assets/stitch/dashboard-background.jpg';
 
 export default function DashboardPage() {
   const { user, updateDisplayName } = useAuth();
@@ -191,15 +192,16 @@ export default function DashboardPage() {
   }
 
   return (
-    <main className="stitch-page stitch-dashboard mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
+    <main className="relative mx-auto min-h-screen w-full max-w-[1380px] overflow-hidden px-5 py-10 text-slate-100 sm:px-8 lg:px-14 lg:py-14" style={{ backgroundImage: `linear-gradient(rgba(6,9,14,.76),rgba(6,9,14,.94)), url(${dashboardBackground})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center top' }}>
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-text-secondary transition hover:text-text-primary">
             <ArrowLeft size={17} aria-hidden="true" />
             Back to marketplace
           </Link>
-          <p className="mt-8 text-sm font-semibold uppercase text-text-secondary">Seller dashboard</p>
-          <h1 className="mt-2 text-4xl font-bold text-text-primary">Your notes and profile</h1>
+          <span className="mt-8 inline-flex rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[.14em] text-cyan-300">SPPU contributor workspace</span>
+          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-slate-100 sm:text-5xl">Contributor Dashboard</h1>
+          <p className="mt-2 text-sm text-slate-300">Manage your real uploads, profile, downloads, and earnings.</p>
         </div>
         <Link
           to="/upload"
@@ -226,7 +228,7 @@ export default function DashboardPage() {
       </section>
 
       <section className="mt-10 grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
-        <aside className="rounded-xl border border-glass bg-bg-surface/60 p-6">
+        <aside className="rounded-xl border border-white/15 bg-[rgba(10,14,23,.68)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl">
           <p className="text-sm font-semibold uppercase text-text-secondary">Profile</p>
           <div className="mt-5 flex items-center gap-4 rounded-xl border border-glass bg-bg-deep/40 p-4">
             <Avatar user={user} />
@@ -273,7 +275,7 @@ export default function DashboardPage() {
           </div>
         </aside>
 
-        <section className="rounded-xl border border-glass bg-bg-surface/60 p-6">
+        <section className="rounded-xl border border-white/15 bg-[rgba(10,14,23,.68)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl">
           <div className="mb-5 flex items-center justify-between gap-4">
             <div>
               <p className="text-sm font-semibold uppercase text-text-secondary">Uploaded notes</p>

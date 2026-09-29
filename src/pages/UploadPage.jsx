@@ -6,6 +6,7 @@ import { getSppuSemestersForBranchSlug, getSppuSubjectsForRoute } from '../data/
 import { formatBytes } from '../lib/utils.js';
 import { firebaseReady } from '../firebase.js';
 import { useAuth } from '../AuthContext.jsx';
+import contributorBackground from '../assets/stitch/contributor-background.jpg';
 
 export default function UploadPage() {
   const navigate = useNavigate();
@@ -177,7 +178,7 @@ export default function UploadPage() {
 
   if (success) {
     return (
-      <main className="stitch-page mx-auto flex w-full max-w-[1200px] flex-col items-center px-[24px] pb-20 pt-20">
+      <main className="relative mx-auto flex min-h-screen w-full max-w-[1380px] flex-col items-center overflow-hidden px-5 pb-20 pt-20 text-slate-100 sm:px-8 lg:px-14" style={{ backgroundImage: `linear-gradient(rgba(9,14,27,.72),rgba(9,14,27,.92)), url(${contributorBackground})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center top' }}>
         <div className="flex flex-col items-center rounded-xl glass-strong p-10 text-center max-w-md w-full shadow-glass-lg">
           <div className="grid h-16 w-16 place-items-center rounded-full bg-emerald-500/10 text-emerald-500">
             <CheckCircle size={32} />
@@ -198,21 +199,22 @@ export default function UploadPage() {
   }
 
   return (
-    <main className="stitch-page mx-auto w-full max-w-[1200px] px-[24px] pb-20 pt-12">
+    <main className="relative mx-auto w-full max-w-[1380px] overflow-hidden px-5 pb-20 pt-12 text-slate-100 sm:px-8 lg:px-14" style={{ backgroundImage: `linear-gradient(rgba(9,14,27,.64),rgba(9,14,27,.9)), url(${contributorBackground})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center top' }}>
       <Link to="/" className="mb-6 inline-flex items-center gap-2 text-sm font-medium text-text-secondary transition hover:text-text-primary">
         <ArrowLeft size={16} aria-hidden="true" />
         Back to Browse
       </Link>
 
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-text-primary">Upload Catalogue</h1>
-        <p className="mt-2 text-text-secondary">Bundle related study materials, notes, and PYQs together into a single catalogue.</p>
+        <span className="inline-flex rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[.14em] text-cyan-300">Decentralized peer vault • SPPU Pune</span>
+        <h1 className="mt-4 font-display text-4xl font-extrabold tracking-tight text-slate-100 sm:text-5xl">Upload Study Resource</h1>
+        <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-300">Share your handwritten notes, PYQs, lab manuals, and question banks with fellow SPPU students.</p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-[1fr_400px]">
         {/* Left Column: Form */}
         <div className="flex flex-col gap-8">
-          <section className="rounded-xl border border-glass bg-bg-surface/60 p-6 sm:p-8">
+          <section className="rounded-xl border border-white/15 bg-[rgba(15,20,32,.62)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl sm:p-8">
             <h2 className="text-lg font-semibold text-text-primary mb-6">1. Catalogue Details</h2>
             <div className="grid gap-5">
               <div>
@@ -258,7 +260,7 @@ export default function UploadPage() {
             </div>
           </section>
 
-          <section className="rounded-xl border border-glass bg-bg-surface/60 p-6 sm:p-8">
+          <section className="rounded-xl border border-white/15 bg-[rgba(15,20,32,.62)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl sm:p-8">
             <h2 className="text-lg font-semibold text-text-primary mb-6">2. Academic Context</h2>
             <div className="grid gap-5 sm:grid-cols-2">
               <div className="sm:col-span-2">
@@ -319,7 +321,7 @@ export default function UploadPage() {
             </div>
           </section>
 
-          <section className="rounded-xl border border-glass bg-bg-surface/60 p-6 sm:p-8">
+          <section className="rounded-xl border border-white/15 bg-[rgba(15,20,32,.62)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl sm:p-8">
             <h2 className="text-lg font-semibold text-text-primary mb-6">3. Upload Resources</h2>
             
             <form onSubmit={handleAddResource} className="rounded-xl border border-dashed border-glass bg-bg-deep/20 p-5">
@@ -388,7 +390,7 @@ export default function UploadPage() {
 
         {/* Right Column: Preview & Publish */}
         <div className="flex flex-col gap-6">
-          <div className="sticky top-24 rounded-xl border border-glass bg-bg-surface/60 p-6">
+          <div className="sticky top-24 rounded-xl border border-white/15 bg-[rgba(15,20,32,.62)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl">
             <h3 className="text-sm font-semibold uppercase tracking-wider text-text-secondary">Catalogue Preview</h3>
             
             <div className="mt-5 rounded-xl bg-bg-deep/20 p-4 border border-glass">

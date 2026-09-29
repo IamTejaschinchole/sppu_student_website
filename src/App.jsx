@@ -126,9 +126,11 @@ function PageSuspense({ label, children }) {
 }
 
 function App() {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen text-text-primary">
-      <Navbar />
+      {location.pathname !== '/login' && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -261,7 +263,7 @@ function Navbar() {
 
   const navItems = [
     { label: 'Home', to: '/' },
-    { label: 'Browse', to: '/sppu' },
+    { label: 'Browse', to: '/categories' },
     { label: 'Upload', to: '/upload' },
     ...(user ? [{ label: 'My Library', to: '/library' }, { label: 'Dashboard', to: '/dashboard' }] : []),
   ];

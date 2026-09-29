@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>StudyVault - Contributor Dashboard</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Custom Theme Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            },
+            night: {
+              900: '#070b14',
+              850: '#0b1220',
+              800: '#0e172a',
+              750: '#121f38',
+              700: '#1a2947'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Core Dashboard Visual Styles -->
+<style data-purpose="glassmorphism-and-ambient">
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #050811;
+    }
+
+    /* Ambient University Campus Background Layer */
+    .bg-campus-scenery {
+      background-image: 
+        radial-gradient(ellipse at top right, rgba(20, 30, 70, 0.4) 0%, rgba(5, 8, 17, 0.95) 75%),
+        linear-gradient(to bottom, rgba(5, 8, 17, 0.75), rgba(5, 8, 17, 0.94)),
+        url('https://lh3.googleusercontent.com/aida-public/AB6AXuAQykvFkdqo7O3eelWtQh7G59352kpoEebJy-x7iSXoadyR0n7VONlIW0ENfRdxhSRHV9-bwzutpMnHI4Qmuh8cYUkQ8q8uRYwFfXoPhiIpyptjK7SfxszXFjUMjwb5kUkkSltSM4H5uOy4rBm8Gr6YSkBGxmmBophUxryqMVKn_0yaOdrdv94C0ngawVwRdDE923FMeJdxjTWgt6R50i7HdaDtWkgk7bePMpUptXK_RcX8tB3iwEGLiA1v75bQU4X8');
+      background-size: cover;
+      background-position: center 20%;
+      background-attachment: fixed;
+    }
+
+    /* Translucent Glass Card Utilities */
+    .glass-panel {
+      background: rgba(11, 20, 38, 0.68);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.55), 0 0 15px -3px rgba(37, 99, 235, 0.12);
+    }
+
+    .glass-panel-subtle {
+      background: rgba(15, 26, 49, 0.5);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .glass-card-hover {
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card-hover:hover {
+      background: rgba(18, 33, 62, 0.78);
+      border-color: rgba(96, 165, 250, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -2px rgba(59, 130, 246, 0.25);
+    }
+
+    .glow-blue {
+      box-shadow: 0 0 24px -4px rgba(37, 99, 235, 0.55);
+    }
+
+    .text-glow {
+      text-shadow: 0 0 16px rgba(96, 165, 250, 0.6);
+    }
+  </style>
+</head>
+<body class="bg-campus-scenery min-h-screen text-slate-100 antialiased selection:bg-blue-600 selection:text-white">
+<!-- BEGIN: TopNavigationBar -->
+<header class="sticky top-0 z-50 w-full border-b border-white/10 bg-[#070d1a]/80 backdrop-blur-xl">
+<div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+<!-- Brand & University Chapter Badge -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 shadow-lg shadow-blue-500/25 ring-1 ring-white/20">
+<!-- Vault/Book Icon -->
+<svg class="h-5 w-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<span class="text-xl font-bold tracking-tight text-white group-hover:text-blue-400 transition-colors">StudyVault</span>
+</a>
+<span class="inline-flex items-center rounded-full bg-blue-500/10 px-2.5 py-0.5 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-500/20">
+          SPPU Chapter
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-slate-300">
+<a class="hover:text-blue-400 transition-colors" href="#">Home</a>
+<a class="hover:text-blue-400 transition-colors" href="#">Browse</a>
+<a class="hover:text-blue-400 transition-colors" href="#">Categories</a>
+<a class="hover:text-blue-400 transition-colors" href="#">Upload</a>
+<a class="text-white hover:text-blue-400 transition-colors" href="#">My Library</a>
+</nav>
+<!-- Search & Profile Segment -->
+<div class="flex items-center gap-3 sm:gap-4">
+<!-- Search Input Bar -->
+<div class="relative hidden sm:block w-64 lg:w-72">
+<input class="w-full rounded-full border border-slate-700/80 bg-slate-900/60 py-1.5 pl-9 pr-8 text-xs text-slate-200 placeholder-slate-400 backdrop-blur-md focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500" placeholder="Search notes, subjects, PYQs..." type="text"/>
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<svg class="h-4 w-4 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<kbd class="pointer-events-none absolute right-2.5 top-1.5 hidden rounded bg-slate-800 px-1.5 py-0.5 text-[10px] font-semibold text-slate-400 lg:inline-block border border-slate-700">⌘K</kbd>
+</div>
+<!-- Notification Bell with Active Indicator -->
+<button aria-label="Notifications" class="relative rounded-full p-2 text-slate-300 hover:bg-slate-800 hover:text-white transition" type="button">
+<svg class="h-5 w-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span class="absolute right-1.5 top-1.5 flex h-2.5 w-2.5">
+<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+<span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-red-500"></span>
+</span>
+</button>
+<!-- Contributor User Avatar Badge -->
+<div class="flex items-center gap-2 pl-1">
+<div class="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-tr from-cyan-500 to-blue-600 text-xs font-bold text-white shadow-md ring-2 ring-blue-400/30">
+            TC
+          </div>
+<div class="hidden text-left xl:block leading-tight">
+<div class="text-xs font-semibold text-white">Tejas C.</div>
+<div class="text-[10px] text-blue-300">SPPU Contributor</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- END: TopNavigationBar -->
+<!-- BEGIN: MainDashboardLayout -->
+<main class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+<!-- Hero Banner & Actions Section -->
+<div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+<div>
+<h1 class="text-2xl font-bold tracking-tight text-white sm:text-3xl text-glow">
+          Contributor Dashboard
+        </h1>
+<p class="mt-1 text-sm text-slate-300">
+          Track your contributions, help fellow Pune students and make an academic impact.
+        </p>
+</div>
+<!-- Action Button -->
+<div>
+<button class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-blue-500/30 transition hover:from-blue-500 hover:to-indigo-500 hover:shadow-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-400" type="button">
+<svg class="h-4 w-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+          Upload Resource
+        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+<!-- BEGIN: LeftSidebarNavigation -->
+<aside class="lg:col-span-3">
+<div class="glass-panel sticky top-24 rounded-2xl p-3.5 sm:p-4">
+<nav aria-label="Sidebar" class="space-y-1.5">
+<!-- Overview (Active) -->
+<a class="flex items-center gap-3 rounded-xl bg-blue-600/30 px-3.5 py-2.5 text-sm font-semibold text-white ring-1 ring-blue-500/40 glow-blue" href="#">
+<svg class="h-5 w-5 text-blue-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Overview</span>
+</a>
+<!-- My Resources -->
+<a class="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800/60 hover:text-white transition" href="#">
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>My Resources</span>
+</a>
+<!-- Earnings -->
+<a class="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800/60 hover:text-white transition" href="#">
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Earnings</span>
+</a>
+<!-- Analytics -->
+<a class="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800/60 hover:text-white transition" href="#">
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Analytics</span>
+</a>
+<!-- Reviews -->
+<a class="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800/60 hover:text-white transition" href="#">
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Reviews</span>
+</a>
+<!-- Profile Settings -->
+<a class="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800/60 hover:text-white transition" href="#">
+<svg class="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+<span>Profile Settings</span>
+</a>
+</nav>
+<!-- Verified Contributor Badge Card -->
+<div class="mt-6 rounded-xl border border-blue-500/20 bg-blue-950/40 p-3.5 text-xs text-blue-200">
+<div class="flex items-center gap-2 font-semibold text-white">
+<svg class="h-4 w-4 text-cyan-400" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+<span>SPPU Author Verified</span>
+</div>
+<p class="mt-1 text-[11px] text-slate-300">
+              Department of Computer &amp; IT Engineering
+            </p>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebarNavigation -->
+<!-- Main Contributor Panel -->
+<div class="space-y-6 lg:col-span-9">
+<!-- BEGIN: TopMetricStatCards -->
+<section class="grid grid-cols-2 gap-4 lg:grid-cols-4" data-purpose="metrics-summary">
+<!-- Card 1: Resources -->
+<div class="glass-panel glass-card-hover rounded-2xl p-4 flex items-center gap-3.5">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-500/20 border border-blue-400/30 text-blue-400">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="text-2xl font-bold text-white tracking-tight">8</div>
+<div class="text-xs font-medium text-slate-300">Resources</div>
+<div class="text-[10px] text-blue-400 mt-0.5">3 in review</div>
+</div>
+</div>
+<!-- Card 2: Total Downloads -->
+<div class="glass-panel glass-card-hover rounded-2xl p-4 flex items-center gap-3.5">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-cyan-500/20 border border-cyan-400/30 text-cyan-400">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="text-2xl font-bold text-white tracking-tight">2.4K</div>
+<div class="text-xs font-medium text-slate-300">Total Downloads</div>
+<div class="text-[10px] text-cyan-400 mt-0.5">+18% this month</div>
+</div>
+</div>
+<!-- Card 3: Average Rating -->
+<div class="glass-panel glass-card-hover rounded-2xl p-4 flex items-center gap-3.5">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/20 border border-amber-400/30 text-amber-400">
+<svg class="h-6 w-6" fill="currentColor" viewbox="0 0 20 20">
+<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+</svg>
+</div>
+<div>
+<div class="text-2xl font-bold text-white tracking-tight">4.8</div>
+<div class="text-xs font-medium text-slate-300">Average Rating</div>
+<div class="text-[10px] text-amber-300 mt-0.5">Based on 320 reviews</div>
+</div>
+</div>
+<!-- Card 4: Total Reviews -->
+<div class="glass-panel glass-card-hover rounded-2xl p-4 flex items-center gap-3.5">
+<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-purple-500/20 border border-purple-400/30 text-purple-400">
+<svg class="h-6 w-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<div class="text-2xl font-bold text-white tracking-tight">320</div>
+<div class="text-xs font-medium text-slate-300">Total Reviews</div>
+<div class="text-[10px] text-purple-300 mt-0.5">98% Positive feedback</div>
+</div>
+</div>
+</section>
+<!-- END: TopMetricStatCards -->
+<!-- BEGIN: RecentUploadsSection -->
+<section class="glass-panel rounded-2xl p-5 sm:p-6" data-purpose="recent-resources-list">
+<div class="mb-5 flex items-center justify-between">
+<h2 class="text-base sm:text-lg font-semibold text-white tracking-wide">Recent Uploads</h2>
+<a class="inline-flex items-center gap-1 text-xs font-medium text-blue-400 hover:text-blue-300 transition" href="#">
+<span>View All</span>
+<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</a>
+</div>
+<!-- Resources List Container -->
+<div class="space-y-3">
+<!-- Upload Row Item 1 -->
+<div class="glass-panel-subtle flex flex-col gap-3 rounded-xl p-3 sm:flex-row sm:items-center sm:justify-between transition hover:border-blue-500/30">
+<div class="flex items-center gap-3">
+<!-- Thumbnail preview of handwritten notes -->
+<div class="h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-700/60 bg-slate-900 shadow">
+<img alt="Data Structures handwritten notes thumbnail preview" class="h-full w-full object-cover brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida/AEtjO1VQzU-6jiHB9Xedz1PsxzJTuwd9j31fes5lUxetFoN_XowsrsRS_7ItSl2z8cxMGnzeQUMaBJWQ9xDUoKIla6vOCtZLvK6PzazguDN9xXe4emf7svTAjfcGbZ6p24qtiEZhZBhrvYHDwuxJ9uO5-80gLYJgc4h11kdvXr6JLbjgcGh4l0w4Xa34iD7JhycmAZ0NCD1vL7atOJeQi5o4bGMvCS9tkde0Kd9SNrQ5SvfyE5aOmHAiekVR"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center rounded-md bg-blue-500/20 px-2 py-0.5 text-[11px] font-semibold text-blue-400 border border-blue-500/30">Notes</span>
+<h3 class="text-sm font-semibold text-white hover:text-blue-300 cursor-pointer transition">Data Structures Complete Notes</h3>
+</div>
+<p class="mt-0.5 text-xs text-slate-400">Computer Engg • Semester 3 • 48 pages</p>
+</div>
+</div>
+<!-- Metadata & Status -->
+<div class="flex items-center justify-between sm:justify-end gap-4 text-xs">
+<span class="text-slate-400">2 days ago</span>
+<span class="flex items-center gap-1 font-medium text-slate-300">
+<svg class="h-3.5 w-3.5 text-cyan-400" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+                  320
+                </span>
+<span class="inline-flex items-center rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30 shadow-sm">
+                  Published
+                </span>
+</div>
+</div>
+<!-- Upload Row Item 2 -->
+<div class="glass-panel-subtle flex flex-col gap-3 rounded-xl p-3 sm:flex-row sm:items-center sm:justify-between transition hover:border-blue-500/30">
+<div class="flex items-center gap-3">
+<!-- Thumbnail preview of handwritten notes -->
+<div class="h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-700/60 bg-slate-900 shadow">
+<img alt="Computer Networks practicals notes thumbnail preview" class="h-full w-full object-cover brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida/AEtjO1UaC5XaFoPczR9AFVTqs0Gf9tqzzigASurax3K0Jxk19Uin-TbI9BUCId-L7uBCXU-pp3ZKw0DJxq0v50xjmdRnhRiRWTuyD-C9Jzv7mrXCE9DbG6cvpa2C-cuEI-2zrCD46CiblY2qqVaFsFH4WC_fzRMVBJY7wkIAs3a3Wm8pnKlh0yxWgbWo1pN-yr3zwFS__SW9GtqoES4qZGalm4yjH0BNbSq39LtJVCv5FYyxxcMY22wWGkRbaQ"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center rounded-md bg-teal-500/20 px-2 py-0.5 text-[11px] font-semibold text-teal-400 border border-teal-500/30">Practicals</span>
+<h3 class="text-sm font-semibold text-white hover:text-teal-300 cursor-pointer transition">Computer Networks Practicals &amp; Socket Lab</h3>
+</div>
+<p class="mt-0.5 text-xs text-slate-400">IT Engg • Semester 5 • Packet tracer files included</p>
+</div>
+</div>
+<!-- Metadata & Status -->
+<div class="flex items-center justify-between sm:justify-end gap-4 text-xs">
+<span class="text-slate-400">1 week ago</span>
+<span class="flex items-center gap-1 font-medium text-slate-300">
+<svg class="h-3.5 w-3.5 text-cyan-400" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+                  540
+                </span>
+<span class="inline-flex items-center rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30 shadow-sm">
+                  Published
+                </span>
+</div>
+</div>
+<!-- Upload Row Item 3 -->
+<div class="glass-panel-subtle flex flex-col gap-3 rounded-xl p-3 sm:flex-row sm:items-center sm:justify-between transition hover:border-blue-500/30">
+<div class="flex items-center gap-3">
+<!-- Thumbnail preview of handwritten notes -->
+<div class="h-14 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-700/60 bg-slate-900 shadow">
+<img alt="DBMS PYQ solved papers thumbnail preview" class="h-full w-full object-cover brightness-95 contrast-105" src="https://lh3.googleusercontent.com/aida/AEtjO1XDk62ST07rUsR-1yjHlldoNUasELrlNEh1Z86Hmk3G0bFSaJEdv1EMSMbNNn1FCEJhW9WtVRjL5KS5lHOY1qlAW8ljAIAaoYS4K-cihVz4n_hoUEUrZxchtpKF8jaEjaTKFNL_uSUFGJgaA1t-pjfeXHa8wO9ayBlAaS84ZwuRxVpd0PVVYzW94EFnQqeWI2gTkJs0FUxSJ1O2VyXaWWELZDplJLXe-QS5z7H-KfHOCTyK3O5Ya9sfMA"/>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center rounded-md bg-indigo-500/20 px-2 py-0.5 text-[11px] font-semibold text-indigo-400 border border-indigo-500/30">PYQ</span>
+<h3 class="text-sm font-semibold text-white hover:text-indigo-300 cursor-pointer transition">DBMS Previous Year Solved Papers (2020–2024)</h3>
+</div>
+<p class="mt-0.5 text-xs text-slate-400">Computer Engg • SPPU Endsem Pattern • 72 pages</p>
+</div>
+</div>
+<!-- Metadata & Status -->
+<div class="flex items-center justify-between sm:justify-end gap-4 text-xs">
+<span class="text-slate-400">2 weeks ago</span>
+<span class="flex items-center gap-1 font-medium text-slate-300">
+<svg class="h-3.5 w-3.5 text-cyan-400" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M5.293 9.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 7.414V15a1 1 0 11-2 0V7.414L6.707 9.707a1 1 0 01-1.414 0z" fill-rule="evenodd"></path>
+</svg>
+                  410
+                </span>
+<span class="inline-flex items-center rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-semibold text-emerald-400 border border-emerald-500/30 shadow-sm">
+                  Published
+                </span>
+</div>
+</div>
+</div>
+</section>
+<!-- END: RecentUploadsSection -->
+<!-- BEGIN: EarningsRowGrid -->
+<div class="grid grid-cols-1 gap-6 lg:grid-cols-12">
+<!-- Earnings Trend Graph Card -->
+<section class="glass-panel rounded-2xl p-5 sm:p-6 lg:col-span-8 flex flex-col justify-between" data-purpose="earnings-bar-chart">
+<div class="mb-4 flex items-center justify-between">
+<div>
+<h3 class="text-base font-semibold text-white">Earnings Overview</h3>
+<p class="text-xs text-slate-400">Monthly student contributions &amp; study rewards</p>
+</div>
+<!-- Time Range Selector -->
+<div class="relative">
+<button class="inline-flex items-center gap-1.5 rounded-lg border border-slate-700/80 bg-slate-900/60 px-3 py-1 text-xs font-medium text-slate-300 hover:text-white focus:outline-none" type="button">
+<span>Last 6 months</span>
+<svg class="h-3.5 w-3.5 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- Stylized Bar Graph matching screenshot -->
+<div class="mt-4">
+<div class="flex h-44 items-end gap-3 sm:gap-4 pt-4 border-b border-slate-800/80 px-2">
+<!-- Month 1: Nov -->
+<div class="group flex flex-1 flex-col items-center gap-2 h-full justify-end">
+<div class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">₹450</div>
+<div class="w-full max-w-[36px] rounded-t-lg bg-blue-600/50 hover:bg-blue-500 transition-all duration-300" style="height: 20%;"></div>
+<span class="text-[11px] font-medium text-slate-400 group-hover:text-white">Nov</span>
+</div>
+<!-- Month 2: Dec -->
+<div class="group flex flex-1 flex-col items-center gap-2 h-full justify-end">
+<div class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">₹820</div>
+<div class="w-full max-w-[36px] rounded-t-lg bg-blue-600/60 hover:bg-blue-500 transition-all duration-300" style="height: 35%;"></div>
+<span class="text-[11px] font-medium text-slate-400 group-hover:text-white">Dec</span>
+</div>
+<!-- Month 3: Jan -->
+<div class="group flex flex-1 flex-col items-center gap-2 h-full justify-end">
+<div class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">₹1,200</div>
+<div class="w-full max-w-[36px] rounded-t-lg bg-blue-600/70 hover:bg-blue-500 transition-all duration-300" style="height: 52%;"></div>
+<span class="text-[11px] font-medium text-slate-400 group-hover:text-white">Jan</span>
+</div>
+<!-- Month 4: Feb -->
+<div class="group flex flex-1 flex-col items-center gap-2 h-full justify-end">
+<div class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">₹1,650</div>
+<div class="w-full max-w-[36px] rounded-t-lg bg-blue-500/80 hover:bg-blue-400 transition-all duration-300" style="height: 68%;"></div>
+<span class="text-[11px] font-medium text-slate-400 group-hover:text-white">Feb</span>
+</div>
+<!-- Month 5: Mar -->
+<div class="group flex flex-1 flex-col items-center gap-2 h-full justify-end">
+<div class="text-[10px] text-slate-400 opacity-0 group-hover:opacity-100 transition">₹2,100</div>
+<div class="w-full max-w-[36px] rounded-t-lg bg-blue-500 hover:bg-blue-400 transition-all duration-300" style="height: 82%;"></div>
+<span class="text-[11px] font-medium text-slate-400 group-hover:text-white">Mar</span>
+</div>
+<!-- Month 6: Apr (Current Peak) -->
+<div class="group flex flex-1 flex-col items-center gap-2 h-full justify-end">
+<div class="text-[10px] font-bold text-cyan-300 opacity-100 transition">₹2,480</div>
+<div class="w-full max-w-[36px] rounded-t-lg bg-gradient-to-t from-blue-600 via-blue-500 to-cyan-400 shadow-lg shadow-blue-500/30 ring-1 ring-white/30 transition-all duration-300" style="height: 98%;"></div>
+<span class="text-[11px] font-bold text-white">Apr</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-[11px] text-slate-500 pt-2 px-1">
+<span>₹0 Baseline</span>
+<span>Active revenue peak: Mid-terms semester exams</span>
+</div>
+</div>
+</section>
+<!-- Total Earnings & Payout Card -->
+<section class="glass-panel rounded-2xl p-5 sm:p-6 lg:col-span-4 flex flex-col justify-between" data-purpose="total-earnings-card">
+<div>
+<div class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Earnings</div>
+<!-- Big Total Value -->
+<div class="mt-2 text-4xl font-extrabold tracking-tight text-white flex items-baseline gap-1">
+<span>₹2,480</span>
+<span class="text-sm font-normal text-slate-400">INR</span>
+</div>
+<!-- Trend Indicator Pill -->
+<div class="mt-3 flex items-center gap-1.5 text-xs font-semibold text-emerald-400">
+<svg class="h-4 w-4" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 9.586 14.586 6H12z" fill-rule="evenodd"></path>
+</svg>
+<span>112% from last month</span>
+</div>
+<!-- UPI Info -->
+<div class="mt-5 rounded-xl border border-slate-700/60 bg-slate-900/60 p-3">
+<div class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider">Linked UPI ID</div>
+<div class="mt-1 flex items-center justify-between text-xs">
+<span class="font-mono text-cyan-300">tejas@okhdfcbank</span>
+<span class="inline-flex items-center text-[10px] text-emerald-400 font-medium">● Verified</span>
+</div>
+</div>
+</div>
+<!-- Instant Payout Button -->
+<div class="mt-6">
+<button class="w-full rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 py-2.5 px-4 text-xs sm:text-sm font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:from-emerald-400 hover:to-teal-500 hover:shadow-emerald-500/40 focus:outline-none focus:ring-2 focus:ring-emerald-400" type="button">
+                Request Instant Payout
+              </button>
+<p class="mt-2 text-center text-[11px] text-slate-400">
+                Transferred to bank via IMPS in &lt; 5 minutes
+              </p>
+</div>
+</section>
+</div>
+<!-- END: EarningsRowGrid -->
+</div>
+</div>
+</main>
+<!-- END: MainDashboardLayout -->
+<!-- BEGIN: MinimalFooter -->
+<footer class="mt-12 border-t border-white/5 py-6 text-center text-xs text-slate-400">
+<div class="mx-auto max-w-7xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="font-semibold text-slate-300">StudyVault SPPU</span>
+<span>•</span>
+<span>Savitribai Phule Pune University Open Academic Network</span>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<a class="hover:text-blue-400 transition" href="#">Honor Code</a>
+<a class="hover:text-blue-400 transition" href="#">Author Guidelines</a>
+<a class="hover:text-blue-400 transition" href="#">Support</a>
+</div>
+</div>
+</footer>
+<!-- END: MinimalFooter -->
+</body></html>

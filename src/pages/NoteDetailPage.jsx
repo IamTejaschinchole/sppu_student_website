@@ -10,6 +10,7 @@ import { useNote } from '../hooks/useNote.js';
 import { CommentSection } from '../components/CommentSection.jsx';
 import { ErrorMessage, InitialsAvatar, LoadingPanel, RatingControl } from '../components/ui.jsx';
 import { BookmarkButton } from '../components/BookmarkButton.jsx';
+import contributorBackground from '../assets/stitch/contributor-background.jpg';
 
 export default function NoteDetailPage() {
   const { id } = useParams();
@@ -59,7 +60,7 @@ export default function NoteDetailPage() {
 
   if (error || !note) {
     return (
-      <main className="stitch-page mx-auto w-full max-w-7xl px-5 py-10 sm:px-8">
+      <main className="relative mx-auto min-h-screen w-full max-w-7xl overflow-hidden px-5 py-10 text-slate-100 sm:px-8" style={{ backgroundImage: `linear-gradient(rgba(9,14,27,.76),rgba(9,14,27,.94)), url(${contributorBackground})`, backgroundAttachment: 'fixed', backgroundSize: 'cover' }}>
         <ErrorMessage>{error || 'Note not found.'}</ErrorMessage>
       </main>
     );
@@ -68,8 +69,8 @@ export default function NoteDetailPage() {
   const tags = Array.isArray(note.tags) ? note.tags : [];
 
   return (
-    <main className="stitch-page mx-auto grid w-full max-w-7xl gap-8 px-5 py-12 sm:px-8 lg:grid-cols-[1fr_24rem] lg:py-16">
-      <section className="rounded-xl border border-glass bg-bg-surface/60 p-8">
+    <main className="relative mx-auto grid min-h-screen w-full max-w-[1380px] gap-7 overflow-hidden px-5 py-10 text-slate-100 sm:px-8 lg:grid-cols-[1fr_24rem] lg:px-14 lg:py-14" style={{ backgroundImage: `linear-gradient(rgba(9,14,27,.62),rgba(9,14,27,.92)), url(${contributorBackground})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center top' }}>
+      <section className="rounded-xl border border-white/15 bg-[rgba(17,24,39,.62)] p-5 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl sm:p-8">
         <Link to="/" className="inline-flex items-center gap-2 text-sm text-text-secondary transition hover:text-text-primary">
           <ArrowLeft size={17} aria-hidden="true" />
           Back to marketplace
@@ -105,7 +106,7 @@ export default function NoteDetailPage() {
         </div>
       </section>
 
-      <aside className="h-fit rounded-xl border border-glass bg-bg-surface/60 p-6">
+      <aside className="h-fit rounded-xl border border-white/15 bg-[rgba(17,24,39,.68)] p-6 shadow-[0_16px_48px_-12px_rgba(0,0,0,.6)] backdrop-blur-2xl">
         <p className="text-sm font-semibold uppercase text-text-secondary">Uploader</p>
         <div className="mt-4 flex items-center gap-3 rounded-xl border border-glass bg-bg-deep/40 p-4">
           {note.uploaderAvatar ? (

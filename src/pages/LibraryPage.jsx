@@ -7,6 +7,7 @@ import { useSavedNotes } from '../hooks/useSavedNotes.js';
 import { getNotePriceAmount, isFreeNote } from '../lib/utils.js';
 import { Avatar, ErrorMessage, LoadingScreen } from '../components/ui.jsx';
 import { BookmarkButton } from '../components/BookmarkButton.jsx';
+import contributorBackground from '../assets/stitch/contributor-background.jpg';
 
 export default function LibraryPage() {
   const { user } = useAuth();
@@ -22,15 +23,16 @@ export default function LibraryPage() {
   }
 
   return (
-    <main className="stitch-page stitch-library mx-auto w-full max-w-7xl px-5 py-12 sm:px-8 lg:py-16">
+    <main className="relative mx-auto min-h-screen w-full max-w-[1380px] overflow-hidden px-5 py-10 text-slate-100 sm:px-8 lg:px-14 lg:py-14" style={{ backgroundImage: `linear-gradient(rgba(9,14,27,.62),rgba(9,14,27,.93)), url(${contributorBackground})`, backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundPosition: 'center top' }}>
       <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <Link to="/" className="inline-flex items-center gap-2 text-sm text-text-secondary transition hover:text-text-primary">
             <ArrowLeft size={17} aria-hidden="true" />
             Back to marketplace
           </Link>
-          <p className="mt-8 text-sm font-semibold uppercase text-text-secondary">My Library</p>
-          <h1 className="mt-2 text-4xl font-bold text-text-primary">Saved Resources</h1>
+          <span className="mt-8 inline-flex rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[.14em] text-cyan-300">SPPU personal repository</span>
+          <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-slate-100 sm:text-5xl">My Library</h1>
+          <p className="mt-2 text-sm text-slate-300">Your saved StudyVault resources in one place.</p>
         </div>
       </div>
 
@@ -43,7 +45,7 @@ export default function LibraryPage() {
             {savedNotes.map((note) => (
               <article
                 key={note.id}
-                className="flex flex-col rounded-xl border border-glass bg-bg-surface/60 p-6 transition-all duration-200 hover:border-brand-primary/50 hover:shadow-brand-glow hover:-translate-y-1"
+                className="flex flex-col rounded-xl border border-white/15 bg-[rgba(17,24,39,.62)] p-6 shadow-[0_8px_32px_-4px_rgba(0,0,0,.45)] backdrop-blur-2xl transition-all duration-200 hover:-translate-y-1 hover:border-cyan-300/35 hover:bg-[rgba(26,38,64,.7)]"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
@@ -79,7 +81,7 @@ export default function LibraryPage() {
             ))}
           </div>
         ) : (
-          <div className="rounded-xl border border-glass bg-bg-surface/40 p-12 text-center">
+          <div className="rounded-xl border border-white/15 bg-[rgba(17,24,39,.62)] p-12 text-center shadow-[0_8px_32px_-4px_rgba(0,0,0,.45)] backdrop-blur-2xl">
             <div className="grid h-16 w-16 place-items-center rounded-xl border border-glass bg-bg-deep/40 text-text-muted mx-auto mb-4">
               <BookOpen size={28} aria-hidden="true" />
             </div>
