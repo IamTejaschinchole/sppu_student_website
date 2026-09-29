@@ -79,32 +79,32 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="flex min-h-[calc(100vh-84px)] items-center justify-center px-4 py-8 sm:px-6">
-      <div className="w-full max-w-md rounded-2xl border border-line bg-panel p-6 shadow-2xl shadow-black/50 sm:p-8">
+    <main className="stitch-page flex min-h-[calc(100vh-84px)] items-center justify-center px-4 py-8 sm:px-6">
+      <div className="w-full max-w-md rounded-2xl glass-strong p-6 shadow-glass-lg sm:p-8">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-xl border border-mint/25 bg-mint/10 text-mint">
+          <div className="mx-auto mb-4 grid h-14 w-14 place-items-center rounded-xl border border-brand-primary/25 bg-brand-primary/10 text-brand-primary">
             <GraduationCap size={28} aria-hidden="true" />
           </div>
-          <h1 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">SPPU Notes</h1>
-          <p className="mt-1.5 text-sm text-zinc-400">SPPU&apos;s #1 Notes Marketplace</p>
+          <h1 className="text-2xl font-bold tracking-tight text-text-primary sm:text-3xl">SPPU Notes</h1>
+          <p className="mt-1.5 text-sm text-text-secondary">SPPU&apos;s #1 Notes Marketplace</p>
         </div>
 
         {error && (
           <div
             role="alert"
-            className="mb-5 rounded-lg border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300"
+            className="mb-5 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-300"
           >
             {error}
           </div>
         )}
 
         {successMessage && (
-          <div className="mb-5 rounded-lg border border-mint/35 bg-mint/10 px-4 py-3 text-sm text-mint">
+          <div className="mb-5 rounded-xl border border-brand-primary/30 bg-brand-primary/10 px-4 py-3 text-sm text-brand-cyan">
             {successMessage}
           </div>
         )}
 
-        <p className="mb-3 text-center text-xs text-zinc-500">
+        <p className="mb-3 text-center text-xs text-text-muted">
           Note: Please allow pop-ups for this site to use Google Sign-In.
         </p>
 
@@ -112,16 +112,16 @@ export default function LoginPage() {
           type="button"
           onClick={handleGoogleLogin}
           disabled={busy}
-          className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-lg border border-line bg-white px-4 text-sm font-semibold text-zinc-800 shadow-sm transition hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-12 w-full items-center justify-center gap-3 rounded-xl border border-glass bg-white px-4 text-sm font-semibold text-text-primary shadow-sm transition hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-60"
         >
           <GoogleLogo />
           Continue with Google
         </button>
 
         <div className="my-6 flex items-center gap-3">
-          <span className="h-px flex-1 bg-line" aria-hidden="true" />
-          <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">OR</span>
-          <span className="h-px flex-1 bg-line" aria-hidden="true" />
+          <span className="h-px flex-1 bg-glass" aria-hidden="true" />
+          <span className="text-xs font-medium uppercase tracking-wider text-text-muted">OR</span>
+          <span className="h-px flex-1 bg-glass" aria-hidden="true" />
         </div>
 
         <form className="space-y-4" onSubmit={handleEmailLogin}>
@@ -146,13 +146,13 @@ export default function LoginPage() {
           />
 
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <label className="inline-flex cursor-pointer items-center gap-2 text-sm text-zinc-400">
+            <label className="inline-flex cursor-pointer items-center gap-2 text-sm text-text-secondary">
               <input
                 type="checkbox"
                 checked={rememberMe}
                 onChange={(event) => setRememberMe(event.target.checked)}
                 disabled={busy}
-                className="h-4 w-4 rounded border-line bg-zinc-950/55 text-mint focus:ring-mint/40"
+                className="h-4 w-4 rounded border-glass bg-bg-deep/40 text-brand-primary focus:ring-brand-primary/40"
               />
               Remember me
             </label>
@@ -160,7 +160,7 @@ export default function LoginPage() {
               type="button"
               onClick={handleForgotPassword}
               disabled={busy}
-              className="text-sm font-medium text-mint transition hover:text-teal-300 disabled:cursor-not-allowed disabled:opacity-60"
+              className="text-sm font-medium text-brand-primary transition hover:text-brand-cyan disabled:cursor-not-allowed disabled:opacity-60"
             >
               Forgot Password?
             </button>
@@ -169,7 +169,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={busy}
-            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-primary px-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-primary/90 hover:shadow-brand-glow disabled:cursor-not-allowed disabled:opacity-60"
           >
             {busy ? (
               <>
@@ -185,12 +185,12 @@ export default function LoginPage() {
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-zinc-400">
+        <p className="mt-6 text-center text-sm text-text-secondary">
           Don&apos;t have an account?{' '}
           <Link
             to="/register"
             state={location.state}
-            className="font-semibold text-mint transition hover:text-teal-300"
+            className="font-semibold text-brand-primary transition hover:text-brand-cyan"
           >
             Register
           </Link>
@@ -226,17 +226,17 @@ function GoogleLogo() {
 function LoginField({ icon: Icon, label, disabled, ...inputProps }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-sm font-medium text-zinc-300">{label}</span>
+      <span className="mb-2 block text-sm font-medium text-text-secondary">{label}</span>
       <span className="relative block">
         <Icon
-          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-text-muted"
           size={18}
           aria-hidden="true"
         />
         <input
           required
           disabled={disabled}
-          className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 pl-11 pr-4 text-sm text-white placeholder:text-zinc-500 disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-12 w-full rounded-xl border border-glass bg-bg-deep/40 pl-11 pr-4 text-sm text-text-primary placeholder:text-text-muted disabled:cursor-not-allowed disabled:opacity-60"
           {...inputProps}
         />
       </span>
@@ -247,10 +247,10 @@ function LoginField({ icon: Icon, label, disabled, ...inputProps }) {
 function LoginPasswordField({ label, value, onChange, showPassword, onToggle, disabled }) {
   return (
     <label className="block">
-      <span className="mb-2 block text-sm font-medium text-zinc-300">{label}</span>
+      <span className="mb-2 block text-sm font-medium text-text-secondary">{label}</span>
       <span className="relative block">
         <LockKeyhole
-          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500"
+          className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-text-muted"
           size={18}
           aria-hidden="true"
         />
@@ -262,13 +262,13 @@ function LoginPasswordField({ label, value, onChange, showPassword, onToggle, di
           disabled={disabled}
           placeholder="Enter password"
           autoComplete="current-password"
-          className="h-12 w-full rounded-lg border border-line bg-zinc-950/55 pl-11 pr-12 text-sm text-white placeholder:text-zinc-500 disabled:cursor-not-allowed disabled:opacity-60"
+          className="h-12 w-full rounded-xl border border-glass bg-bg-deep/40 pl-11 pr-12 text-sm text-text-primary placeholder:text-text-muted disabled:cursor-not-allowed disabled:opacity-60"
         />
         <button
           type="button"
           onClick={onToggle}
           disabled={disabled}
-          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-md p-1 text-zinc-500 transition hover:text-white disabled:cursor-not-allowed disabled:opacity-60"
+          className="absolute right-3 top-1/2 -translate-y-1/2 rounded-lg p-1 text-text-muted transition hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-60"
           aria-label={showPassword ? 'Hide password' : 'Show password'}
         >
           {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}

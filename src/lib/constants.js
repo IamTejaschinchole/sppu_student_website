@@ -11,9 +11,9 @@ export const sortOptions = [
 ];
 export const razorpayKeyId = import.meta.env.VITE_RAZORPAY_KEY_ID;
 export const notesPerPage = 10;
-export const accents = ['mint', 'ember', 'orchid'];
+export const accents = ['primary', 'cyan', 'violet'];
 export const accentClass = {
-  mint: 'border-mint/35 bg-mint/10 text-mint',
-  ember: 'border-ember/35 bg-ember/10 text-ember',
-  orchid: 'border-orchid/35 bg-orchid/10 text-orchid',
+  primary: 'border-brand-primary/35 bg-brand-primary/10 text-brand-primary',
+  cyan: 'border-brand-cyan/35 bg-brand-cyan/10 text-brand-cyan',
+  violet: 'border-brand-violet/35 bg-brand-violet/10 text-brand-violet',
 };

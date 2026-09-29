@@ -1,36 +1,38 @@
+import { useMemo } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import { ArrowRight, BookOpen } from 'lucide-react';
 import { getSppuBranch, getSppuSemesters } from '../lib/sppu.js';
+import { useNotes } from '../hooks/useNotes.js';
 
-function SemesterCard({ branchSlug, semester }) {
+function SemesterCard({ branchSlug, semester, noteCount }) {
   return (
     <Link
       to={`/sppu/${branchSlug}/${semester.slug}`}
-      className="group flex h-full min-h-[210px] flex-col rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-5 transition duration-200 hover:-translate-y-1 hover:border-[#6366f1]/70 hover:bg-white/[0.03] hover:shadow-[0_18px_60px_rgba(99,102,241,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-mint"
+      className="group flex h-full min-h-[220px] flex-col rounded-xl border border-glass bg-bg-surface/60 p-6 transition-all duration-200 hover:-translate-y-1 hover:border-brand-primary/50 hover:bg-bg-surface/80 hover:shadow-brand-glow focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-primary"
     >
       <div className="flex items-start justify-between gap-4">
-        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-[8px] border border-[#6366f1]/25 bg-[#6366f1]/10 text-[#818cf8] transition group-hover:border-[#6366f1]/45 group-hover:bg-[#6366f1]/15 group-hover:text-[#a5b4fc]">
-          <BookOpen size={21} aria-hidden="true" />
+        <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl border border-brand-primary/25 bg-brand-primary/10 text-brand-primary transition group-hover:border-brand-primary/45 group-hover:bg-brand-primary/15 group-hover:text-brand-cyan">
+          <BookOpen size={24} aria-hidden="true" />
         </span>
-        <span className="rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-white/[0.025] px-2.5 py-1 text-[11px] font-medium text-zinc-400">
+        <span className="rounded-lg border border-glass bg-bg-deep/40 px-3 py-1.5 text-[12px] font-medium text-text-muted">
           SPPU
         </span>
       </div>
 
-      <h2 className="mt-5 text-xl font-semibold leading-snug text-white">{semester.title}</h2>
+      <h2 className="mt-6 text-xl font-semibold leading-snug text-text-primary">{semester.title}</h2>
 
       <div className="mt-5 grid grid-cols-2 gap-3">
-        <div className="rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-white/[0.025] p-3">
-          <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">Subjects</p>
-          <p className="mt-1 text-base font-semibold text-zinc-100">{semester.subjects}</p>
+        <div className="rounded-lg border border-glass bg-bg-deep/40 p-4">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-text-muted">Subjects</p>
+          <p className="mt-1 text-lg font-semibold text-text-primary">{semester.subjects}</p>
         </div>
-        <div className="rounded-[6px] border border-[rgba(255,255,255,0.06)] bg-white/[0.025] p-3">
-          <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">Catalogues</p>
-          <p className="mt-1 text-base font-semibold text-zinc-100">{semester.catalogues}</p>
+        <div className="rounded-lg border border-glass bg-bg-deep/40 p-4">
+          <p className="text-[11px] font-medium uppercase tracking-wide text-text-muted">Resources</p>
+          <p className="mt-1 text-lg font-semibold text-text-primary">{noteCount}</p>
         </div>
       </div>
 
-      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-zinc-200 transition group-hover:text-white">
+      <span className="mt-auto inline-flex items-center gap-2 pt-6 text-sm font-semibold text-text-secondary transition group-hover:text-text-primary">
         Explore semester
         <ArrowRight size={16} className="transition group-hover:translate-x-0.5" aria-hidden="true" />
       </span>
@@ -41,72 +43,83 @@ function SemesterCard({ branchSlug, semester }) {
 export default function SemesterSelectionPage() {
   const { branchSlug } = useParams();
   const branch = getSppuBranch(branchSlug);
+  const { notes } = useNotes();
 
   if (!branch) {
     return <Navigate to="/sppu" replace />;
   }
 
   const semesters = getSppuSemesters(branch.slug);
+  
+  const semesterNoteCounts = useMemo(() => {
+    const counts = {};
+    semesters.forEach(semester => {
+      const semesterNum = parseInt(semester.slug.replace('semester-', ''), 10);
+      counts[semester.slug] = notes.filter(note => note.semester === semesterNum).length;
+    });
+    return counts;
+  }, [notes, semesters]);
+
   const totalSubjects = semesters.reduce((total, semester) => total + semester.subjects, 0);
-  const totalCatalogues = semesters.reduce((total, semester) => total + semester.catalogues, 0);
+  const totalResources = Object.values(semesterNoteCounts).reduce((sum, count) => sum + count, 0);
 
   return (
-    <main className="mx-auto w-full max-w-[1200px] px-[24px] pb-20 pt-10">
-      <nav className="flex items-center gap-2 text-sm text-zinc-500" aria-label="Breadcrumb">
-        <Link to="/" className="transition hover:text-white">
+    <main className="stitch-page mx-auto w-full max-w-[1200px] px-[24px] pb-20 pt-12">
+      <nav className="flex items-center gap-2 text-sm text-text-muted" aria-label="Breadcrumb">
+        <Link to="/" className="transition hover:text-text-primary">
           Home
         </Link>
-        <span className="text-zinc-700">/</span>
-        <Link to="/sppu" className="transition hover:text-white">
+        <span className="text-text-muted">/</span>
+        <Link to="/sppu" className="transition hover:text-text-primary">
           SPPU
         </Link>
-        <span className="text-zinc-700">/</span>
-        <span className="text-zinc-300">{branch.name}</span>
+        <span className="text-text-muted">/</span>
+        <span className="text-text-primary">{branch.name}</span>
       </nav>
 
-      <section className="mt-9 border-b border-[rgba(255,255,255,0.06)] pb-8">
+      <section className="mt-10 border-b border-glass pb-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <p className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">Branch Workspace</p>
-            <h1 className="mt-2 text-4xl font-semibold leading-tight text-white sm:text-5xl">{branch.name}</h1>
-            <p className="mt-4 text-base leading-7 text-zinc-400">
+            <p className="text-[14px] font-semibold uppercase tracking-wider text-text-secondary">Branch Workspace</p>
+            <h1 className="mt-2 text-4xl font-bold leading-tight text-text-primary sm:text-5xl">{branch.name}</h1>
+            <p className="mt-4 text-base leading-7 text-text-secondary">
               Choose a semester to browse branch-specific resources, PYQs, lab manuals, and catalogues.
             </p>
           </div>
 
           <div className="grid max-w-md grid-cols-3 gap-3 text-left">
-            <div className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-white/[0.025] p-3">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">Semesters</p>
-              <p className="mt-1 text-lg font-semibold text-white">{semesters.length}</p>
+            <div className="rounded-xl border border-glass bg-bg-surface/40 p-4">
+              <p className="text-[11px] font-medium uppercase tracking-wide text-text-muted">Semesters</p>
+              <p className="mt-1 text-lg font-semibold text-text-primary">{semesters.length}</p>
             </div>
-            <div className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-white/[0.025] p-3">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">Subjects</p>
-              <p className="mt-1 text-lg font-semibold text-white">{totalSubjects}</p>
+            <div className="rounded-xl border border-glass bg-bg-surface/40 p-4">
+              <p className="text-[11px] font-medium uppercase tracking-wide text-text-muted">Subjects</p>
+              <p className="mt-1 text-lg font-semibold text-text-primary">{totalSubjects}</p>
             </div>
-            <div className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-white/[0.025] p-3">
-              <p className="text-[11px] font-medium uppercase tracking-wide text-zinc-500">Catalogues</p>
-              <p className="mt-1 text-lg font-semibold text-white">{totalCatalogues}</p>
+            <div className="rounded-xl border border-glass bg-bg-surface/40 p-4">
+              <p className="text-[11px] font-medium uppercase tracking-wide text-text-muted">Resources</p>
+              <p className="mt-1 text-lg font-semibold text-text-primary">{totalResources}</p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="mt-8" aria-labelledby="semester-grid-title">
-        <div className="mb-5">
-          <h2 id="semester-grid-title" className="text-[13px] font-medium uppercase tracking-wider text-zinc-400">
+      <section className="mt-10" aria-labelledby="semester-grid-title">
+        <div className="mb-6">
+          <h2 id="semester-grid-title" className="text-[14px] font-semibold uppercase tracking-wider text-text-secondary">
             Choose Semester
           </h2>
-          <p className="mt-1 text-sm text-zinc-500">Move from branch selection into the right academic term.</p>
+          <p className="mt-2 text-sm text-text-muted">Move from branch selection into the right academic term.</p>
         </div>
 
         {semesters.length > 0 ? (
-          <div className="grid auto-rows-fr gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {semesters.map((semester) => (
-              <SemesterCard key={semester.slug} branchSlug={branch.slug} semester={semester} />
+              <SemesterCard key={semester.slug} branchSlug={branch.slug} semester={semester} noteCount={semesterNoteCounts[semester.slug] || 0} />
             ))}
           </div>
         ) : (
-          <div className="rounded-[8px] border border-[rgba(255,255,255,0.06)] bg-[#141414] p-6 text-sm text-zinc-400">
+          <div className="rounded-xl border border-glass bg-bg-surface/40 p-8 text-sm text-text-secondary">
             No semesters configured for this branch yet.
           </div>
         )}

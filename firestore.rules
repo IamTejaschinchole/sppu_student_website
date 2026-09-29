@@ -39,7 +39,9 @@ service cloud.firestore {
         && request.resource.data.title is string
         && request.resource.data.description is string
         && request.resource.data.subject is string
-        && request.resource.data.semester in [3, 4]
+        && request.resource.data.semester is number
+        && request.resource.data.semester >= 1
+        && request.resource.data.semester <= 8
         && request.resource.data.tags is list
         && request.resource.data.priceType in ['free', 'paid']
         && request.resource.data.priceAmount is number
@@ -105,6 +107,16 @@ service cloud.firestore {
 
     match /users/{userId} {
       allow read, create, update: if isOwner(userId);
+      allow delete: if false;
+
+      match /savedNotes/{noteId} {
+        allow read, write: if isOwner(userId);
+      }
+    }
+
+    match /publicProfiles/{userId} {
+      allow read: if true;
+      allow create, update: if signedIn() && request.auth.uid == userId;
       allow delete: if false;
     }
 
