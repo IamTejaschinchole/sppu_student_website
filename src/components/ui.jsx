@@ -280,7 +280,7 @@ export function Footer() {
   return (
     <footer className="border-t border-glass bg-bg-deep/60 backdrop-blur-md">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col items-center gap-3 px-5 py-8 text-sm text-text-muted sm:flex-row sm:justify-between">
-        <p>StudyVault &mdash; SPPU student-powered study library</p>
+        <p>Faltu Notes &mdash; SPPU student-powered study library</p>
         <p>Powered by Firebase &middot; Built with React + Tailwind</p>
       </div>
     </footer>

@@ -35,6 +35,7 @@ import dbmsPapersImage from './assets/stitch/dbms-papers.jpg';
 import networkLabImage from './assets/stitch/network-lab.jpg';
 import osNotesImage from './assets/stitch/os-notes.jpg';
 import oopGuideImage from './assets/stitch/oop-guide.jpg';
+import faltuNotesMascot from './assets/faltu-notes-mascot.png';
 
 const LoginPage = lazy(() => import('./pages/LoginPage.jsx'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage.jsx'));
@@ -125,11 +126,38 @@ function PageSuspense({ label, children }) {
   return <Suspense fallback={<RouteSpinner label={label} />}>{children}</Suspense>;
 }
 
+function SiteAtmosphere() {
+  return (
+    <div className="site-atmosphere" aria-hidden="true">
+      <div className="site-atmosphere__shard site-atmosphere__shard--one" />
+      <div className="site-atmosphere__shard site-atmosphere__shard--two" />
+      <div className="site-atmosphere__shard site-atmosphere__shard--three" />
+      <div className="site-atmosphere__shard site-atmosphere__shard--four" />
+      <svg className="site-atmosphere__lines" viewBox="0 0 1440 1100" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="site-line-cyan" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stopColor="#4cd7f6" stopOpacity="0" />
+            <stop offset="0.45" stopColor="#4cd7f6" stopOpacity="0.9" />
+            <stop offset="1" stopColor="#a078ff" stopOpacity="0.1" />
+          </linearGradient>
+          <filter id="site-line-glow"><feGaussianBlur stdDeviation="5" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+        </defs>
+        <path className="site-line site-line--one" d="M-80 180 L260 340 L390 300 L620 540 L760 470 L1040 760 L1180 700 L1530 980" />
+        <path className="site-line site-line--two" d="M-100 780 L230 610 L480 760 L760 510 L1010 690 L1490 360" />
+        <path className="site-line site-line--three" d="M160 1080 L430 820 L690 930 L920 650 L1240 800 L1500 580" />
+      </svg>
+      <div className="site-atmosphere__flash site-atmosphere__flash--one" />
+      <div className="site-atmosphere__flash site-atmosphere__flash--two" />
+    </div>
+  );
+}
+
 function App() {
   const location = useLocation();
 
   return (
     <div className="min-h-screen text-text-primary">
+      <SiteAtmosphere />
       {location.pathname !== '/login' && <Navbar />}
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -270,15 +298,13 @@ function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#080d1a]/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 w-full max-w-[1380px] items-center justify-between gap-4 px-5 md:px-8 lg:px-14">
+      <div className="mx-auto flex h-16 w-full max-w-[1380px] items-center justify-between gap-2 px-4 sm:h-20 sm:gap-4 sm:px-5 md:px-8 lg:px-14">
         <div className="flex min-w-0 items-center gap-5">
-          <Link to="/" className="group flex shrink-0 items-center gap-2.5" aria-label="StudyVault home">
-            <span className="grid h-9 w-9 place-items-center rounded-xl border border-brand-cyan/40 bg-brand-primary/15 text-brand-cyan shadow-cyan-glow">
-              <GraduationCap size={20} aria-hidden="true" />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="font-display text-lg font-bold text-text-primary transition-colors group-hover:text-brand-cyan">StudyVault</span>
-              <span className="mt-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-cyan">SPPU Edition</span>
+          <Link to="/" className="group flex min-w-0 shrink items-center gap-2 sm:gap-2.5" aria-label="Faltu Notes home">
+            <img src={faltuNotesMascot} alt="Faltu Notes logo" className="h-9 w-9 shrink-0 object-contain sm:h-10 sm:w-10" />
+            <span className="flex min-w-0 flex-col leading-none">
+              <span className="truncate font-display text-base font-bold text-text-primary transition-colors group-hover:text-brand-cyan sm:text-lg">Faltu Notes</span>
+              <span className="mt-1 truncate text-[9px] font-bold uppercase tracking-[0.14em] text-brand-cyan sm:text-[10px] sm:tracking-[0.18em]">SPPU Edition</span>
             </span>
           </Link>
           <label className="hidden w-64 items-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-3 py-2 xl:flex">
@@ -296,7 +322,7 @@ function Navbar() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-0.5 sm:gap-2">
           <Link to="/upload" className="hidden items-center gap-2 rounded-xl bg-brand-primary px-4 py-2.5 text-sm font-semibold text-white shadow-brand-glow transition hover:bg-brand-primary/90 sm:inline-flex">
             <CloudUpload size={17} aria-hidden="true" />
             Share Vault
@@ -306,7 +332,7 @@ function Navbar() {
             <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-brand-cyan ring-2 ring-[#080d1a]" />
           </button>
           {user ? <Link to="/dashboard" aria-label="Open your dashboard" className="grid h-9 w-9 place-items-center overflow-hidden rounded-full border border-white/20 bg-brand-primary/20 text-xs font-bold text-white">{user.photoURL ? <img src={user.photoURL} alt="" className="h-full w-full object-cover" /> : (user.displayName || user.email || 'S').slice(0, 1).toUpperCase()}</Link> : <Link to="/login" className="hidden text-sm font-semibold text-text-secondary transition hover:text-white sm:inline">Login</Link>}
-          <button className="text-text-secondary transition hover:text-white lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu">
+          <button className="rounded-lg p-2 text-text-secondary transition hover:bg-white/[0.06] hover:text-white lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label="Toggle menu" aria-expanded={isMobileMenuOpen}>
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
@@ -398,14 +424,14 @@ function HomePage() {
   }
 
   return (
-    <main className="min-h-screen font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative">
+    <main className="stitch-home relative min-h-screen overflow-x-hidden font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
       {/* Dynamic Ambient Mesh Flares */}
       <div className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-primary-container/20 blur-[140px] pointer-events-none -z-10"></div>
       <div className="absolute top-[25%] -right-32 w-[550px] h-[550px] rounded-full bg-secondary/15 blur-[150px] pointer-events-none -z-10"></div>
       <div className="absolute top-[60%] left-1/3 w-[700px] h-[500px] rounded-full bg-tertiary-container/15 blur-[160px] pointer-events-none -z-10"></div>
 
       {/* HERO SECTION */}
-      <section className="relative w-full overflow-hidden pt-8 pb-20">
+      <section className="stitch-home-hero relative w-full overflow-hidden pt-8 pb-20">
         {/* Full Bleed Hero Background Image & Atmospheric Gradient Overlays */}
         <div className="absolute inset-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
           <img src={heroCampus} alt="SPPU University Campus Holographic Study Vista" className="w-full h-full object-cover object-center lg:object-right opacity-85 select-none" />
@@ -418,7 +444,7 @@ function HomePage() {
         <div className="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col space-y-space-lg">
+            <div className="lg:col-span-12 flex flex-col space-y-space-lg">
               {/* Curricular Badge */}
               <div className="inline-flex items-center gap-2 self-start px-3.5 py-1.5 rounded-full bg-surface-glass-high backdrop-blur-md shadow-sm border border-border-glass-subtle">
                 <span className="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
@@ -463,7 +489,7 @@ function HomePage() {
                 </div>
               </div>
               {/* Popular Tags Pills */}
-              <div className="flex flex-wrap items-center gap-2 text-on-surface-variant">
+              <div className="stitch-home-quick-search flex flex-wrap items-center gap-2 text-on-surface-variant">
                 <span className="font-label-sm text-label-sm text-outline uppercase tracking-wider mr-1">Quick Search:</span>
                 {['DBMS Insem', 'DSA Decoders', 'Computer Networks Labs', 'OS 2019 Pattern'].map((query) => (
                   <button
@@ -477,7 +503,7 @@ function HomePage() {
                 ))}
               </div>
               {/* Key Metrics Strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
+              <div className="stitch-home-metrics grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4">
                 <div className="bg-surface-glass-low/50 backdrop-blur-xl p-3.5 rounded-xl shadow-md border border-border-glass-specular/40 relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
                   <div className="relative">
@@ -520,78 +546,13 @@ function HomePage() {
                 </div>
               </div>
             </div>
-            {/* Right Column: Subtle Translucent Hologram Badges Seamlessly Floating Over Background Scene */}
-            <div className="lg:col-span-5 relative flex items-center justify-center min-h-[480px]">
-              {/* Floating Translucent Resource Directory Card */}
-              <div className="absolute bottom-4 right-0 z-20 bg-surface-container-lowest/70 backdrop-blur-xl border border-border-glass-specular/60 p-4 rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300 w-72 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-                <div className="relative">
-                  <div className="flex items-center gap-2 mb-3 pb-2 border-b border-border-glass-subtle text-secondary">
-                  <MaterialIcon name="verified" size={18} />
-                  <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wider">What's Inside the Vault</span>
-                </div>
-                <div className="space-y-2.5">
-                  <div className="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer">
-                    <MaterialIcon name="sticky_note_2" size={18} className="text-secondary" />
-                    <div>
-                      <span className="font-label-sm text-label-sm font-medium block">Handwritten Class Notes</span>
-                      <span className="font-body-sm text-[10px] text-outline block">Toppers' ink notes with neat diagrams</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer">
-                    <MaterialIcon name="description" size={18} className="text-primary" />
-                    <div>
-                      <span className="font-label-sm text-label-sm font-medium block">Solved Insem & Endsem Papers</span>
-                      <span className="font-body-sm text-[10px] text-outline block">Step-by-step marking scheme answers</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer">
-                    <MaterialIcon name="science" size={18} className="text-success-emerald" />
-                    <div>
-                      <span className="font-label-sm text-label-sm font-medium block">Tested Lab Codes & Write-ups</span>
-                      <span className="font-body-sm text-[10px] text-outline block">Verified outputs for practical vivas</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer">
-                    <MaterialIcon name="assignment" size={18} className="text-alert-coral" />
-                    <div>
-                      <span className="font-label-sm text-label-sm font-medium block">Assignment Solutions</span>
-                      <span className="font-body-sm text-[10px] text-outline block">Weekly tutorial sets and answers</span>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2.5 text-on-surface hover:text-secondary transition-colors cursor-pointer">
-                    <MaterialIcon name="quiz" size={18} className="text-tertiary" />
-                    <div>
-                      <span className="font-label-sm text-label-sm font-medium block">Important Question Banks</span>
-                      <span className="font-body-sm text-[10px] text-outline block">Repeated questions ranked by weightage</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-              {/* Top Right University Portal Pill */}
-              <div className="absolute top-2 right-4 z-20 px-4 py-2 rounded-full bg-surface-container-lowest/70 backdrop-blur-xl border border-border-glass-specular/60 shadow-lg flex items-center gap-2.5 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
-                <div className="relative flex items-center gap-2.5">
-                <MaterialIcon name="account_balance" size={20} className="text-secondary" />
-                <span className="font-label-sm text-label-sm text-on-surface font-semibold tracking-wide">Savitribai Phule Pune University</span>
-              </div>
-              </div>
-              {/* Floating 'Learn • Share • Grow' Script Accent */}
-              <div className="absolute top-20 right-8 z-10 hidden sm:flex flex-col text-right opacity-90 pointer-events-none select-none">
-                <span className="font-display-hero text-3xl text-primary/80 italic drop-shadow-[0_0_15px_rgba(173,198,255,0.5)]">Learn</span>
-                <span className="font-display-hero text-3xl text-secondary/80 italic drop-shadow-[0_0_15px_rgba(76,215,246,0.5)] -mt-1.5">Share</span>
-                <span className="font-display-hero text-3xl text-tertiary/80 italic drop-shadow-[0_0_15px_rgba(208,188,255,0.5)] -mt-1.5">Grow</span>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
       {/* BROWSE BY CATEGORY */}
       {/* Electric Lightning & Luminous Celestial Energy Waves Background Layer for Lower Sections */}
-      <div className="absolute top-[680px] left-0 right-0 bottom-0 pointer-events-none -z-10 overflow-hidden select-none">
+      <div className="stitch-home-atmosphere absolute top-[680px] left-0 right-0 bottom-0 pointer-events-none -z-10 overflow-hidden select-none">
         <style>{`
           @keyframes lightning-flash {
             0%, 92%, 96%, 100% { opacity: 0.25; filter: drop-shadow(0 0 15px rgba(76, 215, 246, 0.3)); }
@@ -676,7 +637,7 @@ function HomePage() {
         </svg>
       </div>
 
-      <section className="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12">
+      <section className="stitch-home-categories w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12">
         <div className="flex items-end justify-between mb-8">
           <div>
             <p className="font-label-sm text-label-sm text-secondary uppercase tracking-widest mb-1">Study by Material Type</p>
@@ -784,7 +745,7 @@ function HomePage() {
       </section>
 
       {/* SPPU CURRICULAR EXPLORER SELECTOR BAR */}
-      <section className="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-8">
+      <section className="stitch-home-explorer w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-8">
         <div className="bg-surface-glass-base/60 backdrop-blur-2xl p-6 sm:p-7 rounded-3xl shadow-xl border border-border-glass-specular/50 space-y-5 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none"></div>
           <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
@@ -896,7 +857,7 @@ function HomePage() {
       </section>
 
       {/* TRENDING SPPU RESOURCES (CARD GRID) */}
-      <section className="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12">
+      <section className="stitch-home-trending w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12">
         <div className="flex items-end justify-between mb-8">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary mb-2">
@@ -971,7 +932,7 @@ function HomePage() {
       </section>
 
       {/* TOP CONTRIBUTORS & UPLOAD PROMO BENTO */}
-      <section className="w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12 pb-24">
+      <section className="stitch-home-contributors w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-12 pb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
           {/* Top Contributors Deck (7 cols) */}
           <div className="lg:col-span-7 bg-surface-glass-base/60 backdrop-blur-2xl p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col justify-between border border-border-glass-specular/50 relative overflow-hidden">
@@ -985,7 +946,7 @@ function HomePage() {
                     <MaterialIcon name="military_tech" size={18} />
                     <span className="font-label-sm text-label-sm font-semibold uppercase tracking-wider">Student Voices</span>
                   </div>
-                  <h3 className="font-headline-lg text-headline-lg text-on-surface">Top Contributors on StudyVault</h3>
+                  <h3 className="font-headline-lg text-headline-lg text-on-surface">Top Contributors on Faltu Notes</h3>
                   <p className="font-body-sm text-body-sm text-on-surface-variant">Rank holders recognized for university-wide academic impact</p>
                 </div>
                 <Link to="/sppu" className="font-label-md text-label-md text-secondary hover:text-primary transition-colors">Leaderboard</Link>
@@ -999,13 +960,10 @@ function HomePage() {
                       <div className="relative">
                       <div className={`absolute -top-6 -right-6 w-16 h-16 bg-${index === 0 ? 'secondary' : index === 1 ? 'primary' : 'tertiary'}/15 rounded-full blur-xl`}></div>
                       <div className="w-16 h-16 rounded-full overflow-hidden mb-3 relative">
-                        {creator.avatar ? (
-                          <img className="w-full h-full object-cover" src={creator.avatar} alt={creator.name} />
-                        ) : (
-                          <div className="w-full h-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-on-surface font-headline-lg font-bold">
-                            {(creator.name || 'S').slice(0, 1).toUpperCase()}
-                          </div>
-                        )}
+                        {creator.avatar && <img className="w-full h-full object-cover" src={creator.avatar} alt={creator.name} onError={(event) => { event.currentTarget.style.display = 'none'; event.currentTarget.nextElementSibling?.classList.remove('hidden'); }} />}
+                        <div className={`w-full h-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-on-surface font-headline-lg font-bold ${creator.avatar ? 'hidden' : ''}`}>
+                          {(creator.name || 'S').slice(0, 1).toUpperCase()}
+                        </div>
                         <div className={`absolute bottom-0 right-0 w-4 h-4 rounded-full bg-${index === 0 ? 'secondary' : index === 1 ? 'primary' : 'tertiary'} flex items-center justify-center text-[10px] text-on-${index === 0 ? 'secondary' : index === 1 ? 'primary' : 'tertiary'} font-bold`}>
                           {index + 1}
                         </div>
@@ -1094,8 +1052,8 @@ function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg">
             <div className="lg:col-span-2 space-y-space-md">
               <div className="flex items-center gap-space-sm">
-                <img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" className="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3" />
-                <span className="font-headline-sm text-headline-sm text-on-surface">StudyVault</span>
+                <span className="grid h-7 w-7 place-items-center rounded-lg border border-brand-cyan/40 bg-brand-primary/15 text-brand-cyan"><GraduationCap size={16} aria-hidden="true" /></span>
+                <span className="font-headline-sm text-headline-sm text-on-surface">Faltu Notes</span>
               </div>
               <p className="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Built by SPPU students, for SPPU students. Sharing knowledge without the gatekeeping.</p>
               <div className="flex items-center gap-space-sm pt-space-xs">

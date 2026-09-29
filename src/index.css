@@ -24,11 +24,98 @@ body {
   color: #dfe2ef;
 }
 
+html,
+body,
+#root {
+  max-width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
 .stitch-home {
   background:
     radial-gradient(circle at 12% 18%, rgba(77, 142, 255, 0.12), transparent 28rem),
     radial-gradient(circle at 90% 32%, rgba(76, 215, 246, 0.1), transparent 30rem),
     #060a13;
+}
+
+.site-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.78;
+  mix-blend-mode: screen;
+}
+
+.site-atmosphere__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 12px rgba(76, 215, 246, 0.45));
+}
+
+.site-line {
+  fill: none;
+  stroke: url(#site-line-cyan);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.5;
+  stroke-dasharray: 18 30 140 38;
+  animation: site-line-drift 14s ease-in-out infinite;
+}
+
+.site-line--two { animation-duration: 18s; animation-delay: -5s; opacity: 0.72; }
+.site-line--three { animation-duration: 22s; animation-delay: -9s; opacity: 0.55; }
+
+.site-atmosphere__shard {
+  position: absolute;
+  border: 1px solid rgba(76, 215, 246, 0.38);
+  background: linear-gradient(135deg, rgba(76, 215, 246, 0.08), transparent 60%);
+  box-shadow: inset 0 0 20px rgba(76, 215, 246, 0.08), 0 0 24px rgba(77, 142, 255, 0.12);
+  clip-path: polygon(50% 0, 100% 28%, 82% 100%, 18% 100%, 0 28%);
+  animation: site-shard-float 12s ease-in-out infinite;
+}
+
+.site-atmosphere__shard--one { top: 16%; left: 8%; width: 110px; height: 150px; transform: rotate(22deg); }
+.site-atmosphere__shard--two { top: 40%; right: 10%; width: 90px; height: 120px; border-color: rgba(160, 120, 255, 0.42); animation-delay: -4s; transform: rotate(-28deg); }
+.site-atmosphere__shard--three { bottom: 15%; left: 24%; width: 70px; height: 96px; border-color: rgba(77, 142, 255, 0.42); animation-delay: -8s; transform: rotate(45deg); }
+.site-atmosphere__shard--four { top: 62%; right: 34%; width: 44px; height: 66px; border-color: rgba(76, 215, 246, 0.3); animation-delay: -2s; transform: rotate(-12deg); }
+
+.site-atmosphere__flash {
+  position: absolute;
+  width: 28rem;
+  height: 28rem;
+  border-radius: 999px;
+  filter: blur(90px);
+  animation: site-flash 9s ease-in-out infinite;
+}
+
+.site-atmosphere__flash--one { top: 22%; left: 22%; background: rgba(76, 215, 246, 0.11); }
+.site-atmosphere__flash--two { right: 14%; bottom: 12%; background: rgba(160, 120, 255, 0.1); animation-delay: -4s; }
+
+@keyframes site-line-drift {
+  0%, 100% { stroke-dashoffset: 0; transform: translate3d(0, 0, 0); }
+  50% { stroke-dashoffset: -220px; transform: translate3d(18px, -12px, 0); }
+}
+
+@keyframes site-shard-float {
+  0%, 100% { opacity: 0.42; translate: 0 0; }
+  50% { opacity: 0.9; translate: 14px -18px; }
+}
+
+@keyframes site-flash {
+  0%, 88%, 100% { opacity: 0.2; transform: scale(0.92); }
+  91% { opacity: 0.65; transform: scale(1.08); }
+  94% { opacity: 0.28; transform: scale(1); }
 }
 
 .stitch-page {
@@ -250,6 +337,211 @@ body {
   .stitch-search { align-items: stretch; flex-wrap: wrap; }
   .stitch-search input { min-height: 2.75rem; }
   .stitch-search button { width: 100%; }
+
+  .stitch-page {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .stitch-page h1 {
+    font-size: clamp(1.75rem, 8vw, 2.25rem);
+    line-height: 1.15;
+  }
+
+  .stitch-page h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .stitch-page button,
+  .stitch-page a {
+    max-width: 100%;
+  }
+
+  .stitch-home h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .stitch-home .font-body-lg {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  /* Mobile keeps the primary task visible and quiets secondary atmosphere. */
+  .stitch-home-hero {
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .stitch-home-hero-aside,
+  .stitch-home-quick-search,
+  .stitch-home-atmosphere {
+    display: none;
+  }
+
+  .site-atmosphere {
+    opacity: 0.52;
+  }
+
+  .site-atmosphere__shard {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+
+  .site-atmosphere__flash {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .stitch-home-metrics {
+    gap: 0.5rem;
+    padding-top: 0.75rem;
+  }
+
+  .stitch-home-metrics > div {
+    padding: 0.65rem;
+  }
+
+  .stitch-home-metrics > div:nth-child(n + 3) {
+    display: none;
+  }
+
+  .stitch-home-categories,
+  .stitch-home-trending,
+  .stitch-home-contributors {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .stitch-home-categories > div:first-child,
+  .stitch-home-trending > div:first-child {
+    margin-bottom: 1rem;
+  }
+
+  .stitch-home-categories .group {
+    min-height: 0;
+    padding: 0.85rem;
+  }
+
+  .stitch-home-categories .group .w-12 {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .stitch-home-categories .group p {
+    display: none;
+  }
+
+  .stitch-home-categories .group > div:last-child {
+    padding-top: 0.65rem;
+    margin-top: 0.5rem;
+  }
+
+  .stitch-home-explorer {
+    padding-top: 0;
+    padding-bottom: 1rem;
+  }
+
+  .stitch-home-explorer > div {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .stitch-home-trending .group {
+    padding: 0.85rem;
+    border-radius: 1rem;
+  }
+
+  .stitch-home-trending .group .aspect-\[4\/3\] {
+    aspect-ratio: 16 / 9;
+    margin-bottom: 0.65rem;
+  }
+
+  .stitch-home-trending .group .mt-3 {
+    margin-top: 0.5rem;
+  }
+
+  .stitch-home-trending .group .pt-4 {
+    padding-top: 0.75rem;
+  }
+
+  .stitch-home-contributors {
+    padding-bottom: 2.5rem;
+  }
+
+  .stitch-home-contributors > div > div:first-child {
+    display: none;
+  }
+
+  .stitch-home-contributors > div > div:last-child {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .stitch-home-contributors > div > div:last-child ul {
+    display: none;
+  }
+
+  .stitch-home-contributors > div > div:last-child .pt-8 {
+    padding-top: 1.25rem;
+  }
+
+  .stitch-home footer {
+    margin-top: 0;
+  }
+
+  .stitch-home footer > div {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .categories-hero {
+    min-height: 0;
+    gap: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .categories-hero h1 {
+    margin-top: 0.8rem;
+    font-size: clamp(2rem, 10vw, 2.7rem);
+  }
+
+  .categories-hero p {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .categories-hero-card {
+    display: none;
+  }
+
+  .categories-resource-card > div:first-child {
+    aspect-ratio: 16 / 9;
+  }
+
+  .categories-resource-card > div:last-child {
+    min-height: 0;
+    padding: 1rem;
+  }
+
+  .categories-resource-card > div:last-child h2 {
+    margin-top: 0.55rem;
+    font-size: 1rem;
+  }
+
+  .categories-resource-card > div:last-child p {
+    margin-top: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .categories-resource-card > div:last-child .mt-4 a {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+    font-size: 0.75rem;
+  }
 }
 
 button,

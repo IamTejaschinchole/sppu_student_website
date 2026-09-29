@@ -32,7 +32,7 @@ export default function LibraryPage() {
           </Link>
           <span className="mt-8 inline-flex rounded-full border border-cyan-300/25 bg-cyan-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[.14em] text-cyan-300">SPPU personal repository</span>
           <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight text-slate-100 sm:text-5xl">My Library</h1>
-          <p className="mt-2 text-sm text-slate-300">Your saved StudyVault resources in one place.</p>
+          <p className="mt-2 text-sm text-slate-300">Your saved Faltu Notes resources in one place.</p>
         </div>
       </div>
 
