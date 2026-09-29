@@ -75,7 +75,7 @@ export default function RegisterPage() {
         <button
           type="submit"
           disabled={busy}
-          className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-primary px-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-primary/90 hover:shadow-brand-glow disabled:cursor-not-allowed disabled:opacity-60"
         >
           <UserPlus size={18} aria-hidden="true" />
           {busy ? 'Creating account...' : 'Register'}

@@ -90,22 +90,22 @@ export function CommentSection({ noteId }) {
   return (
     <section>
       <div className="flex items-center gap-2">
-        <MessageSquare size={19} className="text-mint" aria-hidden="true" />
-        <h2 className="text-xl font-semibold text-white">Comments</h2>
-        <span className="text-sm text-zinc-500">({comments.length})</span>
+        <MessageSquare size={19} className="text-brand-cyan" aria-hidden="true" />
+        <h2 className="text-xl font-semibold text-text-primary">Comments</h2>
+        <span className="text-sm text-text-muted">({comments.length})</span>
       </div>
 
       <form className="mt-5 grid gap-3" onSubmit={handleSubmit}>
         <textarea
           value={comment}
           onChange={(event) => setComment(event.target.value)}
-          className="min-h-24 w-full resize-y rounded-lg border border-line bg-zinc-950/55 px-4 py-3 text-sm text-white placeholder:text-zinc-500"
+          className="min-h-24 w-full resize-y rounded-lg border border-glass bg-bg-deep/40 px-4 py-3 text-sm text-text-primary placeholder:text-text-muted"
           placeholder={user ? 'Add a helpful comment for other students' : 'Login to add a comment'}
         />
         <button
           type="submit"
           disabled={busy || !comment.trim()}
-          className="inline-flex h-11 w-fit items-center justify-center gap-2 rounded-lg bg-mint px-4 text-sm font-semibold text-ink transition hover:bg-teal-300 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-11 w-fit items-center justify-center gap-2 rounded-lg bg-brand-primary px-4 text-sm font-semibold text-white transition-all duration-200 hover:bg-brand-primary/90 hover:shadow-brand-glow disabled:cursor-not-allowed disabled:opacity-60"
         >
           <MessageSquare size={17} aria-hidden="true" />
           {busy ? 'Posting...' : 'Post Comment'}
@@ -120,16 +120,16 @@ export function CommentSection({ noteId }) {
 
       <div className="mt-6 grid gap-3">
         {loading ? (
-          <p className="rounded-lg border border-line bg-zinc-950/45 p-4 text-sm text-zinc-400">
+          <p className="rounded-lg border border-glass bg-bg-surface/40 p-4 text-sm text-text-secondary">
             Loading comments...
           </p>
         ) : comments.length > 0 ? (
           comments.map((item) => (
-            <article key={item.id} className="rounded-lg border border-line bg-zinc-950/45 p-4">
+            <article key={item.id} className="rounded-lg border border-glass bg-bg-surface/40 p-4">
               <div className="flex items-center gap-3">
                 {item.userAvatar ? (
                   <img
-                    className="h-9 w-9 rounded-lg object-cover"
+                    className="h-9 w-9 rounded-xl object-cover"
                     src={item.userAvatar}
                     alt={`${item.userName} avatar`}
                   />
@@ -137,15 +137,15 @@ export function CommentSection({ noteId }) {
                   <InitialsAvatar name={item.userName || 'SPPU Student'} />
                 )}
                 <div className="min-w-0">
-                  <p className="truncate text-sm font-semibold text-white">{item.userName || 'SPPU Student'}</p>
-                  <p className="text-xs text-zinc-500">{formatDate(item.createdAt)}</p>
+                  <p className="truncate text-sm font-semibold text-text-primary">{item.userName || 'SPPU Student'}</p>
+                  <p className="text-xs text-text-muted">{formatDate(item.createdAt)}</p>
                 </div>
               </div>
-              <p className="mt-3 whitespace-pre-line text-sm leading-6 text-zinc-300">{item.text}</p>
+              <p className="mt-3 whitespace-pre-line text-sm leading-6 text-text-secondary">{item.text}</p>
             </article>
           ))
         ) : (
-          <p className="rounded-lg border border-line bg-zinc-950/45 p-4 text-sm text-zinc-400">No comments yet.</p>
+          <p className="rounded-lg border border-glass bg-bg-surface/40 p-4 text-sm text-text-secondary">No comments yet.</p>
         )}
       </div>
     </section>

@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>404 - Page Not Found | StudyVault SPPU Edition</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
+          },
+          colors: {
+            vaultDark: '#070b14',
+            vaultNavy: '#0c1322',
+            brandBlue: '#2563eb',
+            brandCyan: '#38bdf8',
+          },
+          boxShadow: {
+            'glow-blue': '0 0 35px -5px rgba(37, 99, 235, 0.5), 0 0 15px -3px rgba(56, 189, 248, 0.3)',
+            'glow-cyan': '0 0 45px rgba(56, 189, 248, 0.45)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography and Base Styling -->
+<style data-purpose="typography">
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #070b14;
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    h1, h2, .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+  </style>
+<!-- Visual Effects, Gradients, and Glassmorphism -->
+<style data-purpose="custom-effects">
+    .glow-404 {
+      background: linear-gradient(180deg, #ffffff 0%, #93c5fd 40%, #3b82f6 85%, #1d4ed8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 35px rgba(96, 165, 250, 0.65)) drop-shadow(0 0 80px rgba(37, 99, 235, 0.4));
+    }
+    
+    .glass-nav {
+      background: rgba(7, 11, 20, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-input {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(8px);
+    }
+    
+    .glass-button {
+      background: rgba(255, 255, 255, 0.07);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      transition: all 0.25s ease-in-out;
+    }
+    
+    .glass-button:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(147, 197, 253, 0.4);
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+    }
+
+    .glass-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .lamp-glow {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, rgba(251, 191, 36, 0.45) 0%, rgba(245, 158, 11, 0.15) 50%, transparent 80%);
+      filter: blur(12px);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+<!-- BEGIN: NavigationHeader -->
+<header class="fixed top-0 left-0 right-0 z-50 glass-nav" data-purpose="site-navigation">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between gap-4">
+<!-- Brand Logo & Badge -->
+<div class="flex items-center gap-3 shrink-0">
+<a class="flex items-center gap-2.5 group" href="#">
+<!-- Glowing Book Icon -->
+<div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-400 p-[1px] shadow-[0_0_18px_rgba(56,189,248,0.5)]">
+<div class="w-full h-full bg-[#0b1220] rounded-[11px] flex items-center justify-center">
+<svg class="w-5 h-5 text-cyan-400 group-hover:scale-105 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+</div>
+<div>
+<span class="text-xl font-extrabold tracking-tight text-white font-display flex items-center gap-1.5">
+              StudyVault
+            </span>
+</div>
+</a>
+<span class="hidden md:inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-500/15 text-blue-300 border border-blue-400/25 tracking-wide uppercase">
+          SPPU Edition
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav aria-label="Main Navigation" class="hidden lg:flex items-center space-x-1 font-medium text-sm text-slate-300">
+<a class="px-3 py-1.5 rounded-lg text-white hover:text-cyan-400 transition-colors" href="#">Home</a>
+<a class="px-3 py-1.5 rounded-lg hover:text-white transition-colors" href="#">Browse</a>
+<a class="px-3 py-1.5 rounded-lg hover:text-white transition-colors" href="#">Categories</a>
+<a class="px-3 py-1.5 rounded-lg hover:text-white transition-colors" href="#">Upload</a>
+<a class="px-3 py-1.5 rounded-lg hover:text-white transition-colors" href="#">My Library</a>
+</nav>
+<!-- Search Input Bar -->
+<div class="flex-1 max-w-sm hidden sm:block">
+<div class="relative">
+<input class="w-full glass-input text-sm text-slate-200 placeholder-slate-400 rounded-full pl-4 pr-10 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500/60 focus:border-transparent transition" placeholder="Search notes, subjects, PYQs..." type="search">
+<button aria-label="Submit search" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-cyan-300 transition-colors" type="submit">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+</div>
+<!-- User Monogram & Notification Bell -->
+<div class="flex items-center gap-3 shrink-0">
+<!-- Notification Bell -->
+<button aria-label="Notifications" class="w-9 h-9 rounded-full flex items-center justify-center text-slate-300 hover:text-white hover:bg-slate-800/60 transition relative">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+<path d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-cyan-400 ring-2 ring-[#070b14]"></span>
+</button>
+<!-- Profile Avatar Monogram -->
+<div class="w-9 h-9 rounded-full bg-gradient-to-tr from-blue-700 via-indigo-600 to-cyan-400 p-[1.5px] cursor-pointer" title="User Profile">
+<div class="w-full h-full bg-[#0e172a] rounded-full flex items-center justify-center text-xs font-bold text-cyan-200">
+            TC
+          </div>
+</div>
+</div>
+</div>
+</header>
+<!-- END: NavigationHeader -->
+<!-- BEGIN: MainContent -->
+<main class="relative flex-grow flex items-center justify-center pt-24 pb-16 min-h-[calc(100vh-60px)]" data-purpose="error-hero-section">
+<!-- Background Atmospheric Scenery Container -->
+<div class="absolute inset-0 overflow-hidden pointer-events-none select-none">
+<!-- High-resolution Night Campus Background Image -->
+<img alt="Savitribai Phule Pune University heritage building illuminated at night under a purple twilight sky" class="w-full h-full object-cover object-center filter brightness-[0.78] contrast-[1.12]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwSe4a9hSFHCXgtCG-LkVQFgOuLjryZxRss6OUlq8krEhygKJM29AreDLxhf1Ris05hDnpCKr88wHNjZiTIS-a-WJ8wlYLZ1oT362-rjKW2FR1a4wMKQt2I4Hlx7dA2teFrbu90r14XAqcx1rYl2JZhllnwwxJ57yFejfDISXlTPnKxShvfh7vFQk3Ak1MqcoF6Bo-mYskn6zTP0-MJ36dWaZaoVIJgpoSyul4Yy6lKnnxeKk1jzt_iFE56ufyq3m1">
+<!-- Vignette and Dark Overlays for Readability and Depth -->
+<div class="absolute inset-0 bg-gradient-to-r from-[#070b14]/90 via-[#070b14]/50 to-[#070b14]/90"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#070b14] via-transparent to-[#070b14]/85"></div>
+<div class="absolute right-0 top-0 bottom-0 w-2/3 bg-radial from-blue-900/25 via-transparent to-transparent"></div>
+</div>
+<!-- Central Hero Wrapper Matching Composition -->
+<div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+<!-- Left Column: Student Contemplating Heritage Campus -->
+<!-- Matches visual representation from prompt snapshot -->
+<div class="lg:col-span-6 relative flex flex-col justify-end min-h-[380px] sm:min-h-[460px] lg:min-h-[540px]"><div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 group backdrop-blur-md bg-black/30 shadow-[0_0_50px_rgba(7,11,20,0.8)]">
+  <div class="relative aspect-[16/10] sm:aspect-[4/3] lg:aspect-[16/11] w-full overflow-hidden">
+    <img alt="Student with backpack walking along campus pathway at night looking toward illuminated SPPU clock tower and heritage building" class="w-full h-full object-cover object-bottom transform transition-transform duration-700 group-hover:scale-105 filter brightness-[0.92] contrast-[1.08]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCi2jBZOgBQoQACW9gj7twMqnBYJPYfb91g1rK0RU3_yQrzyZKqC2-y5RWUx-tdOtSR0CD8MuUjPPLEuSBnbEHa1_ktaQ8U0rUdU3qh0jTEhMeL9pxJMToDR7PxRyVfP6xAeEnlta2e1PHNib8cl9BdTG1UXoeM252AkQ5ZdLW1QQacdZ8dvBsVQQWtsLWM0OAsrKBCaa7s-ezTK-boG6w4ujweYQfljtd2EuGgIC6OwByh0k6kGe0">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#070b14]/90 via-[#070b14]/20 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#070b14]/40 via-transparent to-transparent"></div>
+    <div class="lamp-glow -bottom-8 -left-8 opacity-75"></div>
+  </div>
+  <div class="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-slate-300 pointer-events-none">
+    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/85 border border-slate-700/60 backdrop-blur-md shadow-lg">
+      <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+      <span class="font-medium text-slate-200">SPPU Main Heritage Steps • Ganeshkhind</span>
+    </span>
+    <span class="inline-flex items-center px-2.5 py-1 rounded-full bg-[#050810]/70 border border-white/5 backdrop-blur-md text-cyan-300 text-[11px] font-medium hidden sm:inline-flex">Late Night Campus Vault</span>
+  </div>
+</div></div>
+<!-- Right Column: Glowing 404 Typography & Action Center -->
+<div class="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left"><!-- 404 Display with Ambient Glow Backdrop -->
+<div class="relative select-none mb-2">
+  <div class="absolute -inset-4 bg-gradient-to-r from-cyan-400/20 via-blue-600/30 to-indigo-600/20 blur-3xl pointer-events-none -z-10 rounded-full"></div>
+  <span class="font-display text-8xl sm:text-9xl md:text-[150px] font-black tracking-tight glow-404 leading-none inline-block drop-shadow-[0_15px_30px_rgba(37,99,235,0.4)]">
+    404
+  </span>
+</div>
+<!-- Headline -->
+<h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-4 font-display">
+  Page Not Found
+</h1>
+<!-- Supportive Description -->
+<p class="text-base sm:text-lg text-slate-300 max-w-lg mb-8 leading-relaxed font-normal">
+  Looks like you took a wrong turn or this study note has been moved. The resource you're searching for doesn't exist or is currently offline.
+</p>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto mb-10">
+  <!-- Primary CTA: Go to Home -->
+  <a href="#" data-purpose="primary-home-button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-base shadow-glow-blue hover:shadow-[0_0_40px_rgba(37,99,235,0.7)] transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0">
+    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <span class="">Go to Home</span>
+  </a>
+  <!-- Secondary CTA: Browse Resources -->
+  <a href="#" data-purpose="secondary-browse-button" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl glass-button text-slate-200 hover:text-white font-semibold text-base transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0">
+    <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+      <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    <span class="">Browse Resources</span>
+  </a>
+</div>
+<!-- Quick Resource Chips -->
+<div class="pt-6 border-t border-slate-800/80 w-full max-w-lg">
+  <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-3.5 text-center lg:text-left">
+    Popular Study Material &amp; Question Papers:
+  </p>
+  <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+    <a href="#" class="glass-tag text-xs font-medium text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 px-3.5 py-1.5 rounded-lg transition-colors">
+      Data Structures Notes
+    </a>
+    <a href="#" class="glass-tag text-xs font-medium text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 px-3.5 py-1.5 rounded-lg transition-colors">
+      DBMS PYQs
+    </a>
+    <a href="#" class="glass-tag text-xs font-medium text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 px-3.5 py-1.5 rounded-lg transition-colors">
+      Computer Networks
+    </a>
+    <a href="#" class="glass-tag text-xs font-medium text-slate-300 hover:text-cyan-300 hover:border-cyan-500/40 px-3.5 py-1.5 rounded-lg transition-colors">
+      Operating Systems
+    </a>
+  </div>
+</div></div>
+</div>
+</div>
+</main>
+<!-- END: MainContent -->
+<!-- BEGIN: Footer -->
+<footer class="relative z-10 border-t border-white/5 bg-[#050810]/80 backdrop-blur-md text-slate-400 text-xs py-5" data-purpose="site-footer">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-emerald-500"></span>
+<span class="">StudyVault SPPU (Pune University) Student Repository</span>
+</div>
+<div class="flex items-center gap-6 text-slate-400">
+<a class="hover:text-cyan-400 transition-colors" href="#">Curriculum Syllabus</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">Previous Year QPs</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">Academic Honor Code</a>
+<a class="hover:text-cyan-400 transition-colors" href="#">Contact Support</a>
+</div>
+<div>
+<span class="">© 2025 StudyVault. All rights reserved.</span>
+</div>
+</div>
+</footer>
+<!-- END: Footer -->
+
+
+</body></html>

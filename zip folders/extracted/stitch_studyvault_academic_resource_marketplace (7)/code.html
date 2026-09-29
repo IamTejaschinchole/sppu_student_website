@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#4cd7f6", "surface-container-highest": "#31353f", "surface-container-lowest": "#0a0e17", "border-glass-specular": "rgba(255, 255, 255, 0.20)", "secondary": "#4cd7f6", "inverse-on-surface": "#2c303a", "on-primary": "#002e6a", "on-secondary": "#003640", "on-tertiary-container": "#340080", "tertiary": "#d0bcff", "glow-primary": "rgba(77, 142, 255, 0.35)", "primary-container": "#4d8eff", "inverse-primary": "#005ac2", "on-tertiary-fixed": "#23005c", "surface-container": "#1c1f29", "on-secondary-container": "#00424e", "error-container": "#93000a", "primary-fixed-dim": "#adc6ff", "secondary-container": "#03b5d4", "alert-amber": "#f59e0b", "surface-tint": "#adc6ff", "surface-container-high": "#262a34", "border-glass-luminous": "rgba(76, 215, 246, 0.35)", "surface-glass-high": "rgba(26, 38, 64, 0.75)", "tertiary-container": "#a078ff", "on-surface-variant": "#c2c6d6", "outline-variant": "#424753", "surface-dim": "#0f131c", "inverse-surface": "#dfe2ef", "surface-glass-low": "rgba(10, 14, 23, 0.55)", "glow-cyan": "rgba(76, 215, 246, 0.25)", "surface-container-low": "#181b25", "surface-glass-base": "rgba(17, 24, 39, 0.65)", "on-tertiary": "#3c0091", "border-glass-subtle": "rgba(255, 255, 255, 0.10)", "success-emerald": "#10b981", "on-secondary-fixed-variant": "#004e5c", "on-background": "#dfe2ef", "surface-bright": "#353943", "on-primary-fixed-variant": "#004495", "primary-fixed": "#d8e2ff", "on-surface": "#dfe2ef", "surface-variant": "#31353f", "surface": "#0f131c", "tertiary-fixed": "#e9ddff", "on-tertiary-fixed-variant": "#5424af", "outline": "#8c909f", "on-primary-fixed": "#001a42", "canvas-void": "#06090e", "on-error-container": "#ffdad6", "on-secondary-fixed": "#001f26", "glow-indigo": "rgba(160, 120, 255, 0.20)", "error": "#ffb4ab", "secondary-fixed": "#acedff", "tertiary-fixed-dim": "#d0bcff", "primary": "#adc6ff", "background": "#0f131c", "on-primary-container": "#00285d", "on-error": "#690005", "alert-coral": "#f43f5e" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin-lg": "3.5rem", "gutter-lg": "1.75rem", "space-xl": "2.25rem", "space-sm": "0.5rem", "margin": "1.25rem", "space-lg": "1.5rem", "space-xs": "0.25rem", "margin-md": "2rem", "space-md": "1rem", "gutter": "1.25rem" }, "fontFamily": { "body-lg": ["Inter", "sans-serif"], "headline-md": ["Outfit", "sans-serif"], "body-sm": ["Inter", "sans-serif"], "label-sm": ["Plus Jakarta Sans", "sans-serif"], "body-md": ["Inter", "sans-serif"], "display-hero": ["Outfit", "sans-serif"], "label-md": ["Plus Jakarta Sans", "sans-serif"], "headline-lg": ["Outfit", "sans-serif"], "headline-sm": ["Outfit", "sans-serif"], "display-hero-mobile": ["Outfit", "sans-serif"], "headline-lg-mobile": ["Outfit", "sans-serif"], "title-md": ["Plus Jakarta Sans", "sans-serif"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "26px", "fontWeight": "400" }], "headline-md": ["22px", { "lineHeight": "30px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "600" }], "body-md": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "display-hero": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "800" }], "label-md": ["13px", { "lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "600" }], "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-sm": ["18px", { "lineHeight": "26px", "fontWeight": "600" }], "display-hero-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "800" }], "headline-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }], "title-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }] } } } };</script></head><body class="bg-background font-body-md text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container relative min-h-screen" style="background-image: linear-gradient(rgba(15, 19, 28, 0.6) 0%, rgba(10, 14, 23, 0.88) 60%, rgba(9, 14, 27, 0.98) 100%), url('https://lh3.googleusercontent.com/aida-public/AB6AXuBG14CsLAZ97xTQC9muJ4oZbRuKxxI3izq9sE1mJOo8jxtv_vdyxqVDmbULK2Cj15sZmCTeMyG8Agf1HBc1np7ijdF7vFqRHSoLMvVu55-S0HxI0IRI9zOeT8Zouh1b37fcH-22RUnU7gXcElIVXV-5bCVwXytKLEslCe-1-4Ayk8AMcdo4mE1Fi_YwpiJA-Ggfcct4rDaV1-KkoPX-hdO8b2Jc2GnxFsezaMyzaiGBFfn7pu5L1eJ8BMfimXgEt-ow'); background-attachment: fixed; background-size: cover; background-position: center top; background-repeat: no-repeat;"><header class="fixed top-0 left-0 w-full z-50 bg-surface-glass-low backdrop-blur-xl shadow-[0_8px_32px_-4px_rgba(0,0,0,0.5)] border-b border-border-glass-subtle"><div class="h-20 w-full max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex items-center justify-between gap-space-md"><div class="flex items-center gap-space-lg"><a class="flex items-center gap-space-sm group" data-path="home" href="#"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors tracking-tight">StudyVault</span><span class="font-label-sm text-label-sm text-secondary tracking-widest uppercase">SPPU Edition</span></div></a><div class="hidden xl:flex items-center bg-surface-glass-base backdrop-blur-md px-space-md py-space-xs rounded-full border border-border-glass-subtle gap-space-sm focus-within:border-secondary transition-all w-72"><span class="material-symbols-outlined text-outline text-lg">search</span><input class="bg-transparent border-none outline-none font-body-sm text-body-sm text-on-surface placeholder:text-outline w-full" placeholder="Search papers, notes, units..." type="text"/><kbd class="font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container text-outline-variant border border-border-glass-subtle">⌘K</kbd></div></div><nav class="hidden lg:flex items-center gap-space-md" data-active-classes="bg-primary-container text-on-primary-container font-headline-sm"><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="home" href="#">Home</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="browse" href="#">Browse</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="upload" href="#">Upload</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="library" href="#">My Library</a><a class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high px-space-md py-space-sm rounded-lg transition-all" data-path="dashboard" href="#">Dashboard</a></nav><div class="flex items-center gap-space-md"><a class="hidden sm:inline-flex items-center gap-space-xs bg-primary-container text-on-primary-container px-space-md py-space-sm rounded-xl font-label-md text-label-md hover:bg-primary hover:text-on-primary transition-all shadow-[0_0_20px_rgba(77,142,255,0.35)]" data-path="upload" href="#"><span class="material-symbols-outlined text-sm">upload_file</span><span class="">Share Vault</span></a><button aria-label="Notifications" class="p-space-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high rounded-full transition-colors relative" type="button"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-dim"></span></button><a class="flex items-center gap-space-xs p-1 rounded-full hover:ring-2 hover:ring-secondary/40 transition-all" data-path="profile" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover border border-border-glass-specular" src="https://lh3.googleusercontent.com/aida/AEtjO1Vxmg5yQl0IXyUgyFSwhJ9N0ReSIFEZrQUdY1GqM2YMHGj-BwggkA9mZpRIAMPbNWOtHFXS0NwwfRqK5Svc7cyGxxcV-H0Wi0agzQSsbk4Mb7g6YgZeilId-oZf2lHr-aOHmTOp_rQs-_WxMiNQgUPiYekmAacWVir7RMOxY5rO6aM-iIDXsPMa8uqMh-OWUi_QdACL16ZAyQggLdSeUm4PWE4xGSU7fgCUMwgRs7JSHw2Ql8U1FnBbUQ"/></a></div></div></header><main class="w-full pt-20 relative z-10"><div class="flex flex-col w-full">
+<div class="relative w-full overflow-hidden">
+<!-- Ambient Luminous Glow Accents -->
+<div class="pointer-events-none absolute -top-40 left-1/4 w-[500px] h-[500px] rounded-full bg-glow-primary blur-3xl opacity-40"></div>
+<div class="pointer-events-none absolute top-1/3 -right-20 w-[450px] h-[450px] rounded-full bg-glow-indigo blur-3xl opacity-30"></div>
+<div class="pointer-events-none absolute bottom-10 left-10 w-[380px] h-[380px] rounded-full bg-glow-cyan blur-3xl opacity-25"></div>
+<div class="max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl relative z-10">
+<!-- Page Title & Header Info -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-xl">
+<div class="space-y-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm tracking-wide border-none">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+              SPPU Personal Repository
+            </span>
+<span class="text-outline font-label-sm text-label-sm">•</span>
+<span class="text-on-surface-variant font-label-sm text-label-sm">Academic Year 2024–25</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight">My Library</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            All your saved resources, downloads, and uploaded study materials in one place.
+          </p>
+</div>
+<!-- Quick Summary Stats Card -->
+<div class="flex items-center gap-space-md bg-surface-glass-base backdrop-blur-xl px-space-lg py-space-md rounded-xl shadow-lg">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Storage Sync</span>
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold">44 Resources</span>
+</div>
+<div class="w-px h-8 bg-surface-container-highest"></div>
+<div class="flex items-center gap-2">
+<div class="w-9 h-9 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">cloud_done</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-success-emerald font-semibold">Active Sync</span>
+<span class="font-body-sm text-body-sm text-outline">Pune Cloud</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Segmented Category Tab Pills -->
+<div class="flex flex-wrap items-center gap-space-sm mb-space-lg" id="libraryTabs">
+<button class="tab-btn px-space-lg py-space-sm rounded-full font-label-md text-label-md font-semibold transition-all bg-primary-container text-on-primary-container shadow-md shadow-primary-container/30 flex items-center gap-2" data-tab="saved" type="button">
+<span>Saved</span>
+<span class="px-2 py-0.5 rounded-full text-xs bg-white/20 text-on-primary-container font-semibold">24</span>
+</button>
+<button class="tab-btn px-space-lg py-space-sm rounded-full font-label-md text-label-md font-semibold transition-all bg-surface-glass-base text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high flex items-center gap-2" data-tab="downloads" type="button">
+<span>Downloads</span>
+<span class="px-2 py-0.5 rounded-full text-xs bg-surface-container-highest text-on-surface-variant">12</span>
+</button>
+<button class="tab-btn px-space-lg py-space-sm rounded-full font-label-md text-label-md font-semibold transition-all bg-surface-glass-base text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high flex items-center gap-2" data-tab="uploads" type="button">
+<span>Uploads</span>
+<span class="px-2 py-0.5 rounded-full text-xs bg-surface-container-highest text-on-surface-variant">8</span>
+</button>
+<button class="tab-btn px-space-lg py-space-sm rounded-full font-label-md text-label-md font-semibold transition-all bg-surface-glass-base text-on-surface-variant hover:text-on-surface hover:bg-surface-glass-high flex items-center gap-2" data-tab="recent" type="button">
+<span>Recently Viewed</span>
+</button>
+</div>
+<!-- Search, Subject Filter & Sort Toolbar -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-space-md mb-space-xl items-center bg-surface-glass-base backdrop-blur-xl p-space-md rounded-2xl shadow-xl">
+<!-- Search Input -->
+<div class="md:col-span-6 flex items-center bg-surface-container-lowest/80 backdrop-blur-md px-space-md py-space-sm rounded-xl gap-space-sm focus-within:ring-2 focus-within:ring-secondary/50 transition-all">
+<span class="material-symbols-outlined text-outline text-xl">search</span>
+<input class="bg-transparent border-none outline-none font-body-md text-body-md text-on-surface placeholder:text-outline w-full focus:ring-0 p-0" id="searchInput" placeholder="Search in your library by title, subject, semester..." type="text"/>
+<kbd class="hidden sm:inline-block font-label-sm text-label-sm px-2 py-1 rounded bg-surface-container text-outline-variant">Esc</kbd>
+</div>
+<!-- Subject Filter Dropdown -->
+<div class="md:col-span-3 relative">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg pointer-events-none">menu_book</span>
+<select class="w-full bg-surface-container-lowest/80 backdrop-blur-md font-body-sm text-body-sm text-on-surface rounded-xl pl-10 pr-8 py-2.5 outline-none cursor-pointer focus:ring-2 focus:ring-secondary/50 appearance-none border-none" id="subjectFilter">
+<option value="all">All Subjects</option>
+<option value="Operating Systems">Operating Systems</option>
+<option value="DBMS">Database Management (DBMS)</option>
+<option value="Computer Networks">Computer Networks</option>
+<option value="Theory of Computation">Theory of Computation</option>
+<option value="Data Structures">Data Structures &amp; Algorithms</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Sort Control Dropdown -->
+<div class="md:col-span-3 relative">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg pointer-events-none">swap_vert</span>
+<select class="w-full bg-surface-container-lowest/80 backdrop-blur-md font-body-sm text-body-sm text-on-surface rounded-xl pl-10 pr-8 py-2.5 outline-none cursor-pointer focus:ring-2 focus:ring-secondary/50 appearance-none border-none" id="sortFilter">
+<option value="latest">Sort by: Latest</option>
+<option value="highest_rated">Sort by: Highest Rated</option>
+<option value="alphabetical">Sort by: Name (A-Z)</option>
+<option value="file_size">Sort by: Size</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline text-sm pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Resource List Vertical Stack -->
+<div class="flex flex-col gap-space-md" id="resourceStack">
+<!-- Item 1: Operating Systems Handwritten Notes -->
+<div class="resource-card group bg-surface-glass-base hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-space-md md:p-space-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" data-rating="4.9" data-subject="Operating Systems" data-title="Operating Systems Handwritten Notes">
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<!-- Thumbnail preview -->
+<div class="relative w-24 h-28 sm:w-28 sm:h-32 shrink-0 rounded-xl overflow-hidden bg-surface-container-lowest shadow-md group-hover:scale-105 transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Close-up photograph of neat handwritten engineering notebook pages detailing Operating Systems CPU scheduling algorithms and process synchronization state diagrams with high contrast blue ink on graph paper in ambient cinematic neon light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsRWNxZ36qaUI8xeuijzuE8DfvOxkDLzXj7OCGQ3NbFnjuVXvlENKHSx1TkYgWUsWYrznLMM1uG40UomVTjmG4eYLeDPm8lHZbOsSUYVFv0WN8zbiVHKrfYKP5Xe1CFahOarTdFzEiM4g11zhwTkP4A_tehffIveFLosvp4M3PVAAekWEduNqkVb0wWiyrpihQIvSU14PXmfvDCttCOr77NKpmV4sSWCQ-SJGMo0jLGjQDVcoIXwg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-1.5 left-1.5 flex items-center gap-1 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-[10px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[12px] text-secondary">description</span>
+<span>48 pgs</span>
+</div>
+</div>
+<!-- Content Meta Block -->
+<div class="flex flex-col justify-center gap-space-xs min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-primary-container/20 text-primary-fixed">Notes</span>
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-secondary/15 text-secondary">Verified SPPU 2024</span>
+<span class="font-body-sm text-body-sm text-outline">• Sem 5</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-secondary transition-colors">
+                Operating Systems Handwritten Notes
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Computer Engineering • SPPU Curriculum Units 1–6 (Threads, Deadlocks, Memory Management, Page Replacement algorithms)
+              </p>
+<!-- Contributor Row -->
+<div class="flex items-center gap-space-md pt-1 flex-wrap">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-primary-container flex items-center justify-center font-label-sm text-label-sm text-on-primary-container font-bold">
+                    A
+                  </div>
+<span class="font-label-md text-label-md text-on-surface">Aman Patel</span>
+</div>
+<div class="flex items-center gap-1 text-alert-amber font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.9</span>
+<span class="text-outline font-normal">(184)</span>
+</div>
+<div class="flex items-center gap-1 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Added 2 days ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end shrink-0 pt-2 md:pt-0">
+<button class="download-action-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Download Offline Copy" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<a class="px-space-lg py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-md shadow-primary-container/25 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span>View</span>
+</a>
+<div class="relative">
+<button class="more-options-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Options" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: DBMS Previous Year Papers -->
+<div class="resource-card group bg-surface-glass-base hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-space-md md:p-space-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" data-rating="4.7" data-subject="DBMS" data-title="DBMS Previous Year Papers">
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<!-- Thumbnail preview -->
+<div class="relative w-24 h-28 sm:w-28 sm:h-32 shrink-0 rounded-xl overflow-hidden bg-surface-container-lowest shadow-md group-hover:scale-105 transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Official university printed past question paper document scan with Savitribai Phule Pune University header insignia, tabular schema questions and relational algebra query prompts on crisp white paper under deep moody study room desk lamp." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkIqXB8BG4NsOVjRH5LlrhKWbneBTpmBobmiqxc7LgFuE-wIr9zExB1NxRUwqK9IXnWm0Q9K-nylbkA10Bb6KUJJsgvJh6S82wGeo6e9oSoqIb8JZKZFrZSAEgXrjKqveuofh5QrV-nqxW4f2i3W0NerldjTsPDJb0CVWKfQ-UWuOtyH5ZTXXWsaL8_wsRGA7WLFeKuuy9M5XI4BJ6p-cy_CO65UgRbuFdzFbvRjwiufjiExUqog4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-1.5 left-1.5 flex items-center gap-1 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-[10px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[12px] text-success-emerald">history_edu</span>
+<span>Solved PDF</span>
+</div>
+</div>
+<!-- Content Meta Block -->
+<div class="flex flex-col justify-center gap-space-xs min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-success-emerald/15 text-success-emerald">PYQ</span>
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-tertiary-container/20 text-tertiary">InSem &amp; EndSem</span>
+<span class="font-body-sm text-body-sm text-outline">• Sem 4</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-secondary transition-colors">
+                DBMS Previous Year Papers (2020–2024 Solved)
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Computer Engineering • Includes step-by-step SQL normalization (1NF–BCNF), concurrency lock matrix, and indexing solutions.
+              </p>
+<!-- Contributor Row -->
+<div class="flex items-center gap-space-md pt-1 flex-wrap">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-secondary-container flex items-center justify-center font-label-sm text-label-sm text-on-secondary-container font-bold">
+                    R
+                  </div>
+<span class="font-label-md text-label-md text-on-surface">Rohit Sharma</span>
+</div>
+<div class="flex items-center gap-1 text-alert-amber font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.7</span>
+<span class="text-outline font-normal">(92)</span>
+</div>
+<div class="flex items-center gap-1 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Added 1 week ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end shrink-0 pt-2 md:pt-0">
+<button class="download-action-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Download Offline Copy" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<a class="px-space-lg py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-md shadow-primary-container/25 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span>View</span>
+</a>
+<div class="relative">
+<button class="more-options-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Options" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: Computer Networks Assignments & Socket Code -->
+<div class="resource-card group bg-surface-glass-base hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-space-md md:p-space-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" data-rating="4.6" data-subject="Computer Networks" data-title="Computer Networks All Assignments">
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<!-- Thumbnail preview -->
+<div class="relative w-24 h-28 sm:w-28 sm:h-32 shrink-0 rounded-xl overflow-hidden bg-surface-container-lowest shadow-md group-hover:scale-105 transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Technical laboratory experiment manual sheet showing C++ socket programming source code, Wireshark packet capture screenshots, and subnetting calculations neatly presented on ruled notebook with college seal watermark." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxpoX7VtZVQiuiUBWP_9Ye6kzdFHjbmIGDxCRNYRqeslxG__xJQbReu9aHt29dlYFdEFUkCrouWcY5IcJQJFWpvm2mAtC17tx3D0tbVtN-iOsHtueMTa5HP1_GNhdCWLyKanWLdvETJQyeesVTBlchqa5MosmkU32lEtopxXvgCnbcqqjs5RlEJAGrNaaLhsoHIp6C81GurvlEN7vIqgVROqtQmpp0W9HoNSObfoNCy1FTYo5jm80"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-1.5 left-1.5 flex items-center gap-1 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-[10px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[12px] text-alert-coral">terminal</span>
+<span>Code + Doc</span>
+</div>
+</div>
+<!-- Content Meta Block -->
+<div class="flex flex-col justify-center gap-space-xs min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-alert-coral/15 text-alert-coral">Assignments</span>
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-secondary/10 text-secondary">Lab Group A &amp; B</span>
+<span class="font-body-sm text-body-sm text-outline">• Sem 6</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-secondary transition-colors">
+                Computer Networks All Assignments &amp; Socket Code
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Computer Engineering • Complete laboratory practical manual with client-server TCP/UDP socket scripts, CRC checks, and NS3 simulation topologies.
+              </p>
+<!-- Contributor Row -->
+<div class="flex items-center gap-space-md pt-1 flex-wrap">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-alert-coral/80 flex items-center justify-center font-label-sm text-label-sm text-canvas-void font-bold">
+                    S
+                  </div>
+<span class="font-label-md text-label-md text-on-surface">Sneha Kulkarni</span>
+</div>
+<div class="flex items-center gap-1 text-alert-amber font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.6</span>
+<span class="text-outline font-normal">(64)</span>
+</div>
+<div class="flex items-center gap-1 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Added 2 weeks ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end shrink-0 pt-2 md:pt-0">
+<button class="download-action-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Download Offline Copy" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<a class="px-space-lg py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-md shadow-primary-container/25 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span>View</span>
+</a>
+<div class="relative">
+<button class="more-options-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Options" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4: TOC In-Sem Rapid Revision Formula Sheet -->
+<div class="resource-card group bg-surface-glass-base hover:bg-surface-glass-high backdrop-blur-2xl rounded-2xl p-space-md md:p-space-lg shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md" data-rating="4.8" data-subject="Theory of Computation" data-title="TOC In-Sem Rapid Revision">
+<div class="flex items-center gap-space-md w-full md:w-auto">
+<!-- Thumbnail preview -->
+<div class="relative w-24 h-28 sm:w-28 sm:h-32 shrink-0 rounded-xl overflow-hidden bg-surface-container-lowest shadow-md group-hover:scale-105 transition-transform duration-300">
+<img class="w-full h-full object-cover" data-alt="Intricate handwritten revision chart sheet displaying deterministic finite automata state transition tables, Turing machine transition functions and Chomsky normal form grammars written neatly in colored fineliners." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBj1a2hYfrDxWHdSxEEemgbru3UZcxXbojSQ3aB-Mcws7PkFqglHbuQr5qrBGy7eR3KNQsT7Ik6DE3uicOaC3V-g2GQGiIDAgeTeK3VBYmykpxrzbeaSk31axpMLK-ikiyqcaR_fEul0Ys1T6-XypRS6RC2nTIPPyn_iDhBlC0DV-2nZvvBlqmlfvEg0-jZUmCK0cwt-xyDancwJZYnUWj0n1UwC7L2LD6Kb9NFvYBmW_rC9zyf1Ao"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-1.5 left-1.5 flex items-center gap-1 bg-surface-container-lowest/90 px-1.5 py-0.5 rounded text-[10px] font-label-sm text-on-surface">
+<span class="material-symbols-outlined text-[12px] text-tertiary">summarize</span>
+<span>Cheat Sheet</span>
+</div>
+</div>
+<!-- Content Meta Block -->
+<div class="flex flex-col justify-center gap-space-xs min-w-0">
+<div class="flex items-center gap-space-xs flex-wrap">
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-tertiary/20 text-tertiary">Study Guide</span>
+<span class="px-2.5 py-0.5 rounded-full font-label-sm text-label-sm font-semibold bg-alert-amber/15 text-alert-amber">High Yield 30 Marks</span>
+<span class="font-body-sm text-body-sm text-outline">• Sem 5</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-semibold truncate group-hover:text-secondary transition-colors">
+                TOC In-Sem Rapid Revision Formula Sheet
+              </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">
+                Computer Engineering • Quick-lookup transition graphs, Pumping Lemma proofs formula recap, and Pushdown Automata conversion tricks.
+              </p>
+<!-- Contributor Row -->
+<div class="flex items-center gap-space-md pt-1 flex-wrap">
+<div class="flex items-center gap-2">
+<div class="w-5 h-5 rounded-full bg-tertiary-container flex items-center justify-center font-label-sm text-label-sm text-on-tertiary font-bold">
+                    T
+                  </div>
+<span class="font-label-md text-label-md text-on-surface">Tejas Chinchole</span>
+</div>
+<div class="flex items-center gap-1 text-alert-amber font-label-md text-label-md font-semibold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8</span>
+<span class="text-outline font-normal">(119)</span>
+</div>
+<div class="flex items-center gap-1 text-outline font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>Added 3 weeks ago</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex items-center gap-space-sm w-full md:w-auto justify-end shrink-0 pt-2 md:pt-0">
+<button class="download-action-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Download Offline Copy" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+</button>
+<a class="px-space-lg py-2.5 rounded-xl bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold hover:bg-primary hover:text-on-primary transition-all shadow-md shadow-primary-container/25 flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-base">visibility</span>
+<span>View</span>
+</a>
+<div class="relative">
+<button class="more-options-btn p-2 rounded-xl bg-surface-container-high/60 hover:bg-surface-bright text-on-surface-variant hover:text-on-surface transition-all" title="Options" type="button">
+<span class="material-symbols-outlined text-xl">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Empty State Container (Hidden by default, triggered by search mismatch) -->
+<div class="hidden flex-col items-center justify-center p-space-xl bg-surface-glass-base backdrop-blur-xl rounded-2xl mt-space-md text-center" id="noResultsState">
+<div class="w-16 h-16 rounded-full bg-surface-container-high flex items-center justify-center text-outline mb-space-md">
+<span class="material-symbols-outlined text-3xl">folder_off</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-semibold mb-space-xs">No matching study resources found</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mb-space-md">We couldn't find anything matching your search query. Try switching the subject filter or exploring the global repository.</p>
+<button class="px-space-lg py-2 rounded-xl bg-surface-container-high hover:bg-surface-bright text-secondary font-label-md text-label-md font-semibold transition-all" id="resetSearchBtn" type="button">
+          Clear Filters
+        </button>
+</div>
+<!-- Quick Action Floating Dock / Bottom Bar -->
+<div class="mt-space-xl p-space-lg rounded-2xl bg-surface-glass-base backdrop-blur-2xl flex flex-col sm:flex-row items-center justify-between gap-space-md shadow-2xl">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">folder_zip</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface font-semibold">Bulk Export Study Set</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Compile all 24 saved items into a single high-compression archive for offline exam prep.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full sm:w-auto">
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-xl bg-surface-container-high hover:bg-surface-bright text-on-surface font-label-md text-label-md font-semibold transition-all flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-base">bookmark_add</span>
+<span>New Collection</span>
+</button>
+<button class="w-full sm:w-auto px-space-lg py-2.5 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md font-semibold hover:bg-secondary-fixed-dim transition-all flex items-center justify-center gap-2 shadow-lg shadow-secondary/20" type="button">
+<span class="material-symbols-outlined text-base">archive</span>
+<span>Download All (340 MB)</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Tab Switching Micro-interaction
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabButtons.forEach(b => {
+        b.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-md', 'shadow-primary-container/30');
+        b.classList.add('bg-surface-glass-base', 'text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary-container', 'text-on-primary-container', 'shadow-md', 'shadow-primary-container/30');
+      btn.classList.remove('bg-surface-glass-base', 'text-on-surface-variant');
+    });
+  });
+
+  // Search & Filter Behavior
+  const searchInput = document.getElementById('searchInput');
+  const subjectFilter = document.getElementById('subjectFilter');
+  const sortFilter = document.getElementById('sortFilter');
+  const resourceStack = document.getElementById('resourceStack');
+  const noResultsState = document.getElementById('noResultsState');
+  const resetSearchBtn = document.getElementById('resetSearchBtn');
+
+  function filterCards() {
+    const query = searchInput.value.toLowerCase().trim();
+    const selectedSubject = subjectFilter.value;
+    const cards = Array.from(document.querySelectorAll('.resource-card'));
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const title = card.getAttribute('data-title').toLowerCase();
+      const subject = card.getAttribute('data-subject');
+      const textContent = card.innerText.toLowerCase();
+
+      const matchesSearch = query === '' || title.includes(query) || textContent.includes(query);
+      const matchesSubject = selectedSubject === 'all' || subject === selectedSubject;
+
+      if (matchesSearch && matchesSubject) {
+        card.classList.remove('hidden');
+        card.classList.add('flex');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+        card.classList.remove('flex');
+      }
+    });
+
+    if (visibleCount === 0) {
+      noResultsState.classList.remove('hidden');
+      noResultsState.classList.add('flex');
+    } else {
+      noResultsState.classList.add('hidden');
+      noResultsState.classList.remove('flex');
+    }
+  }
+
+  // Sort Behavior
+  sortFilter.addEventListener('change', () => {
+    const criteria = sortFilter.value;
+    const cards = Array.from(document.querySelectorAll('.resource-card'));
+    
+    cards.sort((a, b) => {
+      if (criteria === 'highest_rated') {
+        return parseFloat(b.getAttribute('data-rating')) - parseFloat(a.getAttribute('data-rating'));
+      } else if (criteria === 'alphabetical') {
+        return a.getAttribute('data-title').localeCompare(b.getAttribute('data-title'));
+      }
+      return 0; // Default order
+    });
+
+    cards.forEach(card => resourceStack.appendChild(card));
+  });
+
+  searchInput.addEventListener('input', filterCards);
+  subjectFilter.addEventListener('change', filterCards);
+
+  if (resetSearchBtn) {
+    resetSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      subjectFilter.value = 'all';
+      filterCards();
+    });
+  }
+
+  // Escape key quick clear
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.activeElement === searchInput) {
+      searchInput.value = '';
+      filterCards();
+      searchInput.blur();
+    }
+  });
+</script></main><footer class="w-full bg-surface-glass-low backdrop-blur-2xl border-t border-border-glass-subtle mt-space-xl relative z-10"><div class="max-w-[1380px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-gutter-lg"><div class="lg:col-span-2 space-y-space-md"><div class="flex items-center gap-space-sm"><img alt="Brand logo. - Primary color: #3b82f6 - Font: plusJakartaSans - Mode: dark - Roundness: rounded-md" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XWtK278lN6PufpQazmKw5VS0luOXX9pxsKkROr3WkqQYTj8F9McQn0KktanEDOkjYDj3_FA0DyRH0Gsqg7Df8jJUaazb6_ONNnsEW4f3ItdEAQzJJpLsrvVfhNLNdCyTKjnX8boapjy2RH0llJesjBumgdWHBHEZiQ1RqQyUBQaM_XPRyWhRKrVDvusFqojaqEXjXrCmaBa1v7ofm8Sy7uGEPOUxMjk4tMRTusOH0H2w8Ih9eh_0V3"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight">StudyVault</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm leading-relaxed">The decentralized academic repository and peer marketplace engineered for Savitribai Phule Pune University (SPPU) engineering, computer science, and management curricula.</p><div class="flex items-center gap-space-sm pt-space-xs"><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-secondary/10 text-secondary border border-secondary/30 font-medium">SPPU 2024 Pattern</span><span class="px-2.5 py-1 rounded-full font-label-sm text-label-sm bg-tertiary/10 text-tertiary border border-tertiary/30 font-medium">Peer Verified</span></div></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Curricula &amp; Branches</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Computer Engineering</li><li class="hover:text-secondary transition-colors cursor-pointer">Information Technology</li><li class="hover:text-secondary transition-colors cursor-pointer">AI &amp; Data Science</li><li class="hover:text-secondary transition-colors cursor-pointer">Electronics &amp; Telecomm</li><li class="hover:text-secondary transition-colors cursor-pointer">Mechanical Engineering</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Resources</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">EndSem InSem Papers</li><li class="hover:text-secondary transition-colors cursor-pointer">Faculty Lecture Notes</li><li class="hover:text-secondary transition-colors cursor-pointer">Lab Manuals &amp; Code</li><li class="hover:text-secondary transition-colors cursor-pointer">SPPU Decoders &amp; Solutions</li><li class="hover:text-secondary transition-colors cursor-pointer">Contributor Rewards</li></ul></div><div><h4 class="font-label-md text-label-md text-on-surface mb-space-md uppercase tracking-wider font-semibold">Ecosystem</h4><ul class="space-y-space-xs font-body-sm text-body-sm text-on-surface-variant"><li class="hover:text-secondary transition-colors cursor-pointer">Peer Bounty Program</li><li class="hover:text-secondary transition-colors cursor-pointer">Academic Honor Code</li><li class="hover:text-secondary transition-colors cursor-pointer">API Documentation</li><li class="hover:text-secondary transition-colors cursor-pointer">Privacy Architecture</li><li class="hover:text-secondary transition-colors cursor-pointer">Contact Pune Chapter</li></ul></div></div><div class="mt-space-xl pt-space-lg border-t border-border-glass-subtle flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-label-sm text-label-sm text-outline">© 2024 StudyVault SPPU Chapter. Engineered for high-throughput academic discovery.</p><div class="flex items-center gap-space-lg font-label-sm text-label-sm text-outline"><a class="hover:text-on-surface transition-colors" href="#">Terms</a><a class="hover:text-on-surface transition-colors" href="#">Syllabus Mapping</a><a class="hover:text-on-surface transition-colors" href="#">System Status</a></div></div></div></footer></body></html>
